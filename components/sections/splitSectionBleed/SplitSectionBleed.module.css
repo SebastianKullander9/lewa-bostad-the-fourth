@@ -1,0 +1,16 @@
+.imageWrapper {
+    position: relative;
+    min-height: 400px;
+}
+
+@media (min-width: 768px) {
+    .imageWrapper {
+        min-height: 70vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .imageWrapper {
+        order: -1;
+    }
+}

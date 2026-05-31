@@ -1,4 +1,6 @@
+import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
 import { textBlock } from "@/types/Props.types";
+import styles from "./AboutCTA.module.css";
 
 interface QASectionProps {
     title: string[];
@@ -24,6 +26,14 @@ export default function AboutCTA({
                     </div>
 
                     <p className="prose">{text}</p>
+                    <div className={`${styles.button} ${styles.hideMobile}`}>
+                        <PrimaryButton
+                            type="link"
+                            background="brand"
+                            label="Om oss"
+                            href="/om-oss"
+                        />
+                    </div>
                 </div>
                 <div className="stack">
                     {textBlocks.map((block, index) => (
@@ -32,6 +42,9 @@ export default function AboutCTA({
                             <p className="prose">{block.text}</p>
                         </div>
                     ))}
+                </div>
+                <div className={styles.hideDesktop}>
+                    <PrimaryButton type="link" background="brand" label="Om oss" href="/om-oss" />
                 </div>
             </div>
         </section>

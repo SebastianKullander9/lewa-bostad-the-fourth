@@ -101,3 +101,11 @@ small,
     letter-spacing: var(--tracking-meta);
     color: var(--color-text-secondary);
 }
+
+.quote {
+    font-size: clamp(2.2rem, 3.75vw, 4rem);
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--tracking-heading);
+}

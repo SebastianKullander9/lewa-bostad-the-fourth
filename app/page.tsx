@@ -7,6 +7,7 @@ import { keyfigureData } from "@/components/sections/keyfigures/data";
 import { aboutCTAData } from "@/components/sections/aboutCTA/data";
 import KeyFigureSection from "@/components/sections/keyfigures/KeyFigureSection";
 import AboutCTA from "@/components/sections/aboutCTA/AboutCTA";
+import Owners from "@/components/sections/owners/Owners";
 
 export default function Home() {
     return (
@@ -42,6 +43,7 @@ export default function Home() {
                 text="Två bostadsaktörer med lång erfarenhet har gått samman och bildat Lewa Bostad. Företaget drivs av Johan Bondebjer och Magnus Ekvall från tidigare Bjerbo Bostad samt Fredrik Lidjan från Reliwe. Med en stark projektportfölj och god finansiell ställning fortsätter vi att skapa hållbara hem och värde för både kunder och samhälle."
                 textBlocks={aboutCTAData}
             />
+            <Owners />
         </div>
     );
 }

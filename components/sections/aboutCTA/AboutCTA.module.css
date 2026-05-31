@@ -1,0 +1,25 @@
+.button {
+    max-width: 8rem;
+}
+
+.hideMobile {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .hideMobile {
+        display: unset;
+    }
+}
+
+.hideDesktop {
+    display: unset;
+    width: 100%;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .hideDesktop {
+        display: none;
+    }
+}

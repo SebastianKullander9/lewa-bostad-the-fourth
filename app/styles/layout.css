@@ -40,6 +40,10 @@
     gap: var(--spacing-lg);
 }
 
+.split--no-gap {
+    gap: 0 !important;
+}
+
 @media (min-width: 768px) {
     .split {
         grid-template-columns: 1fr 1fr;
