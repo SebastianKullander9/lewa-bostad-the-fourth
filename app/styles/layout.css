@@ -66,6 +66,11 @@
     object-fit: cover;
 }
 
+.split--text {
+    min-height: unset;
+    align-items: center;
+}
+
 .split__image {
     order: -1;
 }

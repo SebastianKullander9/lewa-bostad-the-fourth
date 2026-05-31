@@ -4,7 +4,9 @@ import SplitSection from "@/components/sections/splitSection/SplitSection";
 import intro from "@/public/intro/intro.webp";
 import { projectCTAData } from "@/components/sections/projectsCTA/data";
 import { keyfigureData } from "@/components/sections/keyfigures/data";
+import { aboutCTAData } from "@/components/sections/aboutCTA/data";
 import KeyFigureSection from "@/components/sections/keyfigures/KeyFigureSection";
+import AboutCTA from "@/components/sections/aboutCTA/AboutCTA";
 
 export default function Home() {
     return (
@@ -34,6 +36,11 @@ export default function Home() {
                         bygger på historik från de två bolag som nu bildar Lewa Bostad."
                 keyFigures={keyfigureData}
                 background="brand"
+            />
+            <AboutCTA
+                title={["Bra blir ännu bättre.", "Tillsammans."]}
+                text="Två bostadsaktörer med lång erfarenhet har gått samman och bildat Lewa Bostad. Företaget drivs av Johan Bondebjer och Magnus Ekvall från tidigare Bjerbo Bostad samt Fredrik Lidjan från Reliwe. Med en stark projektportfölj och god finansiell ställning fortsätter vi att skapa hållbara hem och värde för både kunder och samhälle."
+                textBlocks={aboutCTAData}
             />
         </div>
     );

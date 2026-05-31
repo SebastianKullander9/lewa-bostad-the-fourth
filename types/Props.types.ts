@@ -5,3 +5,8 @@ export type KeyFigure = {
     suffix: string;
     label: string;
 };
+
+export type textBlock = {
+    title: string;
+    text: string;
+};
