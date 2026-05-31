@@ -3,6 +3,8 @@ import ProjectsCTA from "@/components/sections/projectsCTA/ProjectsCTA";
 import SplitSection from "@/components/sections/splitSection/SplitSection";
 import intro from "@/public/intro/intro.webp";
 import { projectCTAData } from "@/components/sections/projectsCTA/data";
+import { keyfigureData } from "@/components/sections/keyfigures/data";
+import KeyFigureSection from "@/components/sections/keyfigures/KeyFigureSection";
 
 export default function Home() {
     return (
@@ -25,6 +27,13 @@ export default function Home() {
                 background="alt"
                 title="Hitta hem hos oss."
                 text="Lewa Bostad bygger radhus och parhus i bostadsrättsform. Husen utformas med fokus på hållbar arkitektur, genomtänkt design och hög kvalitet i varje detalj."
+            />
+            <KeyFigureSection
+                title="Etablerad erfarenhet."
+                text="Vi är ett nytt bostadsföretag med etablerad grund. Kencernens nyckeltal
+                        bygger på historik från de två bolag som nu bildar Lewa Bostad."
+                keyFigures={keyfigureData}
+                background="brand"
             />
         </div>
     );

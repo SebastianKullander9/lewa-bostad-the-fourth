@@ -128,3 +128,11 @@
         --logo-height: 36px;
     }
 }
+
+.section--brand h1,
+.section--brand h2,
+.section--brand h3,
+.section--brand h4,
+.section--brand p {
+    color: var(--color-text-on-brand);
+}

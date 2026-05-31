@@ -1,0 +1,43 @@
+.outer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .outer {
+        grid-template-columns: 2fr 2fr;
+        align-items: center;
+    }
+}
+
+.content {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .content {
+        text-align: start;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.prose {
+    max-width: 60ch;
+}
+
+@media (min-width: 1365px) {
+    .prose {
+        max-width: 50ch;
+    }
+}
