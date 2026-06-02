@@ -1,0 +1,45 @@
+.card {
+    text-decoration: none;
+    display: block;
+}
+
+.imageWrapper {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xs);
+}
+
+.imageWrapper img {
+    will-change: transform;
+    transition: var(--transition-transform);
+}
+
+.linked {
+    cursor: pointer;
+}
+
+.linked:hover .imageWrapper img {
+    transform: scale(var(--image-zoom-scale));
+}
+
+.textWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.meta {
+    font-family: var(--font-body);
+    font-size: var(--text-meta);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-small);
+    letter-spacing: var(--tracking-meta);
+    color: var(--color-text-muted);
+    transition: var(--transition-color);
+}
+
+.linked:hover .meta {
+    color: var(--color-text-primary);
+}

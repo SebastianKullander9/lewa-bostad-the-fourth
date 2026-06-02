@@ -1,3 +1,6 @@
+.headingH2 { font-size: var(--font-size-h2); }
+.headingH3 { font-size: var(--font-size-h3); }
+
 .imageWrapper {
     position: relative;
     width: 100%;

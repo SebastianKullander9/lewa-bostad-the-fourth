@@ -40,3 +40,15 @@
     background-color: var(--color-background-brand);
     color: var(--color-text-on-brand);
 }
+
+.ghost {
+    background-color: color-mix(in srgb, var(--color-warm-100) 25%, transparent);
+    color: var(--color-text-on-brand);
+    border: 1px solid color-mix(in srgb, var(--color-warm-100) 60%, transparent);
+    backdrop-filter: blur(6px);
+}
+
+.ghost:hover {
+    background-color: color-mix(in srgb, var(--color-warm-100) 45%, transparent);
+    color: var(--color-text-on-brand);
+}

@@ -1,6 +1,6 @@
 import { Project } from "@/types/Project.types";
 import { Background } from "@/types/Props.types";
-import ProjectCard from "./projectCard/ProjectCard";
+import ProjectCard from "../../ui/projectCard/ProjectCard";
 import styles from "./ProjectsCTA.module.css";
 import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
 

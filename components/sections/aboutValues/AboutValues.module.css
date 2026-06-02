@@ -1,0 +1,26 @@
+.outer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-stack);
+}
+
+@media (min-width: 768px) {
+    .outer {
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+        gap: var(--spacing-section);
+    }
+}
+
+.values {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-stack);
+}
+
+@media (min-width: 768px) {
+    .values {
+        flex-direction: row;
+        gap: var(--spacing-lg);
+    }
+}

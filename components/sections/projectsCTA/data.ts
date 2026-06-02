@@ -1,19 +1,30 @@
+import { Project } from "@/types/Project.types";
 import glansbaggen from "@/public/projectsCTA/glansbaggen.webp";
 import kummelnashojden from "@/public/projectsCTA/kummelnashojden.webp";
 
-export const projectCTAData = [
+export const projectCTAData: Project[] = [
     {
+        slug: "glansbaggen",
         title: "Glansbaggen",
         location: "Tumba",
         status: "Pågående",
-        image: glansbaggen,
-        imageAlt: "Bild ifrån projektet Glansbaggen",
+        sections: [],
+        objectInfo: [],
+        images: {
+            thumbnail: { src: glansbaggen, alt: "Bild ifrån projektet Glansbaggen" },
+            gallery: [],
+        },
     },
     {
+        slug: "kummelnashojden",
         title: "Kummelnäshöjden",
         location: "Nacka",
         status: "Genomförd",
-        image: kummelnashojden,
-        imageAlt: "Bild ifrån projektet Kummelnäshöjden",
+        sections: [],
+        objectInfo: [],
+        images: {
+            thumbnail: { src: kummelnashojden, alt: "Bild ifrån projektet Kummelnäshöjden" },
+            gallery: [],
+        },
     },
 ];

@@ -1,4 +1,4 @@
-export type Background = "default" | "alt" | "brand";
+export type Background = "default" | "alt" | "brand" | "ghost";
 
 export type KeyFigure = {
     value: string;

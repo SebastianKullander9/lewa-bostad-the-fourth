@@ -1,4 +1,5 @@
 import AboutHero from "@/components/sections/aboutHero/AboutHero";
+import AboutValues from "@/components/sections/aboutValues/AboutValues";
 import SplitSection from "@/components/sections/splitSection/SplitSection";
 import img1 from "@/public/aboutSections/img1.webp";
 import img2 from "@/public/aboutSections/img2.webp";
@@ -8,6 +9,7 @@ export default function About() {
     return (
         <div>
             <AboutHero />
+            <AboutValues />
             <SplitSection
                 title="Vad bygger vi?"
                 headingLevel="h2"
