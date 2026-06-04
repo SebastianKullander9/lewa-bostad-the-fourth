@@ -1,0 +1,12 @@
+.skeleton {
+    aspect-ratio: 3 / 4;
+    background: var(--color-warm-200);
+    border-radius: 2px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--spacing-md);
+    row-gap: var(--space-7);
+}

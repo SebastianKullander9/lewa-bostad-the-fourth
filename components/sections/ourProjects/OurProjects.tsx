@@ -4,19 +4,19 @@ import { projectData } from "./data";
 import styles from "./OurProjects.module.css";
 import ProjectCard from "@/components/ui/projectCard/ProjectCard";
 import { STATUS_FILTERS } from "./data";
-import { useRouter, useSearchParams } from "next/navigation";
+import { notFound, useRouter, useSearchParams } from "next/navigation";
 
 export default function OurProjects() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const activeFilter = searchParams.get("status") ?? "all";
+    const params = new URLSearchParams(searchParams.toString());
 
     const filteredProjects = projectData.filter((p) =>
         activeFilter == "all" ? true : p.status.value === activeFilter,
     );
 
     const setFilter = (value: string) => {
-        const params = new URLSearchParams(searchParams.toString());
         if (value === "all") {
             params.delete("status");
         } else {
@@ -26,7 +26,9 @@ export default function OurProjects() {
     };
 
     return (
-        <section className="section section--default section--page-start stack">
+        <section
+            className={`section section--default section--page-start stack ${styles.minHeight}`}
+        >
             <div className={`${styles.text} stack`}>
                 <h1>Hitta hem hos oss.</h1>
                 <p className="prose">
@@ -45,6 +47,15 @@ export default function OurProjects() {
                     </button>
                 ))}
             </div>
+            {filteredProjects.length === 0 && (
+                <div className={styles.notFound}>
+                    <p>
+                        Det finns just nu inga{" "}
+                        {STATUS_FILTERS.find((f) => f.value === activeFilter)?.label.toLowerCase()}{" "}
+                        projekt.
+                    </p>
+                </div>
+            )}
             <div className={`${styles.grid}`}>
                 {filteredProjects.map((project) => (
                     <ProjectCard key={project.title} project={project} link={true} />

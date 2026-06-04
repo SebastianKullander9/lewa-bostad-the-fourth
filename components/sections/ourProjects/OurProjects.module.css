@@ -58,3 +58,14 @@
     color: var(--color-text-primary);
     border-bottom: 1px solid var(--color-text-primary);
 }
+
+.notFound {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.minHeight {
+    min-height: 100vh;
+}
