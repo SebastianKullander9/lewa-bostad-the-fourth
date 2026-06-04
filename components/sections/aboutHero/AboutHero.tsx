@@ -16,7 +16,7 @@ export default function AboutHero() {
                 <h2>Precis som du.</h2>
             </div>
 
-            <p>
+            <p className="prose">
                 Två bostadsaktörer med lång erfarenhet har gått samman och bildat Lewa Bostad.
                 Företaget drivs av Johan Bondebjer, Magnus Ekvall från tidigare Bjerbo Bostad samt
                 Fredrik Lidjan från Reliwe. Med en stark projektportfölj och god finansiell

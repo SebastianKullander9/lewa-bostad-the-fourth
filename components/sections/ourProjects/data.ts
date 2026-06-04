@@ -31,12 +31,22 @@ import Kummelnas_interior_5_003 from "@/public/projects/kummelnashojden/Interior
 import Kummelnas_interior_6_002 from "@/public/projects/kummelnashojden/Interior_6_002.webp";
 import Kummelnas_interior_7_002 from "@/public/projects/kummelnashojden/Interior_7_002.webp";
 
+export const STATUS_FILTERS = [
+    { value: "all", label: "Alla" },
+    { value: "planned", label: "Planerad" },
+    { value: "ongoing", label: "Pågående" },
+    { value: "completed", label: "Genomförd" },
+] as const;
+
 export const projectData: Project[] = [
     {
         slug: "glansbaggen",
         title: "Glansbaggen",
         location: "Tumba",
-        status: "Genomförd",
+        status: {
+            value: "completed",
+            label: "Genomförd",
+        },
         sections: [
             {
                 title: "Rubrik om projektet xxxxx",
@@ -58,22 +68,10 @@ export const projectData: Project[] = [
             },
         ],
         objectInfo: [
-            {
-                title: "Byggstart",
-                value: "2026",
-            },
-            {
-                title: "Inflyttning",
-                value: "2027",
-            },
-            {
-                title: "Antal bostäder",
-                value: "12 radhus",
-            },
-            {
-                title: "Antal rum",
-                value: "6 RoK",
-            },
+            { title: "Byggstart", value: "2026" },
+            { title: "Inflyttning", value: "2027" },
+            { title: "Antal bostäder", value: "12 radhus" },
+            { title: "Antal rum", value: "6 RoK" },
         ],
         images: {
             thumbnail: {
@@ -98,7 +96,10 @@ export const projectData: Project[] = [
         slug: "kummelnashojden",
         title: "Kummelnäshöjden",
         location: "Nacka",
-        status: "Planerad",
+        status: {
+            value: "planned",
+            label: "Planerad",
+        },
         sections: [
             {
                 title: "Ett hem att längta till",
@@ -121,22 +122,10 @@ export const projectData: Project[] = [
             },
         ],
         objectInfo: [
-            {
-                title: "Byggstart",
-                value: "2025",
-            },
-            {
-                title: "Inflyttning",
-                value: "2025",
-            },
-            {
-                title: "Antal bostäder",
-                value: "14 parhus och 6 studiohus",
-            },
-            {
-                title: "Antal rum",
-                value: "6 RoK",
-            },
+            { title: "Byggstart", value: "2025" },
+            { title: "Inflyttning", value: "2025" },
+            { title: "Antal bostäder", value: "14 parhus och 6 studiohus" },
+            { title: "Antal rum", value: "6 RoK" },
         ],
         images: {
             thumbnail: {
@@ -180,7 +169,10 @@ export const projectData: Project[] = [
         slug: "kringlan",
         title: "Kringlan",
         location: "Tyresö",
-        status: "Planerad",
+        status: {
+            value: "planned",
+            label: "Planerad",
+        },
         sections: [
             {
                 title: "Xxxxxxxxx xxxxx",
@@ -204,27 +196,15 @@ export const projectData: Project[] = [
             },
         ],
         objectInfo: [
-            {
-                title: "Byggstart",
-                value: "2026",
-            },
-            {
-                title: "Inflyttning",
-                value: "2027",
-            },
-            {
-                title: "Antal bostäder",
-                value: "14 parhus och 7 studiohus",
-            },
-            {
-                title: "Antal rum",
-                value: "6 RoK",
-            },
+            { title: "Byggstart", value: "2026" },
+            { title: "Inflyttning", value: "2027" },
+            { title: "Antal bostäder", value: "14 parhus och 7 studiohus" },
+            { title: "Antal rum", value: "6 RoK" },
         ],
         images: {
             thumbnail: {
                 src: Glansbaggen_exterior_2_002,
-                alt: "Exteriör av Kummelnäshöjden",
+                alt: "Exteriör av Kringlan",
             },
             gallery: [
                 { src: Kummelnas_exterior_1_wood_002, alt: "Exteriör av Kummelnäshöjden" },
@@ -263,7 +243,10 @@ export const projectData: Project[] = [
         slug: "ark44",
         title: "ARK44",
         location: "Nacka",
-        status: "Planerad",
+        status: {
+            value: "planned",
+            label: "Planerad",
+        },
         sections: [
             {
                 title: "Xxxxx xxx xxxxx",
@@ -285,27 +268,15 @@ export const projectData: Project[] = [
             },
         ],
         objectInfo: [
-            {
-                title: "Byggstart",
-                value: "2026/2027",
-            },
-            {
-                title: "Inflyttning",
-                value: "2027",
-            },
-            {
-                title: "Antal bostäder",
-                value: "44 xxxx och xxxxx",
-            },
-            {
-                title: "Antal rum",
-                value: "5–6 RoK",
-            },
+            { title: "Byggstart", value: "2026/2027" },
+            { title: "Inflyttning", value: "2027" },
+            { title: "Antal bostäder", value: "44 xxxx och xxxxx" },
+            { title: "Antal rum", value: "5–6 RoK" },
         ],
         images: {
             thumbnail: {
                 src: Kummelnas_exterior_2_wood_002,
-                alt: "Exteriör av Kummelnäshöjden",
+                alt: "Exteriör av ARK44",
             },
             gallery: [
                 { src: Kummelnas_exterior_1_wood_002, alt: "Exteriör av Kummelnäshöjden" },

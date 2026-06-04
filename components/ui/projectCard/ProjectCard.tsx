@@ -22,7 +22,7 @@ export default function ProjectCard({ project, link = false }: ProjectCardProps)
                     <p>{title}</p>
                     <p className={styles.meta}>{location}</p>
                 </div>
-                <p className={styles.meta}>{status}</p>
+                <p className={styles.meta}>{project.status.label}</p>
             </div>
         </>
     );

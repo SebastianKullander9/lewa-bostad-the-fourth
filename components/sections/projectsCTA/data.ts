@@ -7,7 +7,10 @@ export const projectCTAData: Project[] = [
         slug: "glansbaggen",
         title: "Glansbaggen",
         location: "Tumba",
-        status: "Pågående",
+        status: {
+            value: "ongoing",
+            label: "Pågående",
+        },
         sections: [],
         objectInfo: [],
         images: {
@@ -19,7 +22,10 @@ export const projectCTAData: Project[] = [
         slug: "kummelnashojden",
         title: "Kummelnäshöjden",
         location: "Nacka",
-        status: "Genomförd",
+        status: {
+            value: "completed",
+            label: "Genomförd",
+        },
         sections: [],
         objectInfo: [],
         images: {

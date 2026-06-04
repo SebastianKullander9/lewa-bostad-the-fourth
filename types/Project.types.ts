@@ -21,7 +21,10 @@ export interface Project {
     slug: string;
     title: string;
     location: string;
-    status: string;
+    status: {
+        value: "planned" | "ongoing" | "completed";
+        label: string;
+    };
     sections: ProjectSection[];
     objectInfo: ProjectObjectInfo[];
     images: {
