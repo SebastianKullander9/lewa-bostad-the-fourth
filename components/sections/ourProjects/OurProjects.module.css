@@ -15,3 +15,46 @@
 .image {
     position: relative;
 }
+
+.text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 35ch;
+    margin-inline: auto;
+}
+
+.button:first-child {
+    flex: 0 0 auto;
+    padding-inline: var(--spacing-sm);
+}
+
+.button {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-body);
+    color: var(--color-text-body);
+    padding-block: var(--spacing-sm);
+
+    align-items: start;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.button:hover {
+    color: var(--color-text-primary);
+    transition-duration: var(--duration-base);
+}
+
+.active {
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-text-primary);
+}

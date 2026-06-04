@@ -33,9 +33,9 @@ import Kummelnas_interior_7_002 from "@/public/projects/kummelnashojden/Interior
 
 export const STATUS_FILTERS = [
     { value: "all", label: "Alla" },
-    { value: "planned", label: "Planerad" },
+    { value: "planned", label: "Planerade" },
     { value: "ongoing", label: "Pågående" },
-    { value: "completed", label: "Genomförd" },
+    { value: "completed", label: "Genomförda" },
 ] as const;
 
 export const projectData: Project[] = [
