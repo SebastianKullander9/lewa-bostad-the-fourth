@@ -1,0 +1,9 @@
+.imageWrapper {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    margin-bottom: var(--spacing-xs);
+}
+
+.name {
+    color: var(--color-text-primary);
+}

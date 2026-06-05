@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-xs) * 2);
+    cursor: pointer;
+    user-select: none;
+}
+
+.wrapper input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label {
+    color: var(--color-text-secondary);
+    font-size: var(--text-small);
+}

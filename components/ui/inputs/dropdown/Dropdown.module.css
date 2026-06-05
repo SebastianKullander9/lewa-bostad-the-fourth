@@ -1,0 +1,73 @@
+.dropdown {
+    padding-inline: var(--spacing-sm);
+    padding-block: var(--spacing-xs);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.options {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    user-select: none;
+}
+
+.option {
+    padding-block: var(--spacing-xs);
+    padding-inline: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-xs) * 2);
+    cursor: pointer;
+    width: 100%;
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.options[data-background="alt"] {
+    background-color: var(--color-background);
+}
+
+.options[data-background="brand"] {
+    background-color: var(--color-background-brand);
+}
+
+.input[data-background="alt"] {
+    background-color: var(--color-background);
+}
+
+.input[data-background="brand"] {
+    background-color: var(--color-background-brand);
+}
+
+.chevron {
+    color: var(--color-text-secondary);
+}
+
+.option input[type="checkbox"] {
+    display: none;
+}
+
+.label {
+    color: var(--color-text-secondary);
+    cursor: pointer;
+}
+
+.location {
+    font-size: var(--text-small);
+}
