@@ -10,18 +10,20 @@ interface OwnerCardProps {
 
 export default function OwnerCard({ image, fullName, email }: OwnerCardProps) {
     return (
-        <div>
+        <div className={styles.card}>
             <div className={styles.imageWrapper}>
                 <Image
                     src={image}
                     alt={`En bild på en av ägarna, ${fullName}`}
                     fill
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: "cover", objectPosition: "top" }}
                 />
             </div>
-            <div>
+            <div className={styles.info}>
                 <p className={styles.name}>{fullName}</p>
-                <p>{email}</p>
+                <a href={`mailto:${email}`} className={styles.email}>
+                    {email}
+                </a>
             </div>
         </div>
     );

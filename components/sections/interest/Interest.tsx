@@ -19,7 +19,7 @@ export default function Interest({ type, project, projects, background }: Intere
                     <p>Vill du veta mer om våra pågående och kommande projekt?</p>
                     <p>Anmäl ditt intresse nedan för att hålla dig uppdaterad</p>
                 </div>
-                <Form background={background} projects={projects} />
+                <Form type="broad" background={background} projects={projects} />
             </div>
         </section>
     );

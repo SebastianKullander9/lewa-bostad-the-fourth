@@ -1,9 +1,39 @@
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
 .imageWrapper {
     position: relative;
     aspect-ratio: 2 / 3;
-    margin-bottom: var(--spacing-xs);
+}
+
+@media (max-width: 768px) {
+    .imageWrapper {
+        max-height: 450px;
+    }
+}
+
+.info {
+    background-color: var(--color-background-alt);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
 }
 
 .name {
     color: var(--color-text-primary);
+    font-weight: var(--font-weight-medium);
+}
+
+.email {
+    font-family: var(--font-body);
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+}
+
+.email:hover {
+    color: var(--color-brand);
 }

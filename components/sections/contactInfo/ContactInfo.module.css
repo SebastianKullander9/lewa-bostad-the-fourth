@@ -1,0 +1,18 @@
+.email {
+    font-family: var(--font-body);
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-brand);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.email:hover {
+    color: var(--color-brand-hover);
+}
+
+.acquisitionBlock {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--spacing-stack);
+    margin-top: var(--spacing-content-gap);
+}

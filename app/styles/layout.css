@@ -161,7 +161,7 @@
 }
 
 .section--page-start {
-    padding-block-start: calc(var(--spacing-section-sm) + var(--header-height));
+    padding-block-start: calc(var(--header-height));
 }
 
 @media (min-width: 768px) {
