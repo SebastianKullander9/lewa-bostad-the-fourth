@@ -16,7 +16,21 @@
 }
 
 .hamburger {
-    color: var(--color-text-on-brand);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    justify-content: center;
+}
+
+.bar {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background-color: var(--color-background);
 }
 
 .open {
@@ -51,10 +65,40 @@
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     color: var(--color-text-primary);
 }
 
 .integrity {
     color: var(--color-text-muted);
+}
+
+.close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    position: relative;
+}
+
+.closebar {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background-color: currentColor;
+    position: absolute;
+}
+
+.closebar:first-child {
+    transform: rotate(45deg);
+}
+
+.closebar:last-child {
+    transform: rotate(-45deg);
 }

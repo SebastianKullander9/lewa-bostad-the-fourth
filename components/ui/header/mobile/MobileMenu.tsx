@@ -7,7 +7,7 @@ import { menu } from "../menu";
 import Link from "next/link";
 import { IconChevronRight2Outline24, IconXmarkOutline24 } from "nucleo-core-outline-24";
 import Image from "next/image";
-import logo from "@/public/logo/logo_green.png";
+import logo from "@/public/logo/lewa_bostad_logo_grön_recolored.svg";
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -46,19 +46,25 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                     />
                 </Link>
 
-                <button type="button" onClick={() => setIsOpen(false)} aria-label="Stäng menyn">
-                    <IconXmarkOutline24 />
+                <button
+                    type="button"
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Stäng menyn"
+                    className={styles.close}
+                >
+                    <span className={styles.closebar}></span>
+                    <span className={styles.closebar}></span>
                 </button>
             </div>
             <nav className={styles.nav}>
                 <Link key="hem" href="/" className={styles.link} onClick={handleHome}>
                     <span>Hem</span>
-                    <IconChevronRight2Outline24 size={16} />
+                    <IconChevronRight2Outline24 size={12} />
                 </Link>
                 {menu.map((item) => (
                     <Link key={item.href} href={item.href} className={styles.link}>
                         <span>{item.label}</span>
-                        <IconChevronRight2Outline24 size={16} />
+                        <IconChevronRight2Outline24 size={12} />
                     </Link>
                 ))}
             </nav>

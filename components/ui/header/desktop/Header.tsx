@@ -31,6 +31,11 @@ export default function Header() {
             <div className={styles.hamburger}>
                 <Hamburger isOpen={isOpen} setIsOpen={setIsOpen} />
             </div>
+            <div
+                className={`${styles.overlay} ${isOpen ? styles.overlayVisible : ""}`}
+                onClick={() => setIsOpen(false)}
+            />
+
             <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
         </header>
     );
