@@ -40,11 +40,3 @@
 .input:not(:placeholder-shown) + .label {
     opacity: 0;
 }
-
-.required {
-    position: absolute;
-    z-index: var(--z-raised);
-    right: 0;
-    padding-inline: var(--spacing-sm);
-    padding-block: var(--spacing-xs);
-}
