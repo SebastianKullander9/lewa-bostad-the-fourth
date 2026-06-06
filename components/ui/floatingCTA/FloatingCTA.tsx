@@ -2,31 +2,44 @@
 
 import { useEffect, useState } from "react";
 import styles from "./FloatingCTA.module.css";
+import { IconArrowDown } from "nucleo-sharp";
 
-export default function FloatingCTA() {
-    const [visible, setVisible] = useState(false);
+interface FloatingCTAProps {
+    mode?: "scroll" | "instant";
+}
+
+export default function FloatingCTA({ mode = "scroll" }: FloatingCTAProps) {
+    const [visible, setVisible] = useState(mode === "instant");
 
     useEffect(() => {
         const handleScroll = () => {
             const kontakt = document.getElementById("kontakt");
             if (!kontakt) return;
 
-            const pastHalfViewport = window.scrollY >= window.innerHeight * 0.5;
             const kontaktReached = kontakt.getBoundingClientRect().top <= window.innerHeight;
 
-            setVisible(pastHalfViewport && !kontaktReached);
+            if (mode === "instant") {
+                setVisible(!kontaktReached);
+            } else {
+                const pastHalfViewport = window.scrollY >= window.innerHeight * 0.5;
+                setVisible(pastHalfViewport && !kontaktReached);
+            }
         };
+
+        if (mode === "instant") {
+            handleScroll();
+        }
 
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [mode]);
 
     const handleClick = (e: React.MouseEvent) => {
         e.preventDefault();
         const kontakt = document.getElementById("kontakt");
         if (!kontakt) return;
         const headerHeight = parseInt(
-            getComputedStyle(document.documentElement).getPropertyValue("--header-height")
+            getComputedStyle(document.documentElement).getPropertyValue("--header-height"),
         );
         window.scrollTo({
             top: kontakt.getBoundingClientRect().top + window.scrollY - headerHeight,
@@ -42,7 +55,8 @@ export default function FloatingCTA() {
             aria-hidden={!visible}
             tabIndex={visible ? 0 : -1}
         >
-            Anmäl intresse
+            <span>Anmäl intresse</span>
+            <IconArrowDown size={18} />
         </a>
     );
 }

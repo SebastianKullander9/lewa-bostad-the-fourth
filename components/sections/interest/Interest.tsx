@@ -14,7 +14,7 @@ export default function Interest(props: InterestProps) {
     const { type, background, project } = props;
 
     return (
-        <section className={`section section--${background}`}>
+        <section id="kontakt" className={`section section--${background}`}>
             <div className={`${styles.text} container--narrow stack`}>
                 {type === "specific" ? (
                     <>

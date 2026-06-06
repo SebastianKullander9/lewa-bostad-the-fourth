@@ -1,7 +1,7 @@
 import { Project } from "@/types/Project.types";
 import Hero from "./hero/Hero";
 import SplitSection from "../../splitSection/SplitSection";
-import FloatingCTA from "./floatingCTA/FloatingCTA";
+import FloatingCTA from "@/components/ui/floatingCTA/FloatingCTA";
 import styles from "./Underpage.module.css";
 import Interest from "../../interest/Interest";
 

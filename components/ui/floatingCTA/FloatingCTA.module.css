@@ -12,7 +12,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
+    gap: var(--spacing-xs);
     opacity: 0;
     transform: translateY(var(--space-3));
     pointer-events: none;
