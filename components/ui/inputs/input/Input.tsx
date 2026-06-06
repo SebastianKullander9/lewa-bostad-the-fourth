@@ -18,7 +18,9 @@ export default function Input({ type, label, background, required = false }: Inp
                 data-background={background}
                 required={required}
             />
-            <p className={styles.label}>{label} *</p>
+            <p className={styles.label}>
+                {label} {required && <span>*</span>}
+            </p>
         </div>
     );
 }

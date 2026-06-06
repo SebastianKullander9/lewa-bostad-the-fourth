@@ -16,11 +16,25 @@ type DropdownProps = {
     | { type: "specific"; project: Project; projects?: never }
 );
 
-export default function Dropdown({ projects, label, background }: DropdownProps) {
+export default function Dropdown(props: DropdownProps) {
+    const { label, background } = props;
+    const projects = props.type === "broad" ? props.projects : [props.project];
+
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [selected, setSelected] = useState<string[]>([]);
     const allSlugs = projects?.map((p) => p.slug) ?? [];
     const allSelected = allSlugs.length > 0 && allSlugs.every((s) => selected.includes(s));
+
+    if (props.type === "specific") {
+        return (
+            <div className={styles.dropdown} data-background={background}>
+                <p>
+                    {props.project.title} –{" "}
+                    <span className="text-meta">{props.project.location}</span>
+                </p>
+            </div>
+        );
+    }
 
     const handleOpen = () => {
         setIsOpen(!isOpen);

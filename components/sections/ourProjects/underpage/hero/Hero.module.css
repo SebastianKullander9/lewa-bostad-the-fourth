@@ -58,7 +58,7 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: var(--spacing-sm);
     column-gap: var(--spacing-xs);
 }
@@ -94,4 +94,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .object {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
 }

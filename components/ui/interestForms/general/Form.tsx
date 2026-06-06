@@ -12,11 +12,13 @@ type FormProps = {
     | { type: "specific"; project: Project; projects?: never }
 );
 
-export default function Form({ background, project, projects }: FormProps) {
+export default function Form(props: FormProps) {
+    const { background } = props;
+
     return (
         <form className="stack">
             <div className="stack-small">
-                <Dropdown type="broad" projects={projects} background={background} />
+                <Dropdown {...props} />
                 <Input type="text" label="Förnamn" background={background} required={true} />
                 <Input type="text" label="Efternamn" background={background} required={true} />
                 <Input type="email" label="E-post" background={background} required={true} />

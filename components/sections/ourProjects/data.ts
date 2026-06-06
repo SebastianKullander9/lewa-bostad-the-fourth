@@ -70,8 +70,8 @@ export const projectData: Project[] = [
         objectInfo: [
             { title: "Byggstart", value: "2026" },
             { title: "Inflyttning", value: "2027" },
-            { title: "Antal bostäder", value: "12 radhus" },
             { title: "Antal rum", value: "6 RoK" },
+            { title: "Antal bostäder", value: "12 radhus" },
         ],
         images: {
             thumbnail: {
@@ -124,8 +124,8 @@ export const projectData: Project[] = [
         objectInfo: [
             { title: "Byggstart", value: "2025" },
             { title: "Inflyttning", value: "2025" },
-            { title: "Antal bostäder", value: "14 parhus och 6 studiohus" },
             { title: "Antal rum", value: "6 RoK" },
+            { title: "Antal bostäder", value: "14 parhus och 6 studiohus" },
         ],
         images: {
             thumbnail: {
@@ -198,8 +198,8 @@ export const projectData: Project[] = [
         objectInfo: [
             { title: "Byggstart", value: "2026" },
             { title: "Inflyttning", value: "2027" },
-            { title: "Antal bostäder", value: "14 parhus och 7 studiohus" },
             { title: "Antal rum", value: "6 RoK" },
+            { title: "Antal bostäder", value: "14 parhus och 7 studiohus" },
         ],
         images: {
             thumbnail: {
@@ -270,8 +270,8 @@ export const projectData: Project[] = [
         objectInfo: [
             { title: "Byggstart", value: "2026/2027" },
             { title: "Inflyttning", value: "2027" },
-            { title: "Antal bostäder", value: "44 xxxx och xxxxx" },
             { title: "Antal rum", value: "5–6 RoK" },
+            { title: "Antal bostäder", value: "44 xxxx och xxxxx" },
         ],
         images: {
             thumbnail: {

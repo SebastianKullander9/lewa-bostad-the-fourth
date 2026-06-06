@@ -1,9 +1,9 @@
 import { Project } from "@/types/Project.types";
 import Hero from "./hero/Hero";
 import SplitSection from "../../splitSection/SplitSection";
-import InterestForm from "./interestForm/InterestForm";
 import FloatingCTA from "./floatingCTA/FloatingCTA";
 import styles from "./Underpage.module.css";
+import Interest from "../../interest/Interest";
 
 interface UnderpageProps {
     project: Project;
@@ -29,8 +29,9 @@ export default function Underpage({ project }: UnderpageProps) {
                     />
                 ))}
             </div>
-            <InterestForm
-                projectTitle={project.title}
+            <Interest
+                type="specific"
+                project={project}
                 background={project.sections.length % 2 === 0 ? "default" : "alt"}
             />
         </div>
