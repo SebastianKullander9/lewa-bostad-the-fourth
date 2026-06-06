@@ -18,7 +18,7 @@ export default function Footer() {
                         <PrimaryButton
                             type="link"
                             href="/kontakt"
-                            background="alt"
+                            background="default"
                             label="Kontakta oss"
                         />
                     </div>

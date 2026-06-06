@@ -27,6 +27,12 @@
 .section--brand {
     background-color: var(--color-background-brand);
     color: var(--color-text-on-brand);
+    --color-link-hover: var(--color-sage-200);
+}
+
+/* any non-section container with a brand background */
+[data-surface="brand"] {
+    --color-link-hover: var(--color-sage-200);
 }
 
 .section--bleed {

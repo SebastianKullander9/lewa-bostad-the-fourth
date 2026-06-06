@@ -35,6 +35,9 @@
     --color-brand: var(--color-sage-900);
     --color-brand-hover: var(--color-sage-800);
 
+    /* cascadable link hover — override inside brand surfaces */
+    --color-link-hover: var(--color-text-hover);
+
     --color-border: var(--color-warm-300);
     --color-border-subtle: var(--color-warm-200);
     --color-border-brand: var(--color-sage-700);

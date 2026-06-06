@@ -13,7 +13,7 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className={styles.header}>
+        <header className={styles.header} data-surface="brand">
             <Link href="/" className={styles.logo}>
                 <Image
                     src={logo}

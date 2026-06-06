@@ -49,7 +49,7 @@ export const projectData: Project[] = [
         },
         sections: [
             {
-                title: "Rubrik om projektet xxxxx",
+                title: "Rubrik om projektet xxxxx.",
                 text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta risus dolor, ac tempus nulla efficitur
                     et. Nulla suscipit aliquet blandit. Aliquam erat volutpat. Vestibulum congue tincidunt pretium. Etiam metus nisl, laoreet
                      a volutpat quis, auctor nec tortor. Suspendisse efficitur, lorem eu porta placerat, turpis ipsum suscipit turpis, eu suscipit
@@ -59,7 +59,7 @@ export const projectData: Project[] = [
                 imageOrientation: "left",
             },
             {
-                title: "Området",
+                title: "Området.",
                 text: `Fågelbyn är en växande stadsdel med familjevänlig karaktär, bara 10 minuter från Tumba
                     Centrum. Utanför dörren finns allt som behövs för en bekväm vardag: förskola, restauranger
                     och butiker men också stora grönområden kring Lida naturreservat.`,
@@ -102,7 +102,7 @@ export const projectData: Project[] = [
         },
         sections: [
             {
-                title: "Ett hem att längta till",
+                title: "Ett hem att längta till.",
                 text: `Välkommen till Kummelnäshöjden – ett unikt bostadsprojekt i hjärtat av Kummelnäs, Nacka.
                     Med högt och soligt läge på Bågvägen utvecklar vi 14 stilfulla parhus och 6 charmiga
                     minivillor. Perfekt för dig som vill bo nära skärgården men ändå ha staden inom räckhåll.
@@ -113,7 +113,7 @@ export const projectData: Project[] = [
                 imageOrientation: "left",
             },
             {
-                title: "Området",
+                title: "Området.",
                 text: `Kummelnäs är en av Nackas mest eftertraktade pärlor – omgivet av hav, naturreservat och
                     småbåtshamnar. Här bor du med skogspromenader, badvikar och lugnet som vardag,
                     samtidigt som du når Slussen på under 30 minuter.`,
@@ -175,7 +175,7 @@ export const projectData: Project[] = [
         },
         sections: [
             {
-                title: "Xxxxxxxxx xxxxx",
+                title: "Xxxxxxxxx xxxxx.",
                 text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta risus dolor, ac tempus nulla efficitur
                     et. Nulla suscipit aliquet blandit. Aliquam erat volutpat. Vestibulum congue tincidunt pretium. Etiam metus nisl, laoreet
                     a volutpat quis, auctor nec tortor. Suspendisse efficitur, lorem eu porta placerat, turpis ipsum suscipit turpis, eu suscipit
@@ -185,7 +185,7 @@ export const projectData: Project[] = [
                 imageOrientation: "left",
             },
             {
-                title: "Området",
+                title: "Området.",
                 text: `Din nya adress Kringelkroken 2 har det bästa av två världar. Här bor du med naturen inpå
                     knuten och samtidigt på bekvämt avstånd till Tyresö Centrum med ett stort utbud av
                     butiker, restauranger och service. Bara några hundra meter från din dörr sträcker ett stort
@@ -259,7 +259,7 @@ export const projectData: Project[] = [
                 imageOrientation: "left",
             },
             {
-                title: "Området",
+                title: "Området.",
                 text: `Kummelnäs är en av Nackas mest eftertraktade pärlor – omgivet av hav, naturreservat och
                     småbåtshamnar. Här bor du med skogspromenader, badvikar och lugnet som vardag,
                     samtidigt som du når Slussen på under 30 minuter.`,
