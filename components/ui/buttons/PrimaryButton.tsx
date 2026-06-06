@@ -28,7 +28,7 @@ export default function PrimaryButton({
     if (type === "link") {
         return (
             <Link href={href} className={`${styles.button} ${styles[background ?? "default"]}`}>
-                {label}
+                <span className={styles.label}>{label}</span>
             </Link>
         );
     }
@@ -39,7 +39,7 @@ export default function PrimaryButton({
             className={`${styles.button} ${styles[background ?? "default"]}`}
             onClick={onClick}
         >
-            {label}
+            <span className={styles.label}>{label}</span>
         </button>
     );
 }

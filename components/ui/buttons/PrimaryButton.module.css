@@ -52,3 +52,9 @@
     background-color: color-mix(in srgb, var(--color-warm-100) 45%, transparent);
     color: var(--color-text-on-brand);
 }
+
+.label {
+    font-size: var(--text-small);
+    font-weight: 100;
+    text-transform: uppercase;
+}

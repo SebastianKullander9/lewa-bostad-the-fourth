@@ -161,12 +161,12 @@
 }
 
 .section--page-start {
-    padding-block-start: calc(var(--header-height));
+    margin-block-start: var(--header-height);
 }
 
 @media (min-width: 768px) {
     .section--page-start {
-        padding-block-start: calc(var(--spacing-section) + var(--header-height));
+        padding-block-start: var(--spacing-lg);
     }
 }
 

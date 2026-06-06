@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import logo from "@/public/logo/logo_white.png";
+import logo from "@/public/logo/lewa_bostad_logo_vit_recolored.svg";
 import { menu } from "../menu";
 import Link from "next/link";
 import styles from "./Header.module.css";

@@ -17,9 +17,9 @@ export default function Form({ background, project, projects }: FormProps) {
         <form className="stack">
             <div className="stack-small">
                 <Dropdown type="broad" projects={projects} background={background} />
-                <Input type="text" label="Förnamn" background={background} />
-                <Input type="text" label="Efternamn" background={background} />
-                <Input type="email" label="E-post" background={background} />
+                <Input type="text" label="Förnamn" background={background} required={true} />
+                <Input type="text" label="Efternamn" background={background} required={true} />
+                <Input type="email" label="E-post" background={background} required={true} />
                 <Input type="number" label="Telefon" background={background} />
             </div>
             <div className="stack-small">
