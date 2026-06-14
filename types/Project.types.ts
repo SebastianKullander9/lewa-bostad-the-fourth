@@ -19,6 +19,7 @@ export interface ProjectObjectInfo {
 
 export interface Project {
     slug: string;
+    underpageType?: "standard" | "featured";
     title: string;
     location: string;
     status: {

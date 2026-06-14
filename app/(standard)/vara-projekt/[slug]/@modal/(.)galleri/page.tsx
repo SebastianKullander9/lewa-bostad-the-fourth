@@ -1,4 +1,4 @@
-import Gallery from "@/components/sections/ourProjects/underpage/gallery/Gallery";
+import Gallery from "@/components/sections/ourProjects/underpageStandard/gallery/Gallery";
 import { projectData } from "@/components/sections/ourProjects/data";
 
 export default async function GalleryModal({ params }: { params: Promise<{ slug: string }> }) {

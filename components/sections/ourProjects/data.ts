@@ -241,6 +241,7 @@ export const projectData: Project[] = [
     },
     {
         slug: "ark44",
+        underpageType: "featured",
         title: "ARK44",
         location: "Nacka",
         status: {
