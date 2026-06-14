@@ -32,7 +32,6 @@ export default function RootLayout({
     return (
         <html lang="sv" className={`${dmSans.variable} ${cormorant.variable}`}>
             <body>
-                <Header />
                 {children}
                 <Footer />
             </body>
