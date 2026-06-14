@@ -8,6 +8,36 @@
     padding-block: var(--spacing-sm);
     background-color: var(--color-background-brand);
     color: var(--color-text-on-brand);
+    transition: background-color var(--duration-fast);
+}
+
+:global(html[data-hero-passed]) .header {
+    background-color: var(--color-background-brand);
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 200%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--duration-fast);
+}
+
+:global(html[data-hero-header]:not([data-hero-passed])) .header {
+    background-color: transparent;
+}
+
+:global(html[data-hero-header]:not([data-hero-passed])) .header::before {
+    opacity: 1;
+}
+
+:global(html[data-no-header-transition]) .header,
+:global(html[data-no-header-transition]) .header::before {
+    transition: none;
 }
 
 .logo {

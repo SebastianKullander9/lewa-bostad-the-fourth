@@ -2,6 +2,7 @@ import { Project } from "@/types/Project.types";
 import styles from "./Hero.module.css";
 import Image from "next/image";
 import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
+import HeaderScrollWatcher from "./HeaderScrollWatcher";
 
 interface HeroProps {
     project: Project;
@@ -10,7 +11,8 @@ interface HeroProps {
 export default function Hero({ project }: HeroProps) {
     return (
         <section className={styles.sectionWrapper} id="hero">
-            <div className={styles.imageWrapper}>
+            <HeaderScrollWatcher />
+            <div className={styles.imageWrapper} id="hero-image">
                 <Image
                     src={project.images.thumbnail.src}
                     alt={project.images.thumbnail.alt}

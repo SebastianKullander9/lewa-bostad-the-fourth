@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import styles from "./FloatingCTA.module.css";
-import { IconArrowDown } from "nucleo-sharp";
 
 interface FloatingCTAProps {
     mode?: "scroll" | "instant";
@@ -56,7 +55,6 @@ export default function FloatingCTA({ mode = "scroll" }: FloatingCTAProps) {
             tabIndex={visible ? 0 : -1}
         >
             <span>Anmäl intresse</span>
-            <IconArrowDown size={18} />
         </a>
     );
 }
