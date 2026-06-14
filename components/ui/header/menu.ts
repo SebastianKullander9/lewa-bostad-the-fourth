@@ -8,6 +8,10 @@ export const menu = [
         label: "Våra projekt",
     },
     {
+        href: "/att-kopa-bostad",
+        label: "Att köpa bostad",
+    },
+    {
         href: "/kontakt",
         label: "Kontakt",
     },
