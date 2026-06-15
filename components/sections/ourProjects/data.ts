@@ -248,26 +248,44 @@ export const projectData: Project[] = [
             value: "planned",
             label: "Planerad",
         },
-        sections: [
-            {
+        sections: {
+            intro: {
                 title: "Xxxxx xxx xxxxx",
                 text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta risus dolor, ac tempus nulla efficitur
                     et. Nulla suscipit aliquet blandit. Aliquam erat volutpat. Vestibulum congue tincidunt pretium. Etiam metus nisl, laoreet
                     a volutpat quis, auctor nec tortor. Suspendisse efficitur, lorem eu porta placerat, turpis ipsum suscipit turpis, eu suscipit
                     elit sapien placerat est. Curabitur auctor nulla maximus hendrerit egestas. Curabitur orci velit, vehicula ac tortor at,
                     bibendum bibendum metus.`,
-                image: { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av ARK44" },
-                imageOrientation: "left",
             },
-            {
+            process: {
+                statusStep: 0,
+                objectInfo: [
+                    { title: "Byggstart", value: "2026/2027" },
+                    { title: "Inflyttning", value: "2027" },
+                    { title: "Antal rum", value: "5–6 RoK" },
+                    { title: "Antal bostäder", value: "44 xxxx och xxxxx" },
+                ],
+            },
+            area: {
                 title: "Området.",
                 text: `Kummelnäs är en av Nackas mest eftertraktade pärlor – omgivet av hav, naturreservat och
                     småbåtshamnar. Här bor du med skogspromenader, badvikar och lugnet som vardag,
                     samtidigt som du når Slussen på under 30 minuter.`,
-                image: { src: Kummelnas_interior_5_003, alt: "Interiör av ARK44" },
-                imageOrientation: "right",
+                image: { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av ARK44" },
             },
-        ],
+            about: {
+                title: "Om projektet",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                bulletPoints: [],
+                image1: { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av ARK44" },
+                image2: { src: Kummelnas_interior_5_003, alt: "Interiör av ARK44" },
+                subSections: [],
+            },
+            architecture: {
+                title: "Arkitektur",
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            },
+        },
         objectInfo: [
             { title: "Byggstart", value: "2026/2027" },
             { title: "Inflyttning", value: "2027" },

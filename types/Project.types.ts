@@ -5,11 +5,43 @@ export interface ProjectImage {
     alt: string;
 }
 
-export interface ProjectSection {
+export interface StandardProjectSection {
     title: string;
     text: string;
     image: ProjectImage;
     imageOrientation: "left" | "right";
+}
+
+export interface FeaturedAboutSubSection {
+    title: string;
+    text: string;
+    bulletPoints: string[];
+}
+
+export interface FeaturedProjectSections {
+    intro: {
+        title: string;
+        text: string;
+        statusStep: number;
+        objectInfo: ProjectObjectInfo[];
+    };
+    area: {
+        title: string;
+        text: string;
+        image: ProjectImage;
+    };
+    about: {
+        title: string;
+        text: string;
+        bulletPoints: string[];
+        image1: ProjectImage;
+        image2: ProjectImage;
+        subSections: FeaturedAboutSubSection[];
+    };
+    architecture: {
+        title: string;
+        text: string;
+    };
 }
 
 export interface ProjectObjectInfo {
@@ -17,19 +49,29 @@ export interface ProjectObjectInfo {
     value: string;
 }
 
-export interface Project {
+interface BaseProject {
     slug: string;
-    underpageType?: "standard" | "featured";
     title: string;
     location: string;
     status: {
         value: "planned" | "ongoing" | "completed";
         label: string;
     };
-    sections: ProjectSection[];
     objectInfo: ProjectObjectInfo[];
     images: {
         thumbnail: ProjectImage;
         gallery: ProjectImage[];
     };
 }
+
+export interface StandardProject extends BaseProject {
+    underpageType?: "standard";
+    sections: StandardProjectSection[];
+}
+
+export interface FeaturedProject extends BaseProject {
+    underpageType: "featured";
+    sections: FeaturedProjectSections;
+}
+
+export type Project = StandardProject | FeaturedProject;

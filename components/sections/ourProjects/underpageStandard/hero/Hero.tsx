@@ -1,11 +1,11 @@
-import { Project } from "@/types/Project.types";
+import { StandardProject } from "@/types/Project.types";
 import styles from "./Hero.module.css";
 import Image from "next/image";
 import PrimaryButton from "@/components/ui/buttons/PrimaryButton";
 import HeaderScrollWatcher from "./HeaderScrollWatcher";
 
 interface HeroProps {
-    project: Project;
+    project: StandardProject;
 }
 
 export default function Hero({ project }: HeroProps) {

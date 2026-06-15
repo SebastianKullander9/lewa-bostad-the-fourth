@@ -1,9 +1,10 @@
-import { Project } from "@/types/Project.types";
+import { FeaturedProject } from "@/types/Project.types";
 import Hero from "./hero/Hero";
 import FloatingCTA from "@/components/ui/floatingCTA/FloatingCTA";
+import Intro from "./sections/intro/Intro";
 
 interface UnderpageFeaturedProps {
-    project: Project;
+    project: FeaturedProject;
 }
 
 export default function UnderpageFeatured({ project }: UnderpageFeaturedProps) {
@@ -11,6 +12,7 @@ export default function UnderpageFeatured({ project }: UnderpageFeaturedProps) {
         <div>
             <FloatingCTA />
             <Hero project={project} />
+            <Intro project={project} />
         </div>
     );
 }
