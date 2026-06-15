@@ -1,0 +1,13 @@
+.bulletpoint {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.bullet {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--color-sage-200);
+}

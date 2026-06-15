@@ -15,7 +15,7 @@ export interface StandardProjectSection {
 export interface FeaturedAboutSubSection {
     title: string;
     text: string;
-    bulletPoints: string[];
+    bulletpoints: string[];
 }
 
 export interface FeaturedProjectSections {
@@ -27,13 +27,13 @@ export interface FeaturedProjectSections {
     };
     area: {
         title: string;
-        text: string;
+        texts: string[];
         image: ProjectImage;
     };
     about: {
         title: string;
         text: string;
-        bulletPoints: string[];
+        bulletpoints: string[];
         image1: ProjectImage;
         image2: ProjectImage;
         subSections: FeaturedAboutSubSection[];

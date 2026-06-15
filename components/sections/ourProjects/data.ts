@@ -256,30 +256,70 @@ export const projectData: Project[] = [
                     a volutpat quis, auctor nec tortor. Suspendisse efficitur, lorem eu porta placerat, turpis ipsum suscipit turpis, eu suscipit
                     elit sapien placerat est. Curabitur auctor nulla maximus hendrerit egestas. Curabitur orci velit, vehicula ac tortor at,
                     bibendum bibendum metus.`,
-            },
-            process: {
                 statusStep: 0,
                 objectInfo: [
-                    { title: "Byggstart", value: "2026/2027" },
-                    { title: "Inflyttning", value: "2027" },
+                    { title: "Område", value: "Krokhöjden, Nacka" },
+                    { title: "Antal bostäder", value: "44 radhus" },
                     { title: "Antal rum", value: "5–6 RoK" },
-                    { title: "Antal bostäder", value: "44 xxxx och xxxxx" },
+                    { title: "Boarea", value: "112-146 kvm" },
+                    { title: "Upplåtelseform", value: "Bostadsrätt" },
+                    { title: "Inflyttning", value: "XXmånad 202X" },
                 ],
             },
             area: {
-                title: "Området.",
-                text: `Kummelnäs är en av Nackas mest eftertraktade pärlor – omgivet av hav, naturreservat och
-                    småbåtshamnar. Här bor du med skogspromenader, badvikar och lugnet som vardag,
-                    samtidigt som du når Slussen på under 30 minuter.`,
+                title: "Ett kvarter där barnen hittar ut och du hittar hem.",
+                texts: [
+                    `I ARK 44 får livet lite mer svängrum - från vardagens planerade stunder
+                            till spontana äventyr.Barnen springer fritt mellan husen, grannar
+                            grillar på den gemensamma gården och känslan av hemma sträcker sig långt
+                            bortom den egna ytterdörren.`,
+                    `Kvarteret består av 44 välplanerade radhus om två till tre plan med
+                            generöst ljusinsläpp och smarta arkitektoniska lösningar. Det kuperade
+                            landskapet ger området karaktär och skapar fina utblickar över
+                            omgivningen.`,
+                ],
                 image: { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av ARK44" },
             },
             about: {
-                title: "Om projektet",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                bulletPoints: [],
+                title: "Radhusdrömmen slår in.",
+                text: `Öppna dörren och upptäck hemmets alla kvaliteter. Ljuset strömmar in genom
+                    generösa fönster, materialen är noga utvalda och den mjuka färgpaletten följer med
+                    från rum till rum.`,
+                bulletpoints: [
+                    "Radhus i 2–3 plan",
+                    "Egen carport",
+                    "Terrass med trätrall mot gemensam grönyta",
+                    "Balkong med glasräcke (3-planshus)",
+                ],
                 image1: { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av ARK44" },
                 image2: { src: Kummelnas_interior_5_003, alt: "Interiör av ARK44" },
-                subSections: [],
+                subSections: [
+                    {
+                        title: "Kök",
+                        text: `Köket har inretts med fokus på både funktion och estetik. Inredningen går i gråa
+                            toner med genomtänkta lösningar som förenklar vardagen.`,
+                        bulletpoints: [
+                            "Bänkskiva i kvartskomposit med underlimmad ho",
+                            "Inbyggd fläkt",
+                            "Rymliga högskåp som ansluter till tak",
+                            "Helintegrerade vitvaror från Siemens",
+                            "Varmluftsugn och infälld induktionshäll",
+                        ],
+                    },
+                    {
+                        title: "Badrum",
+                        text: `Kökets gråa nyanser följer med in i badrummet och skapar en sammanhållen
+                            materialpalett genom hemmet. Samtliga bostäder har WC med dusch samt badrum
+                            med badkar.`,
+                        bulletpoints: [
+                            "Komfortgolvvärme i golv",
+                            "Vägghängd WC",
+                            "Dusch med klarglasvägg",
+                            "Tvättmaskin och torktumlare under bänkskiva",
+                            "Infällda spotlights i tak",
+                        ],
+                    },
+                ],
             },
             architecture: {
                 title: "Arkitektur",

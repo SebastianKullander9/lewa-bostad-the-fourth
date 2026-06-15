@@ -1,7 +1,51 @@
 import styles from "./Intro.module.css";
+import { FeaturedProjectSections } from "@/types/Project.types";
+import { Background } from "@/types/Props.types";
 
-interface IntroProps {}
+const PROCESS_STEPS = [
+    "Projektet inleds",
+    "Pågående produktion",
+    "Förhandsvisning",
+    "Uthyrning börjar",
+    "Inflyttning",
+];
 
-export default function Intro({}: IntroProps) {
-    return <div className=""></div>;
+interface IntroProps {
+    intro: FeaturedProjectSections["intro"];
+    background?: Background;
+}
+
+export default function Intro({ intro, background = "default" }: IntroProps) {
+    return (
+        <section className={`section section--${background}`}>
+            <div className={`container ${styles.inner}`}>
+                <div className={styles.header}>
+                    <h2>{intro.title}</h2>
+                    <p className={styles.body}>{intro.text}</p>
+                </div>
+
+                <div className={styles.timelineScroll}>
+                    <div className={styles.timeline}>
+                        {PROCESS_STEPS.map((label, i) => (
+                            <div key={label} className={styles.step}>
+                                <div className={styles.circle}>
+                                    {i === intro.statusStep && <span className={styles.dot} />}
+                                </div>
+                                <span className={styles.stepLabel}>{label}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div className={styles.objectInfo}>
+                    {intro.objectInfo.map((item) => (
+                        <div key={item.title} className={styles.objectItem}>
+                            <span className={styles.objectLabel}>{item.title}</span>
+                            <span className={styles.objectValue}>{item.value}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 }

@@ -1,0 +1,138 @@
+.inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-stack);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-content-gap);
+    text-align: center;
+}
+
+.body {
+    max-width: 58ch;
+    text-align: left;
+}
+
+.timelineScroll {
+    overflow-x: auto;
+}
+
+.timeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-block: var(--spacing-md);
+    gap: var(--spacing-sm);
+    min-width: max-content;
+}
+
+.step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex: 1;
+    min-width: 80px;
+}
+
+.step::before,
+.step::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    height: 1px;
+    background-color: var(--color-text-primary);
+}
+
+/* left half-line: from edge of gap to left edge of circle */
+.step::before {
+    left: calc(var(--spacing-sm) / -2);
+    width: calc(50% - 12px + var(--spacing-sm) / 2);
+}
+
+/* right half-line: from right edge of circle to edge of gap */
+.step::after {
+    right: calc(var(--spacing-sm) / -2);
+    width: calc(50% - 12px + var(--spacing-sm) / 2);
+}
+
+.step:first-child::before,
+.step:last-child::after {
+    display: none;
+}
+
+.circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-text-primary);
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-brand);
+}
+
+.stepLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-primary);
+    text-align: center;
+    line-height: var(--line-height-small);
+}
+
+/* ── Object info ── */
+
+.objectInfo {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: var(--spacing-stack);
+}
+
+@media (min-width: 768px) {
+    .objectInfo {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.objectItem {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding-block: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+@media (max-width: 768px) {
+    .objectItem {
+        justify-content: space-between;
+    }
+}
+
+.objectLabel {
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-body);
+}
+
+.objectValue {
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+}
