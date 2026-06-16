@@ -1,5 +1,6 @@
 allowBuilds:
   nucleo-core-fill-24: true
+  nucleo-core-fill-32: false
   nucleo-core-outline-24: true
   nucleo-sharp: true
   nucleo-ui-fill-18: true

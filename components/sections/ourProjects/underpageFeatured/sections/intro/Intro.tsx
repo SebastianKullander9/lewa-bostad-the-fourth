@@ -1,5 +1,5 @@
 import styles from "./Intro.module.css";
-import { FeaturedProjectSections } from "@/types/Project.types";
+import { IntroSection } from "@/types/Project.types";
 import { Background } from "@/types/Props.types";
 
 const PROCESS_STEPS = [
@@ -11,7 +11,7 @@ const PROCESS_STEPS = [
 ];
 
 interface IntroProps {
-    intro: FeaturedProjectSections["intro"];
+    intro: IntroSection;
     background?: Background;
 }
 

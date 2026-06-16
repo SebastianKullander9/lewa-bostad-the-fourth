@@ -43,6 +43,9 @@ export const projectData: Project[] = [
         slug: "glansbaggen",
         title: "Glansbaggen",
         location: "Tumba",
+        address: "Fågelbyn, Tumba",
+        lat: 59.2041,
+        lng: 17.8283,
         status: {
             value: "completed",
             label: "Genomförd",
@@ -96,6 +99,9 @@ export const projectData: Project[] = [
         slug: "kummelnashojden",
         title: "Kummelnäshöjden",
         location: "Nacka",
+        address: "Bågvägen, Kummelnäs",
+        lat: 59.3183,
+        lng: 18.2531,
         status: {
             value: "planned",
             label: "Planerad",
@@ -169,6 +175,9 @@ export const projectData: Project[] = [
         slug: "kringlan",
         title: "Kringlan",
         location: "Tyresö",
+        address: "Kringelkroken 2, Tyresö",
+        lat: 59.2442,
+        lng: 18.2290,
         status: {
             value: "planned",
             label: "Planerad",
@@ -244,12 +253,16 @@ export const projectData: Project[] = [
         underpageType: "featured",
         title: "ARK44",
         location: "Nacka",
+        address: "Krokhöjden, Nacka",
+        lat: 59.3065,
+        lng: 18.1438,
         status: {
             value: "planned",
             label: "Planerad",
         },
-        sections: {
-            intro: {
+        sections: [
+            {
+                _type: "intro",
                 title: "Xxxxx xxx xxxxx",
                 text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta risus dolor, ac tempus nulla efficitur
                     et. Nulla suscipit aliquet blandit. Aliquam erat volutpat. Vestibulum congue tincidunt pretium. Etiam metus nisl, laoreet
@@ -266,39 +279,48 @@ export const projectData: Project[] = [
                     { title: "Inflyttning", value: "XXmånad 202X" },
                 ],
             },
-            area: {
+            {
+                _type: "sectionSplit",
                 title: "Ett kvarter där barnen hittar ut och du hittar hem.",
-                texts: [
-                    `I ARK 44 får livet lite mer svängrum - från vardagens planerade stunder
-                            till spontana äventyr.Barnen springer fritt mellan husen, grannar
-                            grillar på den gemensamma gården och känslan av hemma sträcker sig långt
-                            bortom den egna ytterdörren.`,
-                    `Kvarteret består av 44 välplanerade radhus om två till tre plan med
-                            generöst ljusinsläpp och smarta arkitektoniska lösningar. Det kuperade
-                            landskapet ger området karaktär och skapar fina utblickar över
-                            omgivningen.`,
-                ],
+                text: `I ARK 44 får livet lite mer svängrum - från vardagens planerade stunder
+                    till spontana äventyr. Barnen springer fritt mellan husen, grannar
+                    grillar på den gemensamma gården och känslan av hemma sträcker sig långt
+                    bortom den egna ytterdörren. Kvarteret består av 44 välplanerade radhus om
+                    två till tre plan med generöst ljusinsläpp och smarta arkitektoniska lösningar.
+                    Det kuperade landskapet ger området karaktär och skapar fina utblickar över
+                    omgivningen.`,
                 image: { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av ARK44" },
+                imageOrientation: "right",
             },
-            about: {
+            {
+                _type: "sectionBullets",
                 title: "Radhusdrömmen slår in.",
                 text: `Öppna dörren och upptäck hemmets alla kvaliteter. Ljuset strömmar in genom
                     generösa fönster, materialen är noga utvalda och den mjuka färgpaletten följer med
                     från rum till rum.`,
-                bulletpoints: [
+                bulletPoints: [
                     "Radhus i 2–3 plan",
                     "Egen carport",
                     "Terrass med trätrall mot gemensam grönyta",
                     "Balkong med glasräcke (3-planshus)",
                 ],
+            },
+            {
+                _type: "sectionSplitDouble",
+                title: "Planlösningar",
+                text: "Välplanerade ytor med genomtänkt arkitektur och smarta lösningar för hela familjen.",
                 image1: { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av ARK44" },
                 image2: { src: Kummelnas_interior_5_003, alt: "Interiör av ARK44" },
+            },
+            {
+                _type: "sectionSubsections",
+                title: "Material och detaljer",
                 subSections: [
                     {
                         title: "Kök",
                         text: `Köket har inretts med fokus på både funktion och estetik. Inredningen går i gråa
                             toner med genomtänkta lösningar som förenklar vardagen.`,
-                        bulletpoints: [
+                        bulletPoints: [
                             "Bänkskiva i kvartskomposit med underlimmad ho",
                             "Inbyggd fläkt",
                             "Rymliga högskåp som ansluter till tak",
@@ -311,7 +333,7 @@ export const projectData: Project[] = [
                         text: `Kökets gråa nyanser följer med in i badrummet och skapar en sammanhållen
                             materialpalett genom hemmet. Samtliga bostäder har WC med dusch samt badrum
                             med badkar.`,
-                        bulletpoints: [
+                        bulletPoints: [
                             "Komfortgolvvärme i golv",
                             "Vägghängd WC",
                             "Dusch med klarglasvägg",
@@ -321,11 +343,16 @@ export const projectData: Project[] = [
                     },
                 ],
             },
-            architecture: {
+            {
+                _type: "sectionText",
                 title: "Arkitektur",
                 text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             },
-        },
+            {
+                _type: "sectionMap",
+                title: "Hitta hit",
+            },
+        ],
         objectInfo: [
             { title: "Byggstart", value: "2026/2027" },
             { title: "Inflyttning", value: "2027" },
@@ -370,4 +397,51 @@ export const projectData: Project[] = [
             ],
         },
     },
+    // ── TEMPORARY: marker style testing ──────────────────────────────────────
+    {
+        slug: "tmp-ongoing-1",
+        title: "Södermalm 12",
+        location: "Stockholm",
+        address: "Hornsgatan 12, Södermalm",
+        lat: 59.3179,
+        lng: 18.0622,
+        status: { value: "ongoing", label: "Pågående" },
+        sections: [],
+        objectInfo: [],
+        images: {
+            thumbnail: { src: Kummelnas_exterior_1_wood_002, alt: "" },
+            gallery: [],
+        },
+    },
+    {
+        slug: "tmp-ongoing-2",
+        title: "Lidingö Park",
+        location: "Lidingö",
+        address: "Kyrkviken, Lidingö",
+        lat: 59.3639,
+        lng: 18.1481,
+        status: { value: "ongoing", label: "Pågående" },
+        sections: [],
+        objectInfo: [],
+        images: {
+            thumbnail: { src: Kummelnas_exterior_1_wood_002, alt: "" },
+            gallery: [],
+        },
+    },
+    {
+        slug: "tmp-completed-1",
+        title: "Bromma Strand",
+        location: "Bromma",
+        address: "Ulvsundavägen, Bromma",
+        lat: 59.3446,
+        lng: 17.9512,
+        status: { value: "completed", label: "Genomförd" },
+        sections: [],
+        objectInfo: [],
+        images: {
+            thumbnail: { src: Kummelnas_exterior_1_wood_002, alt: "" },
+            gallery: [],
+        },
+    },
+    // ── END TEMPORARY ─────────────────────────────────────────────────────────
 ];

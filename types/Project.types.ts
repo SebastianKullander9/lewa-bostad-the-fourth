@@ -12,37 +12,68 @@ export interface StandardProjectSection {
     imageOrientation: "left" | "right";
 }
 
-export interface FeaturedAboutSubSection {
+export interface SubSection {
     title: string;
     text: string;
-    bulletpoints: string[];
+    bulletPoints?: string[];
 }
 
-export interface FeaturedProjectSections {
-    intro: {
-        title: string;
-        text: string;
-        statusStep: number;
-        objectInfo: ProjectObjectInfo[];
-    };
-    area: {
-        title: string;
-        texts: string[];
-        image: ProjectImage;
-    };
-    about: {
-        title: string;
-        text: string;
-        bulletpoints: string[];
-        image1: ProjectImage;
-        image2: ProjectImage;
-        subSections: FeaturedAboutSubSection[];
-    };
-    architecture: {
-        title: string;
-        text: string;
-    };
+export interface IntroSection {
+    _type: "intro";
+    title: string;
+    text: string;
+    statusStep: number;
+    objectInfo: ProjectObjectInfo[];
 }
+
+export interface SectionText {
+    _type: "sectionText";
+    title: string;
+    text: string;
+}
+
+export interface SectionSplit {
+    _type: "sectionSplit";
+    title: string;
+    text: string;
+    image: ProjectImage;
+    imageOrientation: "left" | "right";
+}
+
+export interface SectionSplitDouble {
+    _type: "sectionSplitDouble";
+    title: string;
+    text: string;
+    image1: ProjectImage;
+    image2: ProjectImage;
+}
+
+export interface SectionBullets {
+    _type: "sectionBullets";
+    title: string;
+    text: string;
+    bulletPoints: string[];
+}
+
+export interface SectionSubsections {
+    _type: "sectionSubsections";
+    title: string;
+    subSections: SubSection[];
+}
+
+export interface SectionMapBlock {
+    _type: "sectionMap";
+    title?: string;
+}
+
+export type FeaturedSection =
+    | IntroSection
+    | SectionText
+    | SectionSplit
+    | SectionSplitDouble
+    | SectionBullets
+    | SectionSubsections
+    | SectionMapBlock;
 
 export interface ProjectObjectInfo {
     title: string;
@@ -53,6 +84,9 @@ interface BaseProject {
     slug: string;
     title: string;
     location: string;
+    address?: string;
+    lat?: number;
+    lng?: number;
     status: {
         value: "planned" | "ongoing" | "completed";
         label: string;
@@ -71,7 +105,7 @@ export interface StandardProject extends BaseProject {
 
 export interface FeaturedProject extends BaseProject {
     underpageType: "featured";
-    sections: FeaturedProjectSections;
+    sections: FeaturedSection[];
 }
 
 export type Project = StandardProject | FeaturedProject;

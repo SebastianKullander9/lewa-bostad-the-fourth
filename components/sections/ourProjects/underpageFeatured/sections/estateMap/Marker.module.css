@@ -1,0 +1,68 @@
+/* ── Marker layout ──
+   flex-column keeps the arrow in the normal flow so MapLibre's
+   offsetHeight measurement includes it — the arrow tip lands exactly
+   on the coordinate with anchor:"bottom".
+─────────────────────────────────────────────── */
+.marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.icon {
+    color: var(--color-background);
+}
+
+/* Pill — the visible label box */
+.pill {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+}
+
+/* Dot */
+.dot {
+}
+
+/* Label text */
+.label {
+}
+
+/* Arrow — real element in flex flow so it is measured */
+.arrow {
+}
+
+/* ── Status variants ── */
+
+/* Current project */
+.marker[data-current="true"] {
+    background-color: var(--color-background-brand);
+}
+
+/* Planned */
+.marker[data-status="planned"] {
+}
+.marker[data-status="planned"] .pill {
+}
+.marker[data-status="planned"] .arrow {
+}
+
+/* Ongoing */
+.marker[data-status="ongoing"] {
+}
+.marker[data-status="ongoing"] .pill {
+}
+.marker[data-status="ongoing"] .arrow {
+}
+
+/* Completed */
+.marker[data-status="completed"] {
+    background-color: var(--color-background-brand);
+    opacity: 65%;
+}

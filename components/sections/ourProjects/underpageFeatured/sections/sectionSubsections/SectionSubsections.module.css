@@ -1,4 +1,8 @@
-.center {
+.title {
+    text-align: center;
+}
+
+.subSection {
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,0 +1,70 @@
+{
+    "version": 8,
+    "name": "Lewa Minimal",
+    "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=u9Pp58Jki0XThKQGH8Ag",
+    "sources": {
+        "openmaptiles": {
+            "type": "vector",
+            "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=u9Pp58Jki0XThKQGH8Ag"
+        }
+    },
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "paint": { "background-color": "var(--background-default)" }
+        },
+        {
+            "id": "water",
+            "type": "fill",
+            "source": "openmaptiles",
+            "source-layer": "water",
+            "paint": { "fill-color": "#e3e3da" }
+        },
+        {
+            "id": "roads-minor",
+            "type": "line",
+            "source": "openmaptiles",
+            "source-layer": "transportation",
+            "filter": ["in", "class", "minor", "service", "street", "street_limited"],
+            "minzoom": 13,
+            "paint": {
+                "line-color": "#deded5",
+                "line-width": ["interpolate", ["linear"], ["zoom"], 13, 0.4, 18, 1.5]
+            }
+        },
+        {
+            "id": "roads-major",
+            "type": "line",
+            "source": "openmaptiles",
+            "source-layer": "transportation",
+            "filter": ["in", "class", "primary", "secondary", "tertiary", "trunk", "motorway"],
+            "paint": {
+                "line-color": "#cfcfc5",
+                "line-width": ["interpolate", ["linear"], ["zoom"], 6, 0.4, 12, 1.1, 18, 4]
+            }
+        },
+        {
+            "id": "place-labels",
+            "type": "symbol",
+            "source": "openmaptiles",
+            "source-layer": "place",
+            "filter": ["in", "class", "city", "town", "suburb"],
+            "layout": {
+                "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
+                "text-font": ["Noto Sans Regular"],
+                "text-size": ["interpolate", ["linear"], ["zoom"], 8, 10, 14, 13],
+                "text-transform": "uppercase",
+                "text-letter-spacing": 0.12,
+                "text-max-width": 8,
+                "text-padding": 6
+            },
+            "paint": {
+                "text-color": "#181818",
+                "text-opacity": 0.65,
+                "text-halo-color": "#f5f5f0",
+                "text-halo-width": 1.2
+            }
+        }
+    ]
+}
