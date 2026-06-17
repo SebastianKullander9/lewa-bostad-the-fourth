@@ -4,6 +4,7 @@ import "./styles/globals.css";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import Header from "@/components/ui/header/desktop/Header";
 import Footer from "@/components/ui/footer/Footer";
+import CookieBanner from "@/components/ui/cookies/CookieBanner";
 
 const cormorant = Cormorant_Garamond({
     subsets: ["latin"],
@@ -30,8 +31,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="sv" className={`${dmSans.variable} ${cormorant.variable}`}>
+        <html
+            lang="sv"
+            className={`${dmSans.variable} ${cormorant.variable}`}
+        >
             <body>
+                <CookieBanner />
                 {children}
                 <Footer />
             </body>
