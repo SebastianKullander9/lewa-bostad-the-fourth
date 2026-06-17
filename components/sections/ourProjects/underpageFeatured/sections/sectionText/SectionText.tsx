@@ -5,12 +5,15 @@ import { Background } from "@/types/Props.types";
 interface SectionTextProps {
     data: SectionTextType;
     background?: Background;
+    id?: string;
+    eyebrow?: string;
 }
 
-export default function SectionText({ data, background = "default" }: SectionTextProps) {
+export default function SectionText({ data, background = "default", id, eyebrow }: SectionTextProps) {
     return (
-        <section className={`section section--${background}`}>
+        <section id={id} className={`section section--${background}`}>
             <div className={`container ${styles.inner}`}>
+                {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
                 <h2>{data.title}</h2>
                 <p className="prose">{data.text}</p>
             </div>

@@ -1,16 +1,21 @@
-/* ── Marker layout ──
-   flex-column keeps the arrow in the normal flow so MapLibre's
-   offsetHeight measurement includes it — the arrow tip lands exactly
-   on the coordinate with anchor:"bottom".
+/* ── Marker wrapper ──
+   Wrapper is the element MapLibre measures for anchor:"bottom".
+   Tooltip is a sibling of the circle (not a child), so it is never
+   affected by the circle's opacity and does not add to offsetHeight.
 ─────────────────────────────────────────────── */
+.markerWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
 .marker {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 
@@ -18,51 +23,83 @@
     color: var(--color-background);
 }
 
-/* Pill — the visible label box */
-.pill {
+/* ── Tooltip ── */
+.tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    background: var(--color-background, #f5f0eb);
+    border: 1px solid var(--color-border, #d9d3cc);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: column;
+    /* z-index is managed via inline style on the MapLibre container element */
+    z-index: 10;
+}
+
+.tooltipHeader {
     display: flex;
     align-items: center;
-    gap: 5px;
-    text-decoration: none;
+    justify-content: space-between;
+    gap: var(--spacing-xs, 8px);
+    padding: var(--spacing-sm, 12px);
 }
 
-/* Dot */
-.dot {
+.tooltipTitle {
+    font-family: var(--font-body, sans-serif);
+    font-size: var(--font-size-small, 0.875rem);
+    font-weight: 500;
+    color: var(--color-text-primary, #1a1a18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Label text */
-.label {
+.tooltipClose {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    color: var(--color-text-primary, #1a1a18);
+    font-size: 0.75rem;
 }
 
-/* Arrow — real element in flex flow so it is measured */
-.arrow {
+.tooltipImage {
+    position: relative;
+    height: 130px;
+    margin-inline: var(--spacing-sm, 12px);
+}
+
+.tooltipFooter {
+    padding: var(--spacing-sm, 12px);
+}
+
+.tooltipFooter span {
+    font-size: 0.7rem;
 }
 
 /* ── Status variants ── */
 
-/* Current project */
-.marker[data-current="true"] {
-    background-color: var(--color-background-brand);
-}
-
-/* Planned */
 .marker[data-status="planned"] {
-}
-.marker[data-status="planned"] .pill {
-}
-.marker[data-status="planned"] .arrow {
+    background-color: var(--color-marker-planned);
+    opacity: 65%;
 }
 
-/* Ongoing */
 .marker[data-status="ongoing"] {
-}
-.marker[data-status="ongoing"] .pill {
-}
-.marker[data-status="ongoing"] .arrow {
+    background-color: var(--color-marker-ongoing);
+    opacity: 65%;
 }
 
-/* Completed */
 .marker[data-status="completed"] {
     background-color: var(--color-background-brand);
     opacity: 65%;
+}
+
+.marker[data-current="true"] {
+    background-color: var(--color-background-brand);
+    opacity: 100%;
 }

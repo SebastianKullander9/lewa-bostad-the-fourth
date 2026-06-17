@@ -6,13 +6,16 @@ import { Background } from "@/types/Props.types";
 interface SectionBulletsProps {
     data: SectionBulletsType;
     background?: Background;
+    id?: string;
+    eyebrow?: string;
 }
 
-export default function SectionBullets({ data, background = "default" }: SectionBulletsProps) {
+export default function SectionBullets({ data, background = "default", id, eyebrow }: SectionBulletsProps) {
     return (
-        <section className={`section section--${background}`}>
+        <section id={id} className={`section section--${background}`}>
             <div className="container">
                 <div className={`${styles.inner} stack`}>
+                    {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
                     <h2>{data.title}</h2>
                     <div className="prose stack">
                         <p>{data.text}</p>

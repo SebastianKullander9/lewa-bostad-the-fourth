@@ -6,13 +6,16 @@ import { Background } from "@/types/Props.types";
 interface SectionSubsectionsProps {
     data: SectionSubsectionsType;
     background?: Background;
+    id?: string;
+    eyebrow?: string;
 }
 
-export default function SectionSubsections({ data, background = "default" }: SectionSubsectionsProps) {
+export default function SectionSubsections({ data, background = "default", id, eyebrow }: SectionSubsectionsProps) {
     return (
-        <section className={`section section--${background}`}>
+        <section id={id} className={`section section--${background}`}>
             <div className="container">
                 <div className="stack">
+                    {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
                     <h2 className={styles.title}>{data.title}</h2>
                     {data.subSections.map((sub, i) => (
                         <div key={i} className={`${styles.subSection} stack`}>

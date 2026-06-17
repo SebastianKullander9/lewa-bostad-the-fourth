@@ -177,7 +177,7 @@ export const projectData: Project[] = [
         location: "Tyresö",
         address: "Kringelkroken 2, Tyresö",
         lat: 59.2442,
-        lng: 18.2290,
+        lng: 18.229,
         status: {
             value: "planned",
             label: "Planerad",
@@ -281,6 +281,7 @@ export const projectData: Project[] = [
             },
             {
                 _type: "sectionSplit",
+                eyebrow: "Projektet",
                 title: "Ett kvarter där barnen hittar ut och du hittar hem.",
                 text: `I ARK 44 får livet lite mer svängrum - från vardagens planerade stunder
                     till spontana äventyr. Barnen springer fritt mellan husen, grannar
@@ -294,6 +295,7 @@ export const projectData: Project[] = [
             },
             {
                 _type: "sectionBullets",
+                eyebrow: "Bostäderna",
                 title: "Radhusdrömmen slår in.",
                 text: `Öppna dörren och upptäck hemmets alla kvaliteter. Ljuset strömmar in genom
                     generösa fönster, materialen är noga utvalda och den mjuka färgpaletten följer med
@@ -307,6 +309,7 @@ export const projectData: Project[] = [
             },
             {
                 _type: "sectionSplitDouble",
+                eyebrow: "Planlösningar",
                 title: "Planlösningar",
                 text: "Välplanerade ytor med genomtänkt arkitektur och smarta lösningar för hela familjen.",
                 image1: { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av ARK44" },
@@ -314,6 +317,7 @@ export const projectData: Project[] = [
             },
             {
                 _type: "sectionSubsections",
+                eyebrow: "Material",
                 title: "Material och detaljer",
                 subSections: [
                     {
@@ -345,12 +349,14 @@ export const projectData: Project[] = [
             },
             {
                 _type: "sectionText",
+                eyebrow: "Arkitektur",
                 title: "Arkitektur",
                 text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             },
             {
                 _type: "sectionMap",
-                title: "Hitta hit",
+                eyebrow: "Karta",
+                title: "Karta",
             },
         ],
         objectInfo: [

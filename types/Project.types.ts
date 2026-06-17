@@ -24,12 +24,14 @@ export interface IntroSection {
     text: string;
     statusStep: number;
     objectInfo: ProjectObjectInfo[];
+    eyebrow?: string;
 }
 
 export interface SectionText {
     _type: "sectionText";
     title: string;
     text: string;
+    eyebrow?: string;
 }
 
 export interface SectionSplit {
@@ -38,6 +40,7 @@ export interface SectionSplit {
     text: string;
     image: ProjectImage;
     imageOrientation: "left" | "right";
+    eyebrow?: string;
 }
 
 export interface SectionSplitDouble {
@@ -46,6 +49,7 @@ export interface SectionSplitDouble {
     text: string;
     image1: ProjectImage;
     image2: ProjectImage;
+    eyebrow?: string;
 }
 
 export interface SectionBullets {
@@ -53,17 +57,20 @@ export interface SectionBullets {
     title: string;
     text: string;
     bulletPoints: string[];
+    eyebrow?: string;
 }
 
 export interface SectionSubsections {
     _type: "sectionSubsections";
     title: string;
     subSections: SubSection[];
+    eyebrow?: string;
 }
 
 export interface SectionMapBlock {
     _type: "sectionMap";
     title?: string;
+    eyebrow?: string;
 }
 
 export type FeaturedSection =

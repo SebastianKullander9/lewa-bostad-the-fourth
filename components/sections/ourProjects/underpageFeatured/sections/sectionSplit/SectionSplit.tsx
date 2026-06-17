@@ -6,13 +6,16 @@ import { Background } from "@/types/Props.types";
 interface SectionSplitProps {
     data: SectionSplitType;
     background?: Background;
+    id?: string;
+    eyebrow?: string;
 }
 
-export default function SectionSplit({ data, background = "default" }: SectionSplitProps) {
+export default function SectionSplit({ data, background = "default", id, eyebrow }: SectionSplitProps) {
     return (
-        <section className={`section section--${background}`}>
+        <section id={id} className={`section section--${background}`}>
             <div className="container stack">
                 <div className={`${styles.text} stack`}>
+                    {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
                     <h2>{data.title}</h2>
                     <p className="prose">{data.text}</p>
                 </div>

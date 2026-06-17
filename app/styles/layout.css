@@ -145,6 +145,8 @@
 :root {
     --logo-height: 42px;
     --header-height: 66px;
+    /* SectionNav bar matches the header height */
+    --section-bar-height: var(--header-height);
 }
 
 @media (max-width: 768px) {

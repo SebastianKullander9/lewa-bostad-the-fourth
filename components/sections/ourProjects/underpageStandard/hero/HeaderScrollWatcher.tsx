@@ -18,15 +18,11 @@ export default function HeaderScrollWatcher({ targetId = "hero-image" }: { targe
 
         setInstant(() => root.setAttribute("data-hero-header", ""));
 
-        const probe = document.createElement("div");
-        probe.style.cssText = "position:absolute;visibility:hidden;height:var(--header-height)";
-        document.body.appendChild(probe);
-        const headerHeight = probe.getBoundingClientRect().height;
-        probe.remove();
-
+        // Fires at both 0 and 0.5 to correctly handle fast scrolls and initial state.
+        // Header switches to brand once 50% of the hero image has scrolled off-screen.
         const observer = new IntersectionObserver(
-            ([entry]) => root.toggleAttribute("data-hero-passed", !entry.isIntersecting),
-            { rootMargin: `-${headerHeight}px 0px 0px 0px`, threshold: 0 },
+            ([entry]) => root.toggleAttribute("data-hero-passed", entry.intersectionRatio < 0.5),
+            { threshold: [0, 0.5] },
         );
 
         observer.observe(target);

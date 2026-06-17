@@ -13,13 +13,16 @@ const PROCESS_STEPS = [
 interface IntroProps {
     intro: IntroSection;
     background?: Background;
+    id?: string;
+    eyebrow?: string;
 }
 
-export default function Intro({ intro, background = "default" }: IntroProps) {
+export default function Intro({ intro, background = "default", id, eyebrow }: IntroProps) {
     return (
-        <section className={`section section--${background}`}>
+        <section id={id} className={`section section--${background}`}>
             <div className={`container ${styles.inner}`}>
                 <div className={styles.header}>
+                    {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
                     <h2>{intro.title}</h2>
                     <p className={styles.body}>{intro.text}</p>
                 </div>

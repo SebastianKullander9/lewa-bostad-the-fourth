@@ -1,14 +1,18 @@
 .sectionWrapper {
-    display: grid;
-    grid-template-rows: 1fr auto;
-    min-height: calc(100dvh - var(--header-height));
-    height: calc(100dvh);
+    /* Leave exactly one bar-height gap at the bottom so the SectionNav bar
+       is visible in the initial viewport on every screen size. */
+    height: calc(100dvh - var(--section-bar-height));
+    position: relative;
 }
 
 .imageWrapper {
     position: relative;
     width: 100%;
     height: 100%;
+}
+
+.image {
+    object-fit: cover;
 }
 
 .buttonWrapper {
@@ -22,53 +26,4 @@
         bottom: var(--content-padding-x);
         right: var(--content-padding-x);
     }
-}
-
-.image {
-    object-fit: cover;
-}
-
-.section {
-    width: 100%;
-    padding-block: var(--spacing-md);
-    padding-inline: var(--content-padding-x-mobile);
-}
-
-@media (min-width: 768px) {
-    .section {
-        padding-inline: var(--content-padding-x);
-    }
-}
-
-.outer {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-md);
-}
-
-.value {
-    font-size: var(--text-small);
-    line-height: var(--line-height-small);
-    color: var(--color-text-primary);
-}
-
-.object {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-@media (max-width: 768px) {
-    .object {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
-
-.italic {
-    font-style: italic;
 }

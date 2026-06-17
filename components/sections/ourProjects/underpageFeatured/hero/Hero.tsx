@@ -28,13 +28,6 @@ export default function Hero({ project }: HeroProps) {
                     />
                 </div>
             </div>
-            <div className={styles.section}>
-                <div className={styles.outer}>
-                    <h1>
-                        {project.title}, <span className={styles.italic}>{project.location}</span>
-                    </h1>
-                </div>
-            </div>
         </section>
     );
 }

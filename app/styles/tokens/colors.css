@@ -44,4 +44,9 @@
     --color-border: var(--color-warm-300);
     --color-border-subtle: var(--color-warm-200);
     --color-border-brand: var(--color-sage-700);
+
+    --color-marker-planned: #8a8e87;
+    --color-marker-planned2: #8e8e8e;
+
+    --color-marker-ongoing: #ac8a50;
 }
