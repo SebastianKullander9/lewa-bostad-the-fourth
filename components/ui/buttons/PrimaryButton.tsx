@@ -9,6 +9,7 @@ type PrimaryButtonProps =
           label: string;
           onClick?: never;
           background?: Background;
+          disabled?: boolean;
       }
     | {
           type: "submit" | "reset" | "button";
@@ -16,6 +17,7 @@ type PrimaryButtonProps =
           label: string;
           onClick?: () => void;
           background?: Background;
+          disabled?: boolean;
       };
 
 export default function PrimaryButton({
@@ -24,10 +26,14 @@ export default function PrimaryButton({
     label,
     href,
     onClick,
+    disabled,
 }: PrimaryButtonProps) {
     if (type === "link") {
         return (
-            <Link href={href} className={`${styles.button} ${styles[background ?? "default"]}`}>
+            <Link
+                href={href}
+                className={`${styles.button} ${styles[background ?? "default"]}`}
+            >
                 <span className={styles.label}>{label}</span>
             </Link>
         );
@@ -38,6 +44,7 @@ export default function PrimaryButton({
             type={type as "submit" | "reset" | "button"}
             className={`${styles.button} ${styles[background ?? "default"]}`}
             onClick={onClick}
+            disabled={disabled}
         >
             <span className={styles.label}>{label}</span>
         </button>

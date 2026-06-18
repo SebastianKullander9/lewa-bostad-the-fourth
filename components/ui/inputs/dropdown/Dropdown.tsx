@@ -3,66 +3,103 @@
 import { Project } from "@/types/Project.types";
 import { Background } from "@/types/Props.types";
 import styles from "./Dropdown.module.css";
-import { IconChevronDown, IconChevronUp } from "nucleo-sharp";
+import { IconChevronDown, IconChevronUp, IconCheck } from "nucleo-sharp";
 import { useState } from "react";
-import { IconCheck } from "nucleo-sharp";
-import { Span } from "next/dist/trace";
 
 type DropdownProps = {
     label?: string;
     background: Background;
 } & (
-    | { type: "broad"; projects?: Project[]; project?: never }
-    | { type: "specific"; project: Project; projects?: never }
+    | {
+          type: "broad";
+          projects?: Project[];
+          project?: never;
+          selected: string[];
+          onSelectedChange: (selected: string[]) => void;
+      }
+    | {
+          type: "specific";
+          project: Project;
+          projects?: never;
+          selected?: never;
+          onSelectedChange?: never;
+      }
 );
 
 export default function Dropdown(props: DropdownProps) {
-    const { label, background } = props;
-    const projects = props.type === "broad" ? props.projects : [props.project];
+    const { background } = props;
+    const projects =
+        props.type === "broad" ? props.projects : [props.project];
 
-    const [isOpen, setIsOpen] = useState<boolean>(false);
-    const [selected, setSelected] = useState<string[]>([]);
+    const [isOpen, setIsOpen] = useState(false);
+    const selected = props.type === "broad" ? props.selected : [];
+    const onSelectedChange =
+        props.type === "broad" ? props.onSelectedChange : () => {};
     const allSlugs = projects?.map((p) => p.slug) ?? [];
-    const allSelected = allSlugs.length > 0 && allSlugs.every((s) => selected.includes(s));
+    const allSelected =
+        allSlugs.length > 0 && allSlugs.every((s) => selected.includes(s));
 
     if (props.type === "specific") {
         return (
             <div className={styles.dropdown} data-background={background}>
+                <input
+                    type="hidden"
+                    name="project"
+                    value={props.project.slug}
+                />
                 <p>
                     {props.project.title} –{" "}
-                    <span className="text-meta">{props.project.location}</span>
+                    <span className="text-meta">
+                        {props.project.location}
+                    </span>
                 </p>
             </div>
         );
     }
 
-    const handleOpen = () => {
-        setIsOpen(!isOpen);
-    };
-
     function toggle(slug: string) {
-        setSelected((prev) =>
-            prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug],
+        onSelectedChange(
+            selected.includes(slug)
+                ? selected.filter((s) => s !== slug)
+                : [...selected, slug],
         );
     }
 
     function toggleAll() {
-        setSelected(allSelected ? [] : allSlugs);
+        onSelectedChange(allSelected ? [] : allSlugs);
     }
 
     return (
         <div>
-            <div className={styles.dropdown} data-background={background} onClick={handleOpen}>
-                <div>
-                    <p>
-                        Välj projekt:{" "}
-                        {selected.length > 0 && <span>{selected.length} Valda</span>}{" "}
-                    </p>
-                </div>
+            {selected.map((slug) => (
+                <input
+                    key={slug}
+                    type="hidden"
+                    name="project"
+                    value={slug}
+                />
+            ))}
+
+            <div
+                className={styles.dropdown}
+                data-background={background}
+                onClick={() => setIsOpen(!isOpen)}
+            >
+                <p>
+                    Välj projekt:{" "}
+                    {selected.length > 0 && (
+                        <span>{selected.length} Valda</span>
+                    )}
+                </p>
                 <div className={styles.chevron}>
-                    {isOpen ? <IconChevronUp size={14} /> : <IconChevronDown size={14} />}
+                    {isOpen ? (
+                        <IconChevronUp size={14} />
+                    ) : (
+                        <IconChevronDown size={14} />
+                    )}
                 </div>
             </div>
+
             {isOpen && (
                 <div
                     className={styles.options}
@@ -70,11 +107,19 @@ export default function Dropdown(props: DropdownProps) {
                     onClick={(e) => e.stopPropagation()}
                 >
                     <div className={styles.option} onClick={toggleAll}>
-                        <input type="checkbox" id="select-all" checked={allSelected} readOnly />
-                        <div className={`${styles.checkbox} ${allSelected ? styles.checked : ""}`}>
+                        <input
+                            type="checkbox"
+                            checked={allSelected}
+                            readOnly
+                        />
+                        <div
+                            className={`${styles.checkbox} ${
+                                allSelected ? styles.checked : ""
+                            }`}
+                        >
                             {allSelected && <IconCheck size={16} />}
                         </div>
-                        <label className={styles.label}>Välj alla</label>
+                        <span className={styles.label}>Välj alla</span>
                     </div>
                     {projects?.map((project) => (
                         <div
@@ -84,19 +129,23 @@ export default function Dropdown(props: DropdownProps) {
                         >
                             <input
                                 type="checkbox"
-                                id={project.slug}
                                 checked={selected.includes(project.slug)}
-                                onChange={() => toggle(project.slug)}
+                                readOnly
                             />
                             <div
-                                className={`${styles.checkbox} ${selected.includes(project.slug) ? styles.checked : ""}`}
+                                className={`${styles.checkbox}
+  ${selected.includes(project.slug) ? styles.checked : ""}`}
                             >
-                                {selected.includes(project.slug) && <IconCheck size={16} />}
+                                {selected.includes(project.slug) && (
+                                    <IconCheck size={16} />
+                                )}
                             </div>
-                            <label htmlFor={project.slug} className={styles.label}>
-                                {project.title} -{" "}
-                                <span className="text-meta">{project.location}</span>
-                            </label>
+                            <span className={styles.label}>
+                                {project.title} –{" "}
+                                <span className="text-meta">
+                                    {project.location}
+                                </span>
+                            </span>
                         </div>
                     ))}
                 </div>
