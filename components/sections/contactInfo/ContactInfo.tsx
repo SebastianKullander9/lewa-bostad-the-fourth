@@ -1,15 +1,18 @@
 import styles from "./ContactInfo.module.css";
 
-export default function ContactInfo() {
+interface ContactInfoProps {
+    heading: string;
+    intro: string;
+    email: string;
+}
+
+export default function ContactInfo({ heading, intro, email }: ContactInfoProps) {
     return (
         <section className="container stack">
-            <h1>Välkommen att kontakta oss.</h1>
-            <p>
-                Har du en fråga eller vill komma i kontakt med oss? Du är alltid varmt välkommen att
-                höra av dig och vi återkommer så snart vi kan.
-            </p>
-            <a href="mailto:info@lewabostad.se" className={styles.email}>
-                info@lewabostad.se
+            <h1>{heading}</h1>
+            <p>{intro}</p>
+            <a href={`mailto:${email}`} className={styles.email}>
+                {email}
             </a>
         </section>
     );

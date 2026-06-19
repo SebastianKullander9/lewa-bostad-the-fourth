@@ -2,10 +2,6 @@ import type { Metadata } from "next";
 import "./styles/globals.css";
 
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
-import Footer from "@/components/ui/footer/Footer";
-import { ConsentProvider } from "@/components/ui/consent/ConsentContext";
-import CookieBanner from "@/components/ui/consent/CookieBanner";
-import ConsentedAnalytics from "@/components/ui/consent/ConsentedAnalytics";
 
 const cormorant = Cormorant_Garamond({
     subsets: ["latin"],
@@ -47,13 +43,7 @@ export default function RootLayout({
             lang="sv"
             className={`${dmSans.variable} ${cormorant.variable}`}
         >
-            <body>
-                <ConsentProvider>
-                    {children}
-                    <CookieBanner />
-                    <Footer />
-                </ConsentProvider>
-            </body>
+            <body>{children}</body>
         </html>
     );
 }

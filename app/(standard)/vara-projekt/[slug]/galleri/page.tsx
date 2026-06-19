@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { projectData } from "@/components/sections/ourProjects/data";
+import { getAllProjectSlugs, getProject } from "@/lib/sanity/queries";
 import Gallery from "@/components/sections/ourProjects/underpageStandard/gallery/Gallery";
+
+export async function generateStaticParams() {
+    const slugs = await getAllProjectSlugs();
+    return slugs.map((slug) => ({ slug }));
+}
 
 export async function generateMetadata({
     params,
@@ -9,7 +14,7 @@ export async function generateMetadata({
     params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
     const { slug } = await params;
-    const project = projectData.find((p) => p.slug === slug);
+    const project = await getProject(slug);
     if (!project) return {};
     return {
         title: `${project.title} – Bildgalleri`,
@@ -23,7 +28,7 @@ export default async function GalleryPage({
     params: Promise<{ slug: string }>;
 }) {
     const { slug } = await params;
-    const project = projectData.find((p) => p.slug === slug);
+    const project = await getProject(slug);
 
     if (!project) notFound();
 

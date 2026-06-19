@@ -1,28 +1,27 @@
-import owners from "@/public/aboutHero/owners.jpg";
-
 import SplitSectionBleed from "../splitSectionBleed/SplitSectionBleed";
 
-export default function AboutHero() {
+interface AboutHeroProps {
+    headingLine1: string;
+    headingLine2: string;
+    text: string;
+    imageUrl: string;
+    imageAlt: string;
+}
+
+export default function AboutHero({ headingLine1, headingLine2, text, imageUrl, imageAlt }: AboutHeroProps) {
     return (
         <SplitSectionBleed
-            image={owners}
-            imageAlt="Johan Bondebjer och Magnus Ekvall"
+            image={imageUrl}
+            imageAlt={imageAlt}
             imagePosition="right"
             background="default"
             fullHeight
         >
             <div>
-                <h2>På väg mot något nytt.</h2>
-                <h2>Precis som du.</h2>
+                <h2>{headingLine1}</h2>
+                <h2>{headingLine2}</h2>
             </div>
-
-            <p className="prose">
-                Två bostadsaktörer med lång erfarenhet har gått samman och bildat Lewa Bostad.
-                Företaget drivs av Johan Bondebjer, Magnus Ekvall från tidigare Bjerbo Bostad samt
-                Fredrik Lidjan från Reliwe. Med en stark projektportfölj och god finansiell
-                ställning fortsätter vi att skapa hållbara hem och värde för både kunder och
-                samhälle.
-            </p>
+            <p className="prose">{text}</p>
         </SplitSectionBleed>
     );
 }

@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "@/public/logo/lewa_bostad_logo_vit_recolored.svg";
 
+const YEAR = new Date().getFullYear();
+
 export default function Footer() {
     return (
         <footer className={`section section--brand section--no-padding-bottom`}>
@@ -28,7 +30,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className={styles.bottom}>
-                <p className={styles.link}>© {new Date().getFullYear()} Lewa Bostad</p>
+                <p className={styles.link}>© {YEAR} Lewa Bostad</p>
                 <Link href="/integritetspolicy" className={styles.link}>
                     Integritetspolicy
                 </Link>

@@ -1,27 +1,25 @@
-import owners from "@/public/aboutHero/owners.jpg";
-
 import SplitSectionBleed from "../splitSectionBleed/SplitSectionBleed";
 
-export default function ProcessHero() {
+interface ProcessHeroProps {
+    heading: string;
+    text: string;
+    imageUrl: string;
+    imageAlt: string;
+}
+
+export default function ProcessHero({ heading, text, imageUrl, imageAlt }: ProcessHeroProps) {
     return (
         <SplitSectionBleed
-            image={owners}
-            imageAlt="Johan Bondebjer och Magnus Ekvall"
+            image={imageUrl}
+            imageAlt={imageAlt}
             imagePosition="right"
             background="default"
             fullHeight
         >
             <div>
-                <h2>Processen.</h2>
+                <h2>{heading}</h2>
             </div>
-
-            <p className="prose">
-                Att köpa bostad är en av livets största affärer. Hos Lewa Bostad vill vi att resan
-                till ditt nya hem ska kännas trygg, tydlig och väl genomtänkt. Här guidar vi dig
-                genom köpprocessens olika steg – från intresseanmälan och avtalsskrivning till
-                tillträde och inflyttning. Med rätt information och stöd längs vägen blir det
-                enklare att fatta trygga beslut och se fram emot livet i ditt nya hem.
-            </p>
+            <p className="prose">{text}</p>
         </SplitSectionBleed>
     );
 }

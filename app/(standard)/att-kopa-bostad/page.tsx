@@ -3,7 +3,7 @@ import ProcessHero from "@/components/sections/processHero/ProcessHero";
 import ProcessSteps from "@/components/sections/processSteps/ProcessSteps";
 import Interest from "@/components/sections/interest/Interest";
 import FloatingCTA from "@/components/ui/floatingCTA/FloatingCTA";
-import { projectData } from "@/components/sections/ourProjects/data";
+import { getBuyingGuide, getAllProjects } from "@/lib/sanity/queries";
 
 export const metadata: Metadata = {
     title: "Att köpa bostad",
@@ -17,13 +17,20 @@ export const metadata: Metadata = {
     },
 };
 
-export default function page() {
+export default async function page() {
+    const [data, projects] = await Promise.all([getBuyingGuide(), getAllProjects()]);
+
     return (
         <>
             <FloatingCTA mode="scroll" />
-            <ProcessHero />
-            <ProcessSteps />
-            <Interest type="broad" projects={projectData} background="default" />
+            <ProcessHero
+                heading={data.heroHeading}
+                text={data.heroText}
+                imageUrl={data.heroImage.src}
+                imageAlt={data.heroImage.alt}
+            />
+            <ProcessSteps steps={data.steps} />
+            <Interest type="broad" projects={projects} background="default" />
         </>
     );
 }

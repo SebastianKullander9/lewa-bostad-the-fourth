@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { StaticImageData } from "next/image";
 import { Background } from "@/types/Props.types";
 import styles from "./SplitSection.module.css";
 
@@ -8,7 +7,7 @@ interface SplitSectionProps {
     headingLevel?: "h1" | "h2" | "h3";
     headingSize?: "h1" | "h2" | "h3";
     text: string[];
-    image: StaticImageData;
+    image: string;
     imageAlt: string;
     imagePosition: "left" | "right";
     background?: Background;

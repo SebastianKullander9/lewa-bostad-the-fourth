@@ -1,54 +1,50 @@
+import { PortableText } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/types";
 import styles from "./Integritetspolicy.module.css";
-import { PolicyBlock, PolicyData } from "./data";
 
-function renderBlock(block: PolicyBlock, index: number) {
-    switch (block.type) {
-        case "paragraph":
-            return (
-                <p key={index} className="prose">
-                    {block.text}
-                </p>
-            );
-        case "subheading":
-            return <h4 key={index}>{block.text}</h4>;
-        case "list":
-            return (
-                <ul key={index} className={styles.list}>
-                    {block.items.map((item, i) => (
-                        <li key={i} className={styles.listItem}>
-                            <span className={styles.bullet} />
-                            <p>
-                                {item.title && (
-                                    <strong className={styles.listTitle}>
-                                        {item.title}:{" "}
-                                    </strong>
-                                )}
-                                {item.text}
-                            </p>
-                        </li>
-                    ))}
-                </ul>
-            );
-    }
+interface PolicySection {
+    title: string;
+    content: PortableTextBlock[];
 }
 
 interface IntegritetspolicyProps {
-    data: PolicyData;
+    title: string;
+    sections: PolicySection[];
 }
 
-export default function Integritetspolicy({ data }: IntegritetspolicyProps) {
+export default function Integritetspolicy({ title, sections }: IntegritetspolicyProps) {
     return (
         <section className="section section--default section--page-start">
             <div className={`container stack`}>
-                <h1>{data.title}</h1>
+                <h1>{title}</h1>
                 <div className={styles.sections}>
-                    {data.sections.map((section, i) => (
+                    {sections.map((section, i) => (
                         <div key={i} className={styles.sectionBlock}>
                             <h3>{section.title}</h3>
                             <div className="stack-small">
-                                {section.blocks.map((block, j) =>
-                                    renderBlock(block, j),
-                                )}
+                                <PortableText
+                                    value={section.content}
+                                    components={{
+                                        block: {
+                                            normal: ({ children }) => (
+                                                <p className="prose">{children}</p>
+                                            ),
+                                        },
+                                        list: {
+                                            bullet: ({ children }) => (
+                                                <ul className={styles.list}>{children}</ul>
+                                            ),
+                                        },
+                                        listItem: {
+                                            bullet: ({ children }) => (
+                                                <li className={styles.listItem}>
+                                                    <span className={styles.bullet} />
+                                                    <p>{children}</p>
+                                                </li>
+                                            ),
+                                        },
+                                    }}
+                                />
                             </div>
                         </div>
                     ))}

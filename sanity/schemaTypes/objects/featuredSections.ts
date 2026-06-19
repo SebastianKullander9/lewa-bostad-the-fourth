@@ -1,0 +1,296 @@
+import { defineArrayMember, defineField, defineType } from "sanity";
+
+const eyebrowField = defineField({
+    name: "eyebrow",
+    title: "Ögonbryn (liten text ovanför rubriken)",
+    type: "string",
+    description: 'Valfri – visas som liten etikett ovanför rubriken, t.ex. "Projektet" eller "Bostäderna"',
+});
+
+export const introSectionType = defineType({
+    name: "introSection",
+    title: "Inledning",
+    type: "object",
+    description: "Projektets inledningssektion med faktatåda och statusindikator",
+    fields: [
+        eyebrowField,
+        defineField({
+            name: "title",
+            title: "Rubrik",
+            type: "string",
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "text",
+            title: "Introduktionstext",
+            type: "text",
+            rows: 5,
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "statusStep",
+            title: "Aktuellt projektsteg",
+            type: "number",
+            description: "Vilket steg är projektet på i statusindikatorn? (0 = inte börjat, högre = längre kommet)",
+            validation: (Rule) => Rule.required().min(0).integer(),
+        }),
+        defineField({
+            name: "objectInfo",
+            title: "Objektfakta",
+            type: "array",
+            description: "Faktatåda med projektdetaljer, t.ex. Byggstart, Inflyttning, Antal bostäder",
+            of: [defineArrayMember({ type: "objectInfo" })],
+        }),
+    ],
+    preview: {
+        select: { title: "title" },
+        prepare: ({ title }) => ({ title, subtitle: "Inledning" }),
+    },
+});
+
+export const sectionTextType = defineType({
+    name: "sectionText",
+    title: "Textsektion",
+    type: "object",
+    description: "En sektion med enbart rubrik och brödtext – ingen bild",
+    fields: [
+        eyebrowField,
+        defineField({
+            name: "title",
+            title: "Rubrik",
+            type: "string",
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "text",
+            title: "Brödtext",
+            type: "text",
+            rows: 5,
+            validation: (Rule) => Rule.required(),
+        }),
+    ],
+    preview: {
+        select: { title: "title" },
+        prepare: ({ title }) => ({ title, subtitle: "Textsektion" }),
+    },
+});
+
+export const sectionSplitType = defineType({
+    name: "sectionSplit",
+    title: "Delad sektion (text + bild)",
+    type: "object",
+    description: "Rubrik och brödtext bredvid en bild",
+    fields: [
+        eyebrowField,
+        defineField({
+            name: "title",
+            title: "Rubrik",
+            type: "string",
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "text",
+            title: "Brödtext",
+            type: "text",
+            rows: 6,
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "image",
+            title: "Bild",
+            type: "image",
+            options: { hotspot: true },
+            fields: [
+                defineField({
+                    name: "alt",
+                    title: "Alternativ text",
+                    type: "string",
+                    description: "Beskriv bilden kort",
+                }),
+            ],
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "imageOrientation",
+            title: "Bildens placering",
+            type: "string",
+            options: {
+                list: [
+                    { title: "Vänster", value: "left" },
+                    { title: "Höger", value: "right" },
+                ],
+                layout: "radio",
+            },
+            initialValue: "right",
+            validation: (Rule) => Rule.required(),
+        }),
+    ],
+    preview: {
+        select: { title: "title", media: "image" },
+        prepare: ({ title, media }) => ({ title, subtitle: "Delad sektion", media }),
+    },
+});
+
+export const sectionSplitDoubleType = defineType({
+    name: "sectionSplitDouble",
+    title: "Dubbel bildsektion",
+    type: "object",
+    description: "Rubrik och text med två bilder bredvid varandra",
+    fields: [
+        eyebrowField,
+        defineField({
+            name: "title",
+            title: "Rubrik",
+            type: "string",
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "text",
+            title: "Brödtext (valfri)",
+            type: "text",
+            rows: 4,
+        }),
+        defineField({
+            name: "image1",
+            title: "Bild 1",
+            type: "image",
+            options: { hotspot: true },
+            fields: [
+                defineField({
+                    name: "alt",
+                    title: "Alternativ text",
+                    type: "string",
+                }),
+            ],
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "image2",
+            title: "Bild 2",
+            type: "image",
+            options: { hotspot: true },
+            fields: [
+                defineField({
+                    name: "alt",
+                    title: "Alternativ text",
+                    type: "string",
+                }),
+            ],
+            validation: (Rule) => Rule.required(),
+        }),
+    ],
+    preview: {
+        select: { title: "title", media: "image1" },
+        prepare: ({ title, media }) => ({ title, subtitle: "Dubbel bildsektion", media }),
+    },
+});
+
+export const sectionBulletsType = defineType({
+    name: "sectionBullets",
+    title: "Punktlistesektion",
+    type: "object",
+    description: "Rubrik, valfri intro-text och en punktlista",
+    fields: [
+        eyebrowField,
+        defineField({
+            name: "title",
+            title: "Rubrik",
+            type: "string",
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "text",
+            title: "Introduktionstext (valfri)",
+            type: "text",
+            rows: 3,
+        }),
+        defineField({
+            name: "bulletPoints",
+            title: "Punkter",
+            type: "array",
+            description: "Varje rad är en punkt i listan",
+            of: [defineArrayMember({ type: "string" })],
+            validation: (Rule) => Rule.required().min(1),
+        }),
+    ],
+    preview: {
+        select: { title: "title" },
+        prepare: ({ title }) => ({ title, subtitle: "Punktlistesektion" }),
+    },
+});
+
+export const subSectionType = defineType({
+    name: "subSection",
+    title: "Undersektion",
+    type: "object",
+    fields: [
+        defineField({
+            name: "title",
+            title: "Rubrik",
+            type: "string",
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "text",
+            title: "Brödtext",
+            type: "text",
+            rows: 4,
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "bulletPoints",
+            title: "Punkter (valfria)",
+            type: "array",
+            of: [defineArrayMember({ type: "string" })],
+        }),
+    ],
+    preview: {
+        select: { title: "title" },
+    },
+});
+
+export const sectionSubsectionsType = defineType({
+    name: "sectionSubsections",
+    title: "Undersektioner",
+    type: "object",
+    description: "En huvudrubrik med flera undersektioner (t.ex. Material och detaljer → Kök, Badrum…)",
+    fields: [
+        eyebrowField,
+        defineField({
+            name: "title",
+            title: "Huvudrubrik",
+            type: "string",
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "subSections",
+            title: "Undersektioner",
+            type: "array",
+            of: [defineArrayMember({ type: "subSection" })],
+            validation: (Rule) => Rule.required().min(1),
+        }),
+    ],
+    preview: {
+        select: { title: "title" },
+        prepare: ({ title }) => ({ title, subtitle: "Undersektioner" }),
+    },
+});
+
+export const sectionMapType = defineType({
+    name: "sectionMap",
+    title: "Kartsektion",
+    type: "object",
+    description: "Visar en interaktiv karta över projektets läge – positionen hämtas från projektets koordinater",
+    fields: [
+        eyebrowField,
+        defineField({
+            name: "title",
+            title: "Rubrik (valfri)",
+            type: "string",
+        }),
+    ],
+    preview: {
+        select: { title: "title" },
+        prepare: ({ title }) => ({ title: title ?? "Karta", subtitle: "Kartsektion" }),
+    },
+});

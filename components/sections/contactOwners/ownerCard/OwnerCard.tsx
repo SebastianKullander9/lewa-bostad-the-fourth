@@ -1,9 +1,8 @@
 import Image from "next/image";
-import { StaticImageData } from "next/image";
 import styles from "./OwnerCard.module.css";
 
 interface OwnerCardProps {
-    image: StaticImageData;
+    image: string;
     fullName: string;
     email: string;
 }

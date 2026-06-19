@@ -4,7 +4,7 @@ import ContactInfo from "@/components/sections/contactInfo/ContactInfo";
 import ContactOwners from "@/components/sections/contactOwners/ContactOwners";
 import Interest from "@/components/sections/interest/Interest";
 import FloatingCTA from "@/components/ui/floatingCTA/FloatingCTA";
-import { projectData } from "@/components/sections/ourProjects/data";
+import { getContactPage, getAllProjects } from "@/lib/sanity/queries";
 
 export const metadata: Metadata = {
     title: "Kontakt",
@@ -18,17 +18,18 @@ export const metadata: Metadata = {
     },
 };
 
-export default function Page() {
+export default async function Page() {
+    const [data, projects] = await Promise.all([getContactPage(), getAllProjects()]);
+
     return (
-        <div className=" stack ">
+        <div className="stack">
             <FloatingCTA mode="instant" />
             <div className="section section--page-start stack">
-                <ContactInfo />
-                <ContactOwners />
-                <ContactAquisition />
+                <ContactInfo heading={data.heading} intro={data.intro} email={data.email} />
+                <ContactOwners owners={data.owners} />
+                <ContactAquisition title={data.acquisitionTitle} text={data.acquisitionText} />
             </div>
-
-            <Interest type="broad" projects={projectData} background="alt" />
+            <Interest type="broad" projects={projects} background="alt" />
         </div>
     );
 }

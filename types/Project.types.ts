@@ -1,7 +1,5 @@
-import { StaticImageData } from "next/image";
-
 export interface ProjectImage {
-    src: StaticImageData;
+    src: string;
     alt: string;
 }
 
@@ -19,7 +17,7 @@ export interface SubSection {
 }
 
 export interface IntroSection {
-    _type: "intro";
+    _type: "introSection";
     title: string;
     text: string;
     statusStep: number;

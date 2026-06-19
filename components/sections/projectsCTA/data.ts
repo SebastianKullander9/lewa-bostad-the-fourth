@@ -14,7 +14,7 @@ export const projectCTAData: Project[] = [
         sections: [],
         objectInfo: [],
         images: {
-            thumbnail: { src: glansbaggen, alt: "Bild ifrån projektet Glansbaggen" },
+            thumbnail: { src: glansbaggen.src, alt: "Bild ifrån projektet Glansbaggen" },
             gallery: [],
         },
     },
@@ -29,7 +29,7 @@ export const projectCTAData: Project[] = [
         sections: [],
         objectInfo: [],
         images: {
-            thumbnail: { src: kummelnashojden, alt: "Bild ifrån projektet Kummelnäshöjden" },
+            thumbnail: { src: kummelnashojden.src, alt: "Bild ifrån projektet Kummelnäshöjden" },
             gallery: [],
         },
     },

@@ -1,19 +1,23 @@
 "use client";
 
-import { projectData } from "./data";
+import { STATUS_FILTERS } from "./data";
 import styles from "./OurProjects.module.css";
 import ProjectCard from "@/components/ui/projectCard/ProjectCard";
-import { STATUS_FILTERS } from "./data";
-import { notFound, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import type { Project } from "@/types/Project.types";
 
-export default function OurProjects() {
+interface OurProjectsProps {
+    projects: Project[];
+}
+
+export default function OurProjects({ projects }: OurProjectsProps) {
     const router = useRouter();
     const searchParams = useSearchParams();
     const activeFilter = searchParams.get("status") ?? "all";
     const params = new URLSearchParams(searchParams.toString());
 
-    const filteredProjects = projectData.filter((p) =>
-        activeFilter == "all" ? true : p.status.value === activeFilter,
+    const filteredProjects = projects.filter((p) =>
+        activeFilter === "all" ? true : p.status.value === activeFilter,
     );
 
     const setFilter = (value: string) => {
@@ -58,7 +62,7 @@ export default function OurProjects() {
             )}
             <div className={`${styles.grid}`}>
                 {filteredProjects.map((project) => (
-                    <ProjectCard key={project.title} project={project} link={true} />
+                    <ProjectCard key={project.slug} project={project} link={true} />
                 ))}
             </div>
         </section>

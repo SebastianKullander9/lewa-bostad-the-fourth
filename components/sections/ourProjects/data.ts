@@ -58,7 +58,7 @@ export const projectData: Project[] = [
                      a volutpat quis, auctor nec tortor. Suspendisse efficitur, lorem eu porta placerat, turpis ipsum suscipit turpis, eu suscipit
                       elit sapien placerat est. Curabitur auctor nulla maximus hendrerit egestas. Curabitur orci velit, vehicula ac tortor at,
                       bibendum bibendum metus.`,
-                image: { src: Glansbaggen_exterior_1_002, alt: "Exteriör av Glansbaggen" },
+                image: { src: Glansbaggen_exterior_1_002.src, alt: "Exteriör av Glansbaggen" },
                 imageOrientation: "left",
             },
             {
@@ -66,7 +66,7 @@ export const projectData: Project[] = [
                 text: `Fågelbyn är en växande stadsdel med familjevänlig karaktär, bara 10 minuter från Tumba
                     Centrum. Utanför dörren finns allt som behövs för en bekväm vardag: förskola, restauranger
                     och butiker men också stora grönområden kring Lida naturreservat.`,
-                image: { src: Glansbaggen_vardagsrum_001, alt: "Vardagsrum i Glansbaggen" },
+                image: { src: Glansbaggen_vardagsrum_001.src, alt: "Vardagsrum i Glansbaggen" },
                 imageOrientation: "right",
             },
         ],
@@ -78,20 +78,20 @@ export const projectData: Project[] = [
         ],
         images: {
             thumbnail: {
-                src: Glansbaggen_vardagsrum_001,
+                src: Glansbaggen_vardagsrum_001.src,
                 alt: "Exteriör av Glansbaggen",
             },
             gallery: [
-                { src: Glansbaggen_exterior_1_002, alt: "Exteriör av Glansbaggen" },
-                { src: Glansbaggen_exterior_2_002, alt: "Exteriör av Glansbaggen" },
-                { src: Glansbaggen_exterior_3_002, alt: "Exteriör av Glansbaggen" },
-                { src: Glansbaggen_vardagsrum_001, alt: "Vardagsrum i Glansbaggen" },
-                { src: Glansbaggen_kok_001, alt: "Kök i Glansbaggen" },
-                { src: Glansbaggen_kok_2_001, alt: "Kök i Glansbaggen" },
-                { src: Glansbaggen_badrum_001, alt: "Badrum i Glansbaggen" },
-                { src: Glansbaggen_barnrum_001, alt: "Barnrum i Glansbaggen" },
-                { src: Glansbaggen_sovrum_001, alt: "Sovrum i Glansbaggen" },
-                { src: Glansbaggen_ovre_hall_001, alt: "Övre hall i Glansbaggen" },
+                { src: Glansbaggen_exterior_1_002.src, alt: "Exteriör av Glansbaggen" },
+                { src: Glansbaggen_exterior_2_002.src, alt: "Exteriör av Glansbaggen" },
+                { src: Glansbaggen_exterior_3_002.src, alt: "Exteriör av Glansbaggen" },
+                { src: Glansbaggen_vardagsrum_001.src, alt: "Vardagsrum i Glansbaggen" },
+                { src: Glansbaggen_kok_001.src, alt: "Kök i Glansbaggen" },
+                { src: Glansbaggen_kok_2_001.src, alt: "Kök i Glansbaggen" },
+                { src: Glansbaggen_badrum_001.src, alt: "Badrum i Glansbaggen" },
+                { src: Glansbaggen_barnrum_001.src, alt: "Barnrum i Glansbaggen" },
+                { src: Glansbaggen_sovrum_001.src, alt: "Sovrum i Glansbaggen" },
+                { src: Glansbaggen_ovre_hall_001.src, alt: "Övre hall i Glansbaggen" },
             ],
         },
     },
@@ -115,7 +115,7 @@ export const projectData: Project[] = [
                     Bostäderna är moderna med tidlös arkitektur, genomtänkta planlösningar och hållbara
                     materialval. De karakteriseras av generösa ljusinsläpp, öppna sällskapsytor och smarta
                     lösningar för hela familjens behov.`,
-                image: { src: Kummelnas_interior_1_002, alt: "Interiör av Kummelnäshöjden" },
+                image: { src: Kummelnas_interior_1_002.src, alt: "Interiör av Kummelnäshöjden" },
                 imageOrientation: "left",
             },
             {
@@ -123,7 +123,7 @@ export const projectData: Project[] = [
                 text: `Kummelnäs är en av Nackas mest eftertraktade pärlor – omgivet av hav, naturreservat och
                     småbåtshamnar. Här bor du med skogspromenader, badvikar och lugnet som vardag,
                     samtidigt som du når Slussen på under 30 minuter.`,
-                image: { src: Kummelnas_exterior_1_wood_002, alt: "Exteriör av Kummelnäshöjden" },
+                image: { src: Kummelnas_exterior_1_wood_002.src, alt: "Exteriör av Kummelnäshöjden" },
                 imageOrientation: "right",
             },
         ],
@@ -135,39 +135,39 @@ export const projectData: Project[] = [
         ],
         images: {
             thumbnail: {
-                src: Kummelnas_interior_2_002,
+                src: Kummelnas_interior_2_002.src,
                 alt: "Exteriör av Kummelnäshöjden",
             },
             gallery: [
-                { src: Kummelnas_exterior_1_wood_002, alt: "Exteriör av Kummelnäshöjden" },
-                { src: Kummelnas_exterior_1_black_002, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_1_wood_002.src, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_1_black_002.src, alt: "Exteriör av Kummelnäshöjden" },
                 {
-                    src: Kummelnas_exterior_1_back_wood_003,
+                    src: Kummelnas_exterior_1_back_wood_003.src,
                     alt: "Bakre exteriör av Kummelnäshöjden",
                 },
                 {
-                    src: Kummelnas_exterior_1_back_black_003,
+                    src: Kummelnas_exterior_1_back_black_003.src,
                     alt: "Bakre exteriör av Kummelnäshöjden",
                 },
-                { src: Kummelnas_exterior_2_wood_002, alt: "Exteriör av Kummelnäshöjden" },
-                { src: Kummelnas_exterior_2_black_001, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_2_wood_002.src, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_2_black_001.src, alt: "Exteriör av Kummelnäshöjden" },
                 {
-                    src: Kummelnas_exterior_2_back_wood_002,
+                    src: Kummelnas_exterior_2_back_wood_002.src,
                     alt: "Bakre exteriör av Kummelnäshöjden",
                 },
                 {
-                    src: Kummelnas_exterior_2_back_black_002,
+                    src: Kummelnas_exterior_2_back_black_002.src,
                     alt: "Bakre exteriör av Kummelnäshöjden",
                 },
-                { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av Kummelnäshöjden" },
-                { src: Kummelnas_exterior_3_black_002, alt: "Exteriör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_1_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_2_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_3_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_4_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_5_003, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_6_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_7_002, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_3_wood_002.src, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_3_black_002.src, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_1_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_2_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_3_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_4_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_5_003.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_6_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_7_002.src, alt: "Interiör av Kummelnäshöjden" },
             ],
         },
     },
@@ -190,7 +190,7 @@ export const projectData: Project[] = [
                     a volutpat quis, auctor nec tortor. Suspendisse efficitur, lorem eu porta placerat, turpis ipsum suscipit turpis, eu suscipit
                     elit sapien placerat est. Curabitur auctor nulla maximus hendrerit egestas. Curabitur orci velit, vehicula ac tortor at,
                     bibendum bibendum metus.`,
-                image: { src: Glansbaggen_exterior_2_002, alt: "Exteriör av Kringlan" },
+                image: { src: Glansbaggen_exterior_2_002.src, alt: "Exteriör av Kringlan" },
                 imageOrientation: "left",
             },
             {
@@ -200,7 +200,7 @@ export const projectData: Project[] = [
                     butiker, restauranger och service. Bara några hundra meter från din dörr sträcker ett stort
                     naturreservat ut sig med motionsslingor, skidspår, badsjöar, bondgårdar och äventyrliga
                     friluftsaktiviteter för hela familjen.`,
-                image: { src: Kummelnas_interior_3_002, alt: "Interiör av Kringlan" },
+                image: { src: Kummelnas_interior_3_002.src, alt: "Interiör av Kringlan" },
                 imageOrientation: "right",
             },
         ],
@@ -212,39 +212,39 @@ export const projectData: Project[] = [
         ],
         images: {
             thumbnail: {
-                src: Glansbaggen_exterior_2_002,
+                src: Glansbaggen_exterior_2_002.src,
                 alt: "Exteriör av Kringlan",
             },
             gallery: [
-                { src: Kummelnas_exterior_1_wood_002, alt: "Exteriör av Kummelnäshöjden" },
-                { src: Kummelnas_exterior_1_black_002, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_1_wood_002.src, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_1_black_002.src, alt: "Exteriör av Kummelnäshöjden" },
                 {
-                    src: Kummelnas_exterior_1_back_wood_003,
+                    src: Kummelnas_exterior_1_back_wood_003.src,
                     alt: "Bakre exteriör av Kummelnäshöjden",
                 },
                 {
-                    src: Kummelnas_exterior_1_back_black_003,
+                    src: Kummelnas_exterior_1_back_black_003.src,
                     alt: "Bakre exteriör av Kummelnäshöjden",
                 },
-                { src: Kummelnas_exterior_2_wood_002, alt: "Exteriör av Kummelnäshöjden" },
-                { src: Kummelnas_exterior_2_black_001, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_2_wood_002.src, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_2_black_001.src, alt: "Exteriör av Kummelnäshöjden" },
                 {
-                    src: Kummelnas_exterior_2_back_wood_002,
+                    src: Kummelnas_exterior_2_back_wood_002.src,
                     alt: "Bakre exteriör av Kummelnäshöjden",
                 },
                 {
-                    src: Kummelnas_exterior_2_back_black_002,
+                    src: Kummelnas_exterior_2_back_black_002.src,
                     alt: "Bakre exteriör av Kummelnäshöjden",
                 },
-                { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av Kummelnäshöjden" },
-                { src: Kummelnas_exterior_3_black_002, alt: "Exteriör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_1_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_2_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_3_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_4_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_5_003, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_6_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_7_002, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_3_wood_002.src, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_3_black_002.src, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_1_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_2_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_3_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_4_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_5_003.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_6_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_7_002.src, alt: "Interiör av Kummelnäshöjden" },
             ],
         },
     },
@@ -262,7 +262,7 @@ export const projectData: Project[] = [
         },
         sections: [
             {
-                _type: "intro",
+                _type: "introSection",
                 title: "Xxxxx xxx xxxxx",
                 text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta risus dolor, ac tempus nulla efficitur
                     et. Nulla suscipit aliquet blandit. Aliquam erat volutpat. Vestibulum congue tincidunt pretium. Etiam metus nisl, laoreet
@@ -290,7 +290,7 @@ export const projectData: Project[] = [
                     två till tre plan med generöst ljusinsläpp och smarta arkitektoniska lösningar.
                     Det kuperade landskapet ger området karaktär och skapar fina utblickar över
                     omgivningen.`,
-                image: { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av ARK44" },
+                image: { src: Kummelnas_exterior_3_wood_002.src, alt: "Exteriör av ARK44" },
                 imageOrientation: "right",
             },
             {
@@ -312,8 +312,8 @@ export const projectData: Project[] = [
                 eyebrow: "Planlösningar",
                 title: "Planlösningar",
                 text: "Välplanerade ytor med genomtänkt arkitektur och smarta lösningar för hela familjen.",
-                image1: { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av ARK44" },
-                image2: { src: Kummelnas_interior_5_003, alt: "Interiör av ARK44" },
+                image1: { src: Kummelnas_exterior_3_wood_002.src, alt: "Exteriör av ARK44" },
+                image2: { src: Kummelnas_interior_5_003.src, alt: "Interiör av ARK44" },
             },
             {
                 _type: "sectionSubsections",
@@ -367,39 +367,39 @@ export const projectData: Project[] = [
         ],
         images: {
             thumbnail: {
-                src: Kummelnas_exterior_2_wood_002,
+                src: Kummelnas_exterior_2_wood_002.src,
                 alt: "Exteriör av ARK44",
             },
             gallery: [
-                { src: Kummelnas_exterior_1_wood_002, alt: "Exteriör av Kummelnäshöjden" },
-                { src: Kummelnas_exterior_1_black_002, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_1_wood_002.src, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_1_black_002.src, alt: "Exteriör av Kummelnäshöjden" },
                 {
-                    src: Kummelnas_exterior_1_back_wood_003,
+                    src: Kummelnas_exterior_1_back_wood_003.src,
                     alt: "Bakre exteriör av Kummelnäshöjden",
                 },
                 {
-                    src: Kummelnas_exterior_1_back_black_003,
+                    src: Kummelnas_exterior_1_back_black_003.src,
                     alt: "Bakre exteriör av Kummelnäshöjden",
                 },
-                { src: Kummelnas_exterior_2_wood_002, alt: "Exteriör av Kummelnäshöjden" },
-                { src: Kummelnas_exterior_2_black_001, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_2_wood_002.src, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_2_black_001.src, alt: "Exteriör av Kummelnäshöjden" },
                 {
-                    src: Kummelnas_exterior_2_back_wood_002,
+                    src: Kummelnas_exterior_2_back_wood_002.src,
                     alt: "Bakre exteriör av Kummelnäshöjden",
                 },
                 {
-                    src: Kummelnas_exterior_2_back_black_002,
+                    src: Kummelnas_exterior_2_back_black_002.src,
                     alt: "Bakre exteriör av Kummelnäshöjden",
                 },
-                { src: Kummelnas_exterior_3_wood_002, alt: "Exteriör av Kummelnäshöjden" },
-                { src: Kummelnas_exterior_3_black_002, alt: "Exteriör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_1_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_2_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_3_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_4_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_5_003, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_6_002, alt: "Interiör av Kummelnäshöjden" },
-                { src: Kummelnas_interior_7_002, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_3_wood_002.src, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_exterior_3_black_002.src, alt: "Exteriör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_1_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_2_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_3_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_4_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_5_003.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_6_002.src, alt: "Interiör av Kummelnäshöjden" },
+                { src: Kummelnas_interior_7_002.src, alt: "Interiör av Kummelnäshöjden" },
             ],
         },
     },
@@ -415,7 +415,7 @@ export const projectData: Project[] = [
         sections: [],
         objectInfo: [],
         images: {
-            thumbnail: { src: Kummelnas_exterior_1_wood_002, alt: "" },
+            thumbnail: { src: Kummelnas_exterior_1_wood_002.src, alt: "" },
             gallery: [],
         },
     },
@@ -430,7 +430,7 @@ export const projectData: Project[] = [
         sections: [],
         objectInfo: [],
         images: {
-            thumbnail: { src: Kummelnas_exterior_1_wood_002, alt: "" },
+            thumbnail: { src: Kummelnas_exterior_1_wood_002.src, alt: "" },
             gallery: [],
         },
     },
@@ -445,7 +445,7 @@ export const projectData: Project[] = [
         sections: [],
         objectInfo: [],
         images: {
-            thumbnail: { src: Kummelnas_exterior_1_wood_002, alt: "" },
+            thumbnail: { src: Kummelnas_exterior_1_wood_002.src, alt: "" },
             gallery: [],
         },
     },

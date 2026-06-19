@@ -1,9 +1,9 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { Background } from "@/types/Props.types";
 import styles from "./SplitSectionBleed.module.css";
 
 interface SplitSectionBleedProps {
-    image: StaticImageData;
+    image: string;
     imageAlt: string;
     imagePosition: "left" | "right";
     background?: Background;

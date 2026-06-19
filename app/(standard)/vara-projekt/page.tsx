@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import OurProjects from "@/components/sections/ourProjects/OurProjects";
 import { Suspense } from "react";
 import Skeleton from "@/components/sections/ourProjects/skeleton/Skeleton";
+import { getAllProjects } from "@/lib/sanity/queries";
 
 export const metadata: Metadata = {
     title: "Våra projekt",
@@ -15,11 +16,13 @@ export const metadata: Metadata = {
     },
 };
 
-export default function OurProjectsPage() {
+export default async function OurProjectsPage() {
+    const projects = await getAllProjects();
+
     return (
         <div>
             <Suspense fallback={<Skeleton />}>
-                <OurProjects />
+                <OurProjects projects={projects} />
             </Suspense>
         </div>
     );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Image from "next/image";
 import logo from "@/public/logo/lewa_bostad_logo_vit_recolored.svg";
 import { menu } from "../menu";
@@ -36,7 +36,9 @@ export default function Header() {
                 onClick={() => setIsOpen(false)}
             />
 
-            <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+            <Suspense fallback={null}>
+                <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+            </Suspense>
         </header>
     );
 }

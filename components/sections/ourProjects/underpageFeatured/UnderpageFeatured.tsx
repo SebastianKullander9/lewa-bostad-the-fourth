@@ -1,4 +1,4 @@
-import { FeaturedProject, FeaturedSection } from "@/types/Project.types";
+import { FeaturedProject, FeaturedSection, Project } from "@/types/Project.types";
 import { Background } from "@/types/Props.types";
 import Hero from "./hero/Hero";
 import SectionNav from "./hero/SectionNav";
@@ -13,15 +13,16 @@ import SectionMap from "./sections/sectionMap/SectionMap";
 
 interface UnderpageFeaturedProps {
     project: FeaturedProject;
+    allProjects: Project[];
 }
 
-function renderSection(section: FeaturedSection, index: number, currentSlug: string) {
+function renderSection(section: FeaturedSection, index: number, currentSlug: string, allProjects: Project[]) {
     const bg: Background = index % 2 === 0 ? "default" : "alt";
     const id = `section-${index}`;
     const eyebrow = section.eyebrow;
 
     switch (section._type) {
-        case "intro":
+        case "introSection":
             return <Intro key={index} intro={section} id={id} eyebrow={eyebrow} />;
         case "sectionText":
             return <SectionText key={index} data={section} background={bg} id={id} eyebrow={eyebrow} />;
@@ -34,11 +35,11 @@ function renderSection(section: FeaturedSection, index: number, currentSlug: str
         case "sectionSubsections":
             return <SectionSubsections key={index} data={section} background={bg} id={id} eyebrow={eyebrow} />;
         case "sectionMap":
-            return <SectionMap key={index} data={section} currentSlug={currentSlug} background={bg} id={id} eyebrow={eyebrow} />;
+            return <SectionMap key={index} data={section} currentSlug={currentSlug} allProjects={allProjects} background={bg} id={id} eyebrow={eyebrow} />;
     }
 }
 
-export default function UnderpageFeatured({ project }: UnderpageFeaturedProps) {
+export default function UnderpageFeatured({ project, allProjects }: UnderpageFeaturedProps) {
     const navItems = project.sections
         .map((s, i) => ({ label: s.eyebrow, id: `section-${i}` }))
         .filter((item): item is { label: string; id: string } => !!item.label);
@@ -47,11 +48,8 @@ export default function UnderpageFeatured({ project }: UnderpageFeaturedProps) {
         <div>
             <FloatingCTA />
             <Hero project={project} />
-            {/* SectionNav sits here in the DOM — right after the hero.
-                On desktop it sticks below the header via position:sticky.
-                On mobile it appears fixed at the bottom after the hero passes. */}
             <SectionNav title={project.title} location={project.location} items={navItems} />
-            {project.sections.map((section, i) => renderSection(section, i, project.slug))}
+            {project.sections.map((section, i) => renderSection(section, i, project.slug, allProjects))}
         </div>
     );
 }

@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import AboutHero from "@/components/sections/aboutHero/AboutHero";
 import AboutValues from "@/components/sections/aboutValues/AboutValues";
 import SplitSection from "@/components/sections/splitSection/SplitSection";
-import img1 from "@/public/aboutSections/img1.webp";
-import img2 from "@/public/aboutSections/img2.webp";
-import img3 from "@/public/aboutSections/img3.webp";
+import { getAboutPage } from "@/lib/sanity/queries";
 
 export const metadata: Metadata = {
     title: "Om oss",
@@ -18,42 +16,31 @@ export const metadata: Metadata = {
     },
 };
 
-export default function About() {
+export default async function About() {
+    const data = await getAboutPage();
+
     return (
         <div>
-            <AboutHero />
-            <AboutValues />
-            <SplitSection
-                title="Vad bygger vi?"
-                headingLevel="h2"
-                text={[
-                    "Lewa Bostad utvecklar radhus och parhus med bostadsrättsform i Stockholms förorter. Bostäderna har genomtänkta planlösningar med möjlighet till flera sociala ytor och egen trädgård med uteplats. Vi gör även rum för gemenskap och grannsämja mellan husen. Allt för att skapa levande kvarter där människor trivs.",
-                ]}
-                image={img1}
-                imageAlt="Bild ifrån lewas projekt"
-                imagePosition="right"
+            <AboutHero
+                headingLine1={data.heroHeadingLine1}
+                headingLine2={data.heroHeadingLine2}
+                text={data.heroText}
+                imageUrl={data.heroImage.src}
+                imageAlt={data.heroImage.alt}
             />
-            <SplitSection
-                title="Hur bygger vi?"
-                headingLevel="h2"
-                text={[
-                    "För oss är kvalitet aldrig ett tillval. Den sitter i helheten – i ritningen, hantverket och känslan när du kliver in. Vi arbetar med noggrant utvalda leverantörer och material som håller över tid. Det handlar inte om lyx, utan om omtanke och noggrannhet i varje steg. Hållbarhet går som en grön tråd i hela byggprocessen, från val av material till energilösningar och områdesplanering. Det ger hem med lägre klimatavtryck som håller med tiden.",
-                ]}
-                image={img2}
-                imageAlt="Bild ifrån lewas projekt"
-                imagePosition="left"
-                background="alt"
-            />
-            <SplitSection
-                title="Vem bygger vi för?"
-                headingLevel="h2"
-                text={[
-                    "Våra bostäder är planerade för att passa olika skeden av livet. Allt från växande barnfamiljer som väntar tillökning till par med stora barn som vill byta villalivet mot något mer bekvämt.",
-                ]}
-                image={img3}
-                imageAlt="Bild ifrån lewas projekt"
-                imagePosition="right"
-            />
+            <AboutValues heading={data.valuesHeading} values={data.values} />
+            {data.sections.map((section, index) => (
+                <SplitSection
+                    key={index}
+                    title={section.title}
+                    headingLevel="h2"
+                    text={[section.text]}
+                    image={section.image.src}
+                    imageAlt={section.image.alt}
+                    imagePosition={section.imagePosition}
+                    background={index % 2 === 0 ? "default" : "alt"}
+                />
+            ))}
         </div>
     );
 }

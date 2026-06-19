@@ -1,12 +1,21 @@
-import { processSteps } from "./data";
 import styles from "./ProcessSteps.module.css";
 
-export default function ProcessSteps() {
+interface Step {
+    number: number;
+    title: string;
+    text: string;
+}
+
+interface ProcessStepsProps {
+    steps: Step[];
+}
+
+export default function ProcessSteps({ steps }: ProcessStepsProps) {
     return (
         <section className="section section--alt">
             <div className={`container ${styles.inner}`}>
                 <div className={styles.steps}>
-                    {processSteps.map((step) => (
+                    {steps.map((step) => (
                         <div key={step.number} className={styles.step}>
                             <span className={styles.number}>
                                 {String(step.number).padStart(2, "0")}
