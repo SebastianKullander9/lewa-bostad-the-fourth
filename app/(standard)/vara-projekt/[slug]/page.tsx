@@ -12,9 +12,15 @@ export async function generateMetadata({
     const { slug } = await params;
     const project = projectData.find((p) => p.slug === slug);
     if (!project) return {};
+    const description = `Utforska ${project.title} i ${project.location} – ett projekt av Lewa Bostad med arkitektritade radhus och parhus i bostadsrättsform.`;
     return {
         title: project.title,
-        description: `Utforska ${project.title} i ${project.location} – ett projekt av Lewa Bostad med arkitektritade radhus och parhus i bostadsrättsform.`,
+        description,
+        openGraph: {
+            title: `${project.title} – Lewa Bostad`,
+            description,
+            images: [{ url: project.images.thumbnail.src.src, alt: project.images.thumbnail.alt || project.title }],
+        },
     };
 }
 

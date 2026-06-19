@@ -9,6 +9,12 @@ export const metadata: Metadata = {
     title: "Att köpa bostad",
     description:
         "Hur går det till att köpa bostad hos Lewa Bostad? Här guidar vi dig genom hela processen – från intresseanmälan till tillträde.",
+    openGraph: {
+        title: "Att köpa bostad – Lewa Bostad",
+        description:
+            "Hur går det till att köpa bostad hos Lewa Bostad? Här guidar vi dig genom hela processen – från intresseanmälan till tillträde.",
+        images: [{ url: "/hero/hero.webp", alt: "Lewa Bostad" }],
+    },
 };
 
 export default function page() {

@@ -13,6 +13,12 @@ import Owners from "@/components/sections/owners/Owners";
 export const metadata: Metadata = {
     description:
         "Lewa Bostad bygger arkitektritade radhus och parhus med omsorgsfull design i Stockholms förorter – trivsamma kvarter där livet får ta plats.",
+    openGraph: {
+        title: "Lewa Bostad",
+        description:
+            "Lewa Bostad bygger arkitektritade radhus och parhus med omsorgsfull design i Stockholms förorter – trivsamma kvarter där livet får ta plats.",
+        images: [{ url: "/hero/hero.webp", alt: "Lewa Bostad" }],
+    },
 };
 
 export default function Home() {

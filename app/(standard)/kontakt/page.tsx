@@ -10,6 +10,12 @@ export const metadata: Metadata = {
     title: "Kontakt",
     description:
         "Kontakta Lewa Bostad – vi svarar på frågor om våra projekt, intresseanmälningar och markförvärv.",
+    openGraph: {
+        title: "Kontakt – Lewa Bostad",
+        description:
+            "Kontakta Lewa Bostad – vi svarar på frågor om våra projekt, intresseanmälningar och markförvärv.",
+        images: [{ url: "/hero/hero.webp", alt: "Lewa Bostad" }],
+    },
 };
 
 export default function Page() {

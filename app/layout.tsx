@@ -22,9 +22,19 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://lewabostad.se"),
     title: { default: "Lewa Bostad", template: "%s – Lewa Bostad" },
     description:
         "Lewa Bostad bygger arkitektritade radhus och parhus i bostadsrättsform i Stockholms förorter – trivsamma kvarter där livet får ta plats.",
+    openGraph: {
+        siteName: "Lewa Bostad",
+        locale: "sv_SE",
+        type: "website",
+        images: [{ url: "/hero/hero.webp", alt: "Lewa Bostad" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+    },
 };
 
 export default function RootLayout({

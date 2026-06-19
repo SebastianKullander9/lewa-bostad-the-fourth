@@ -10,6 +10,12 @@ export const metadata: Metadata = {
     title: "Om oss",
     description:
         "Lewa Bostad är ett bostadsföretag med lång erfarenhet. Vi utvecklar hållbara radhus och parhus med hög kvalitet i varje detalj i Stockholms förorter.",
+    openGraph: {
+        title: "Om oss – Lewa Bostad",
+        description:
+            "Lewa Bostad är ett bostadsföretag med lång erfarenhet. Vi utvecklar hållbara radhus och parhus med hög kvalitet i varje detalj i Stockholms förorter.",
+        images: [{ url: "/aboutHero/owners.jpg", alt: "Grundarna bakom Lewa Bostad" }],
+    },
 };
 
 export default function About() {

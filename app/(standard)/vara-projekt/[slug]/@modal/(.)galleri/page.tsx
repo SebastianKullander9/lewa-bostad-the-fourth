@@ -5,9 +5,7 @@ export default async function GalleryModal({ params }: { params: Promise<{ slug:
     const { slug } = await params;
     const project = projectData.find((p) => p.slug === slug);
 
-    console.log(slug);
-
-    if (!project) return null;
+if (!project) return null;
 
     return <Gallery project={project} />;
 }

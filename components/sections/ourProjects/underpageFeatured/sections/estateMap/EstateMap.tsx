@@ -72,7 +72,7 @@ export default function EstateMap({
     );
     // Keep the last hint type so the text doesn't vanish mid-fade-out.
     const lastHintRef = useRef<GestureHint>("scroll");
-    const hintTimerRef = useRef<ReturnType<typeof setTimeout>>(null);
+    const hintTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     function syncMarkers(map: maplibregl.Map, list: Estate[]) {
         const entries = entriesRef.current;
@@ -197,7 +197,7 @@ export default function EstateMap({
         const showHint = (type: GestureHint) => {
             lastHintRef.current = type;
             setGestureHint(type);
-            clearTimeout(hintTimerRef.current);
+            clearTimeout(hintTimerRef.current ?? undefined);
             hintTimerRef.current = setTimeout(
                 () => setGestureHint(null),
                 HINT_DURATION_MS,
@@ -209,7 +209,7 @@ export default function EstateMap({
                 e.stopPropagation();
                 showHint("scroll");
             } else {
-                clearTimeout(hintTimerRef.current);
+                clearTimeout(hintTimerRef.current ?? undefined);
                 setGestureHint(null);
             }
         };
@@ -237,7 +237,7 @@ export default function EstateMap({
             wrapper.removeEventListener("touchstart", onTouchStart, {
                 capture: true,
             });
-            clearTimeout(hintTimerRef.current);
+            clearTimeout(hintTimerRef.current ?? undefined);
         };
     }, []);
 
