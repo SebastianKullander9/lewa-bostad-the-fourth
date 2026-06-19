@@ -1,7 +1,13 @@
 .skeleton {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 3 / 2;
     background: var(--color-warm-200);
     border-radius: 2px;
+}
+
+.filter {
+    height: 44px;
+    width: 35ch;
+    margin-inline: auto;
 }
 
 .grid {
@@ -9,4 +15,10 @@
     grid-template-columns: repeat(2, 1fr);
     column-gap: var(--spacing-md);
     row-gap: var(--space-7);
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

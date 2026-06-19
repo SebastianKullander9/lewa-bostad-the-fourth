@@ -37,8 +37,8 @@ export default function ProjectsCTA({
                     </div>
                 </div>
                 <div className={`${styles.grid}`}>
-                    <ProjectCard project={project} />
-                    <ProjectCard project={project2} />
+                    <ProjectCard project={project} link={true} />
+                    <ProjectCard project={project2} link={true} />
                 </div>
                 <div className={styles.hideDesktop}>
                     <PrimaryButton

@@ -1,8 +1,8 @@
 .sectionWrapper {
     display: grid;
     grid-template-rows: 1fr auto;
-    min-height: calc(100dvh - var(--header-height));
-    height: calc(100dvh);
+    min-height: calc(100vh - var(--header-height));
+    height: 100vh;
 }
 
 .imageWrapper {

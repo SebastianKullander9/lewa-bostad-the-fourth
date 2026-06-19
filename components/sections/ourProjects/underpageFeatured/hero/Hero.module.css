@@ -1,7 +1,7 @@
 .sectionWrapper {
     /* Leave exactly one bar-height gap at the bottom so the SectionNav bar
        is visible in the initial viewport on every screen size. */
-    height: calc(100dvh - var(--section-bar-height));
+    height: calc(100vh - var(--section-bar-height));
     position: relative;
 }
 

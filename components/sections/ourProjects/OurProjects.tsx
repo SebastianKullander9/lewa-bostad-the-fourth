@@ -30,16 +30,7 @@ export default function OurProjects({ projects }: OurProjectsProps) {
     };
 
     return (
-        <section
-            className={`section section--default section--page-start stack ${styles.minHeight}`}
-        >
-            <div className={`${styles.text} stack`}>
-                <h1>Hitta hem hos oss.</h1>
-                <p className="prose">
-                    Lewa Bostad bygger radhus och parhus i bostadsrättsform. Husen utformas med
-                    fokus på hållbar arkitektur, genomtänkt design och hög kvalitet i varje detalj.
-                </p>
-            </div>
+        <>
             <div className={styles.filter}>
                 {STATUS_FILTERS.map((filter) => (
                     <button
@@ -60,11 +51,11 @@ export default function OurProjects({ projects }: OurProjectsProps) {
                     </p>
                 </div>
             )}
-            <div className={`${styles.grid}`}>
+            <div className={styles.grid}>
                 {filteredProjects.map((project) => (
                     <ProjectCard key={project.slug} project={project} link={true} />
                 ))}
             </div>
-        </section>
+        </>
     );
 }

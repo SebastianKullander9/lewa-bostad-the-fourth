@@ -12,10 +12,10 @@ export default function KeyFigureItem({ keyFigure }: KeyFigureItemProps) {
         <div className={styles.wrapper}>
             <div className={styles.valueWrapper}>
                 <h3 className={styles.value}>{value}</h3>
-                <p className={`text-small ${styles.muted}`}>{suffix}</p>
+                <p className={`text-small ${styles.muted} ${styles.suffix}`}>{suffix}</p>
             </div>
 
-            <p className={`text-small ${styles.muted}`}>{label}</p>
+            <p className={`text-small ${styles.muted} ${styles.label}`}>{label}</p>
         </div>
     );
 }

@@ -38,7 +38,7 @@ export default function AboutCTA({
                 <div className="stack">
                     {textBlocks.map((block, index) => (
                         <div key={index} className="stack">
-                            <h3>{block.title}</h3>
+                            <h4>{block.title}</h4>
                             <p className="prose">{block.text}</p>
                         </div>
                     ))}

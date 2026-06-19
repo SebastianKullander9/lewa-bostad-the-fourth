@@ -4,6 +4,16 @@
     gap: var(--spacing-lg);
 }
 
+@media (max-width: 767px) {
+    .outer {
+        gap: 0;
+    }
+
+    .content {
+        display: none;
+    }
+}
+
 @media (min-width: 768px) {
     .outer {
         grid-template-columns: 2fr 2fr;
@@ -24,6 +34,12 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 767px) {
+    .grid {
+        row-gap: var(--spacing-lg);
+    }
 }
 
 @media (min-width: 768px) {
