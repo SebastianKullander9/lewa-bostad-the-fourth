@@ -59,12 +59,12 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
             <nav className={styles.nav}>
                 <Link key="hem" href="/" className={styles.link} onClick={handleHome}>
                     <span>Hem</span>
-                    <IconChevronRight2Outline24 size={12} />
+                    <span className={styles.chevron}><IconChevronRight2Outline24 size={12} /></span>
                 </Link>
                 {menu.map((item) => (
                     <Link key={item.href} href={item.href} className={styles.link}>
                         <span>{item.label}</span>
-                        <IconChevronRight2Outline24 size={12} />
+                        <span className={styles.chevron}><IconChevronRight2Outline24 size={12} /></span>
                     </Link>
                 ))}
             </nav>

@@ -38,7 +38,7 @@ export const privacyPolicyPageType = defineType({
                             name: "title",
                             title: "Avsnittsrubrik",
                             type: "string",
-                            description: 'T.ex. "1. Inledning"',
+                            description: 'T.ex. "Inledning" – numret sätts automatiskt av sidan',
                             validation: (Rule) => Rule.required(),
                         }),
                         defineField({

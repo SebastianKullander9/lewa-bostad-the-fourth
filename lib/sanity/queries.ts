@@ -157,7 +157,7 @@ const BUYING_GUIDE_QUERY = `*[_type == "buyingGuidePage"][0] {
     heroHeading,
     heroText,
     "heroImage": heroImage ${imageProjection},
-    steps[] { number, title, text }
+    steps[] { title, text }
 }`;
 
 // ── Privacy policy page ───────────────────────────────────────────────────────
@@ -215,7 +215,7 @@ export type BuyingGuideData = {
     heroHeading: string;
     heroText: string;
     heroImage: { src: string; alt: string };
-    steps: { number: number; title: string; text: string }[];
+    steps: { title: string; text: string }[];
 };
 
 export type PrivacyPolicyData = {

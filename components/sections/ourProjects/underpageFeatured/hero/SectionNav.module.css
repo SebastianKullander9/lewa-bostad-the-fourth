@@ -67,6 +67,11 @@
         left: 0;
         right: 0;
         z-index: var(--z-sticky);
+        transition: transform 200ms ease;
+    }
+
+    .mobileHidden {
+        transform: translateY(100%);
     }
 }
 

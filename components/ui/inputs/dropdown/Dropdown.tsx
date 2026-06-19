@@ -47,8 +47,8 @@ export default function Dropdown(props: DropdownProps) {
                     name="project"
                     value={props.project.slug}
                 />
-                <p>
-                    {props.project.title} –{" "}
+                <p className={styles.projectLabel}>
+                    {props.project.title}
                     <span className="text-meta">
                         {props.project.location}
                     </span>

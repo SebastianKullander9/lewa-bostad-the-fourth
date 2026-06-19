@@ -5,12 +5,17 @@
 
 .label {
     position: absolute;
+    left: 0;
+    right: 0;
     padding-inline: var(--spacing-sm);
     padding-block: var(--spacing-xs);
     top: 50%;
     transform: translateY(-50%);
     color: var(--color-text-secondary);
     pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .input {

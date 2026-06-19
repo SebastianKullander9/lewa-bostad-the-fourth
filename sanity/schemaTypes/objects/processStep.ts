@@ -6,17 +6,10 @@ export const processStepType = defineType({
     type: "object",
     fields: [
         defineField({
-            name: "number",
-            title: "Stegnummer",
-            type: "number",
-            description: "Stegen visas i nummerordning på sidan (1, 2, 3…)",
-            validation: (Rule) => Rule.required().min(1).integer(),
-        }),
-        defineField({
             name: "title",
             title: "Stegnamn",
             type: "string",
-            description: 'T.ex. "Intresseanmälan" eller "Tillträde & inflyttning"',
+            description: 'T.ex. "Intresseanmälan" eller "Tillträde & inflyttning" – numret sätts automatiskt av sidan',
             validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -28,7 +21,7 @@ export const processStepType = defineType({
         }),
     ],
     preview: {
-        select: { title: "title", subtitle: "number" },
-        prepare: ({ title, subtitle }) => ({ title, subtitle: `Steg ${subtitle}` }),
+        select: { title: "title" },
+        prepare: ({ title }) => ({ title, subtitle: "Processteg" }),
     },
 });

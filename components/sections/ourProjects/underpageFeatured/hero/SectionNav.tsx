@@ -29,6 +29,21 @@ function scrollToSection(id: string) {
 export default function SectionNav({ title, location, items }: SectionNavProps) {
     const [open, setOpen] = useState(false);
     const [activeId, setActiveId] = useState<string | null>(null);
+    const [footerVisible, setFooterVisible] = useState(false);
+
+    useEffect(() => {
+        const footer = document.querySelector("footer");
+        if (!footer) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setFooterVisible(entry.isIntersecting);
+                if (entry.isIntersecting) setOpen(false);
+            },
+            { threshold: 0 },
+        );
+        observer.observe(footer);
+        return () => observer.disconnect();
+    }, []);
 
     useEffect(() => {
         if (items.length === 0) return;
@@ -89,7 +104,7 @@ export default function SectionNav({ title, location, items }: SectionNavProps) 
             </div>
 
             {/* Mobile: fixed at bottom, title acts as the toggle label */}
-            <div className={styles.mobile}>
+            <div className={`${styles.mobile} ${footerVisible ? styles.mobileHidden : ""}`}>
                 {open && items.length > 0 && (
                     <nav className={styles.panel}>
                         {items.map((item) => (

@@ -20,7 +20,7 @@ export default function Integritetspolicy({ title, sections }: Integritetspolicy
                 <div className={styles.sections}>
                     {sections.map((section, i) => (
                         <div key={i} className={styles.sectionBlock}>
-                            <h3>{section.title}</h3>
+                            <h3>{i + 1}. {section.title}</h3>
                             <div className="stack-small">
                                 <PortableText
                                     value={section.content}
