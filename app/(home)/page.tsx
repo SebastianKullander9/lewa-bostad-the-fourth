@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Hero from "@/components/sections/hero/Hero";
 import ProjectsCTA from "@/components/sections/projectsCTA/ProjectsCTA";
 import SplitSection from "@/components/sections/splitSection/SplitSection";
@@ -8,6 +9,11 @@ import { aboutCTAData } from "@/components/sections/aboutCTA/data";
 import KeyFigureSection from "@/components/sections/keyfigures/KeyFigureSection";
 import AboutCTA from "@/components/sections/aboutCTA/AboutCTA";
 import Owners from "@/components/sections/owners/Owners";
+
+export const metadata: Metadata = {
+    description:
+        "Lewa Bostad bygger arkitektritade radhus och parhus med omsorgsfull design i Stockholms förorter – trivsamma kvarter där livet får ta plats.",
+};
 
 export default function Home() {
     return (

@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import AboutHero from "@/components/sections/aboutHero/AboutHero";
 import AboutValues from "@/components/sections/aboutValues/AboutValues";
 import SplitSection from "@/components/sections/splitSection/SplitSection";
 import img1 from "@/public/aboutSections/img1.webp";
 import img2 from "@/public/aboutSections/img2.webp";
 import img3 from "@/public/aboutSections/img3.webp";
+
+export const metadata: Metadata = {
+    title: "Om oss",
+    description:
+        "Lewa Bostad är ett bostadsföretag med lång erfarenhet. Vi utvecklar hållbara radhus och parhus med hög kvalitet i varje detalj i Stockholms förorter.",
+};
 
 export default function About() {
     return (
