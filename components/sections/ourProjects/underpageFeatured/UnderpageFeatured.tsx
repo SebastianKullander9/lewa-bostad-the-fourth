@@ -10,6 +10,7 @@ import SectionSplitDouble from "./sections/sectionSplitDouble/SectionSplitDouble
 import SectionBullets from "./sections/sectionBullets/SectionBullets";
 import SectionSubsections from "./sections/sectionSubsections/SectionSubsections";
 import SectionMap from "./sections/sectionMap/SectionMap";
+import Interest from "@/components/sections/interest/Interest";
 
 interface UnderpageFeaturedProps {
     project: FeaturedProject;
@@ -40,7 +41,12 @@ function renderSection(section: FeaturedSection, index: number, currentSlug: str
 }
 
 export default function UnderpageFeatured({ project, allProjects }: UnderpageFeaturedProps) {
-    const navItems = project.sections.map((s, i) => ({ label: s.eyebrow, id: `section-${i}` }));
+    const navItems = [
+        ...project.sections.map((s, i) => ({ label: s.eyebrow, id: `section-${i}` })),
+        { label: "Intresse", id: "kontakt" },
+    ];
+
+    const interestBackground: Background = project.sections.length % 2 === 0 ? "default" : "alt";
 
     return (
         <div>
@@ -48,6 +54,7 @@ export default function UnderpageFeatured({ project, allProjects }: UnderpageFea
             <Hero project={project} />
             <SectionNav title={project.title} location={project.location} items={navItems} />
             {project.sections.map((section, i) => renderSection(section, i, project.slug, allProjects))}
+            <Interest type="specific" project={project} background={interestBackground} />
         </div>
     );
 }
