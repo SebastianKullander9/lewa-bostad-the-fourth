@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./SectionNav.module.css";
 
 export type SectionNavItem = {
@@ -14,19 +14,50 @@ interface SectionNavProps {
     items: SectionNavItem[];
 }
 
+function getCSSVar(name: string) {
+    return parseInt(getComputedStyle(document.documentElement).getPropertyValue(name)) || 0;
+}
+
 function scrollToSection(id: string) {
     const target = document.getElementById(id);
     if (!target) return;
-    // Offset for the fixed header + the sticky/fixed section bar
-    const offset =
-        parseInt(getComputedStyle(document.documentElement).getPropertyValue("--header-height")) +
-        parseInt(getComputedStyle(document.documentElement).getPropertyValue("--section-bar-height"));
+    const offset = getCSSVar("--header-height") + getCSSVar("--section-bar-height");
     const top = target.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top, behavior: "smooth" });
 }
 
 export default function SectionNav({ title, location, items }: SectionNavProps) {
     const [open, setOpen] = useState(false);
+    const [activeId, setActiveId] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (items.length === 0) return;
+
+        const topOffset = getCSSVar("--header-height") + getCSSVar("--section-bar-height");
+        const intersecting = new Set<string>();
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        intersecting.add(entry.target.id);
+                    } else {
+                        intersecting.delete(entry.target.id);
+                    }
+                });
+                const active = items.find((item) => intersecting.has(item.id));
+                setActiveId(active?.id ?? null);
+            },
+            { rootMargin: `-${topOffset}px 0px 0px 0px`, threshold: 0 },
+        );
+
+        items.forEach((item) => {
+            const el = document.getElementById(item.id);
+            if (el) observer.observe(el);
+        });
+
+        return () => observer.disconnect();
+    }, [items]);
 
     const handleLink = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         e.preventDefault();
@@ -47,7 +78,7 @@ export default function SectionNav({ title, location, items }: SectionNavProps) 
                             <a
                                 key={item.id}
                                 href={`#${item.id}`}
-                                className={styles.desktopLink}
+                                className={`${styles.desktopLink} ${item.id === activeId ? styles.linkActive : ""}`}
                                 onClick={(e) => handleLink(e, item.id)}
                             >
                                 {item.label}
@@ -65,7 +96,7 @@ export default function SectionNav({ title, location, items }: SectionNavProps) 
                             <a
                                 key={item.id}
                                 href={`#${item.id}`}
-                                className={styles.panelLink}
+                                className={`${styles.panelLink} ${item.id === activeId ? styles.linkActive : ""}`}
                                 onClick={(e) => handleLink(e, item.id)}
                             >
                                 {item.label}

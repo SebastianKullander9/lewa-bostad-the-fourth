@@ -2,9 +2,20 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 const eyebrowField = defineField({
     name: "eyebrow",
-    title: "Ögonbryn (liten text ovanför rubriken)",
+    title: "Ögonbryn / menyetiketten",
     type: "string",
-    description: 'Valfri – visas som liten etikett ovanför rubriken, t.ex. "Projektet" eller "Bostäderna"',
+    description:
+        'Obligatorisk – används som etiketten i sektionsnavigeringen (menyn). Syns alltid i menyn. Texten visas även ovanför rubriken på sidan om inte "Dölj ögonbryn på sidan" är ikryssad. T.ex. "Projektet" eller "Bostäderna".',
+    validation: (Rule) => Rule.required(),
+});
+
+const hideEyebrowField = defineField({
+    name: "hideEyebrow",
+    title: "Dölj ögonbryn på sidan",
+    type: "boolean",
+    description:
+        "Om ikryssad visas ögonbrynet inte ovanför rubriken på sidan, men det används fortfarande som menyetiketten i navigeringen.",
+    initialValue: false,
 });
 
 export const introSectionType = defineType({
@@ -14,6 +25,7 @@ export const introSectionType = defineType({
     description: "Projektets inledningssektion med faktatåda och statusindikator",
     fields: [
         eyebrowField,
+        hideEyebrowField,
         defineField({
             name: "title",
             title: "Rubrik",
@@ -55,6 +67,7 @@ export const sectionTextType = defineType({
     description: "En sektion med enbart rubrik och brödtext – ingen bild",
     fields: [
         eyebrowField,
+        hideEyebrowField,
         defineField({
             name: "title",
             title: "Rubrik",
@@ -82,6 +95,7 @@ export const sectionSplitType = defineType({
     description: "Rubrik och brödtext bredvid en bild",
     fields: [
         eyebrowField,
+        hideEyebrowField,
         defineField({
             name: "title",
             title: "Rubrik",
@@ -138,6 +152,7 @@ export const sectionSplitDoubleType = defineType({
     description: "Rubrik och text med två bilder bredvid varandra",
     fields: [
         eyebrowField,
+        hideEyebrowField,
         defineField({
             name: "title",
             title: "Rubrik",
@@ -192,6 +207,7 @@ export const sectionBulletsType = defineType({
     description: "Rubrik, valfri intro-text och en punktlista",
     fields: [
         eyebrowField,
+        hideEyebrowField,
         defineField({
             name: "title",
             title: "Rubrik",
@@ -256,6 +272,7 @@ export const sectionSubsectionsType = defineType({
     description: "En huvudrubrik med flera undersektioner (t.ex. Material och detaljer → Kök, Badrum…)",
     fields: [
         eyebrowField,
+        hideEyebrowField,
         defineField({
             name: "title",
             title: "Huvudrubrik",
@@ -283,6 +300,7 @@ export const sectionMapType = defineType({
     description: "Visar en interaktiv karta över projektets läge – positionen hämtas från projektets koordinater",
     fields: [
         eyebrowField,
+        hideEyebrowField,
         defineField({
             name: "title",
             title: "Rubrik (valfri)",

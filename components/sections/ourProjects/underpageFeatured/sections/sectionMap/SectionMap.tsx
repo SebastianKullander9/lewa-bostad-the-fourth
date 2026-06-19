@@ -17,9 +17,10 @@ interface SectionMapProps {
     background?: Background;
     id?: string;
     eyebrow?: string;
+    hideEyebrow?: boolean;
 }
 
-export default function SectionMap({ data, currentSlug, allProjects, background = "default", id, eyebrow }: SectionMapProps) {
+export default function SectionMap({ data, currentSlug, allProjects, background = "default", id, eyebrow, hideEyebrow }: SectionMapProps) {
     const [filter, setFilter] = useState<FilterValue>("all");
 
     const estates: Estate[] = allProjects
@@ -40,7 +41,7 @@ export default function SectionMap({ data, currentSlug, allProjects, background 
     return (
         <section id={id} className={`section section--${background}`}>
             <div className="container--wide stack">
-                {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
+                {eyebrow && !hideEyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
                 <h2 className={styles.title}>{data.title}</h2>
                 <EstateMap estates={estates} background={background}>
                     <div className={styles.filterOverlay}>

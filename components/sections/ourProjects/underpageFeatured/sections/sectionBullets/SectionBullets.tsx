@@ -8,14 +8,15 @@ interface SectionBulletsProps {
     background?: Background;
     id?: string;
     eyebrow?: string;
+    hideEyebrow?: boolean;
 }
 
-export default function SectionBullets({ data, background = "default", id, eyebrow }: SectionBulletsProps) {
+export default function SectionBullets({ data, background = "default", id, eyebrow, hideEyebrow }: SectionBulletsProps) {
     return (
         <section id={id} className={`section section--${background}`}>
             <div className="container">
                 <div className={`${styles.inner} stack`}>
-                    {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
+                    {eyebrow && !hideEyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
                     <h2>{data.title}</h2>
                     <div className="prose stack">
                         <p>{data.text}</p>

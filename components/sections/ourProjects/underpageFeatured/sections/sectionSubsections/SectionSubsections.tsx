@@ -8,14 +8,15 @@ interface SectionSubsectionsProps {
     background?: Background;
     id?: string;
     eyebrow?: string;
+    hideEyebrow?: boolean;
 }
 
-export default function SectionSubsections({ data, background = "default", id, eyebrow }: SectionSubsectionsProps) {
+export default function SectionSubsections({ data, background = "default", id, eyebrow, hideEyebrow }: SectionSubsectionsProps) {
     return (
         <section id={id} className={`section section--${background}`}>
             <div className="container">
                 <div className="stack">
-                    {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
+                    {eyebrow && !hideEyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
                     <h2 className={styles.title}>{data.title}</h2>
                     {data.subSections.map((sub, i) => (
                         <div key={i} className={`${styles.subSection} stack`}>

@@ -80,6 +80,7 @@ const FEATURED_PROJECT_QUERY = `*[_type == "project" && slug.current == $slug][0
     "sections": featuredSections[] {
         _type,
         eyebrow,
+        hideEyebrow,
         title,
         text,
         statusStep,

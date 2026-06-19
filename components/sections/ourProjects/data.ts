@@ -263,6 +263,7 @@ export const projectData: Project[] = [
         sections: [
             {
                 _type: "introSection",
+                eyebrow: "Inledning",
                 title: "Xxxxx xxx xxxxx",
                 text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta risus dolor, ac tempus nulla efficitur
                     et. Nulla suscipit aliquet blandit. Aliquam erat volutpat. Vestibulum congue tincidunt pretium. Etiam metus nisl, laoreet

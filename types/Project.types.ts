@@ -22,14 +22,16 @@ export interface IntroSection {
     text: string;
     statusStep: number;
     objectInfo: ProjectObjectInfo[];
-    eyebrow?: string;
+    eyebrow: string;
+    hideEyebrow?: boolean;
 }
 
 export interface SectionText {
     _type: "sectionText";
     title: string;
     text: string;
-    eyebrow?: string;
+    eyebrow: string;
+    hideEyebrow?: boolean;
 }
 
 export interface SectionSplit {
@@ -38,7 +40,8 @@ export interface SectionSplit {
     text: string;
     image: ProjectImage;
     imageOrientation: "left" | "right";
-    eyebrow?: string;
+    eyebrow: string;
+    hideEyebrow?: boolean;
 }
 
 export interface SectionSplitDouble {
@@ -47,7 +50,8 @@ export interface SectionSplitDouble {
     text: string;
     image1: ProjectImage;
     image2: ProjectImage;
-    eyebrow?: string;
+    eyebrow: string;
+    hideEyebrow?: boolean;
 }
 
 export interface SectionBullets {
@@ -55,20 +59,23 @@ export interface SectionBullets {
     title: string;
     text: string;
     bulletPoints: string[];
-    eyebrow?: string;
+    eyebrow: string;
+    hideEyebrow?: boolean;
 }
 
 export interface SectionSubsections {
     _type: "sectionSubsections";
     title: string;
     subSections: SubSection[];
-    eyebrow?: string;
+    eyebrow: string;
+    hideEyebrow?: boolean;
 }
 
 export interface SectionMapBlock {
     _type: "sectionMap";
     title?: string;
-    eyebrow?: string;
+    eyebrow: string;
+    hideEyebrow?: boolean;
 }
 
 export type FeaturedSection =

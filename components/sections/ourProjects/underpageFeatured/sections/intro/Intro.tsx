@@ -15,14 +15,15 @@ interface IntroProps {
     background?: Background;
     id?: string;
     eyebrow?: string;
+    hideEyebrow?: boolean;
 }
 
-export default function Intro({ intro, background = "default", id, eyebrow }: IntroProps) {
+export default function Intro({ intro, background = "default", id, eyebrow, hideEyebrow }: IntroProps) {
     return (
         <section id={id} className={`section section--${background}`}>
             <div className={`container ${styles.inner}`}>
                 <div className={styles.header}>
-                    {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
+                    {eyebrow && !hideEyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
                     <h2>{intro.title}</h2>
                     <p className={styles.body}>{intro.text}</p>
                 </div>

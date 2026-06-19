@@ -8,14 +8,15 @@ interface SectionSplitProps {
     background?: Background;
     id?: string;
     eyebrow?: string;
+    hideEyebrow?: boolean;
 }
 
-export default function SectionSplit({ data, background = "default", id, eyebrow }: SectionSplitProps) {
+export default function SectionSplit({ data, background = "default", id, eyebrow, hideEyebrow }: SectionSplitProps) {
     return (
         <section id={id} className={`section section--${background}`}>
             <div className="container stack">
                 <div className={`${styles.text} stack`}>
-                    {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
+                    {eyebrow && !hideEyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
                     <h2>{data.title}</h2>
                     <p className="prose">{data.text}</p>
                 </div>
