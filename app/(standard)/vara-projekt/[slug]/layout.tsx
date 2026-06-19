@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 export default function UnderpageLayout({
     children,
     modal,
@@ -7,8 +9,8 @@ export default function UnderpageLayout({
 }) {
     return (
         <>
-            {children}
-            {modal}
+            <Suspense>{children}</Suspense>
+            <Suspense>{modal}</Suspense>
         </>
     );
 }
