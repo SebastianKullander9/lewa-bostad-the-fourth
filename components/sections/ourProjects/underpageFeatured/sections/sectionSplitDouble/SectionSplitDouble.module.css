@@ -19,13 +19,7 @@
 
 .imageWrapper {
     position: relative;
-    height: 300px;
-}
-
-@media (min-width: 768px) {
-    .imageWrapper {
-        height: 500px;
-    }
+    aspect-ratio: 4 / 3;
 }
 
 .eyebrow {

@@ -20,9 +20,13 @@ export default function SectionSplit({ data, background = "default", id, eyebrow
                     <h2>{data.title}</h2>
                     <p className="prose">{data.text}</p>
                 </div>
-                <div className={styles.imageWrapper}>
-                    <Image src={data.image.src} alt={data.image.alt} fill style={{ objectFit: "cover" }} />
-                </div>
+                <Image
+                    src={data.image.src}
+                    alt={data.image.alt}
+                    width={data.image.width ?? 1600}
+                    height={data.image.height ?? 900}
+                    style={{ width: "100%", height: "auto", display: "block" }}
+                />
             </div>
         </section>
     );

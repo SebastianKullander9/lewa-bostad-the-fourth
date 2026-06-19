@@ -2,7 +2,6 @@ import { FeaturedProject, FeaturedSection, Project } from "@/types/Project.types
 import { Background } from "@/types/Props.types";
 import Hero from "./hero/Hero";
 import SectionNav from "./hero/SectionNav";
-import FloatingCTA from "@/components/ui/floatingCTA/FloatingCTA";
 import Intro from "./sections/intro/Intro";
 import SectionText from "./sections/sectionText/SectionText";
 import SectionSplit from "./sections/sectionSplit/SectionSplit";
@@ -50,7 +49,6 @@ export default function UnderpageFeatured({ project, allProjects }: UnderpageFea
 
     return (
         <div>
-            <FloatingCTA />
             <Hero project={project} />
             <SectionNav title={project.title} location={project.location} items={navItems} />
             {project.sections.map((section, i) => renderSection(section, i, project.slug, allProjects))}

@@ -9,7 +9,7 @@ import type {
 } from "@/types/Project.types";
 
 // ── Shared image projection ───────────────────────────────────────────────────
-const imageProjection = `{ "src": asset->url, "alt": coalesce(alt, "") }`;
+const imageProjection = `{ "src": asset->url, "alt": coalesce(alt, ""), "width": asset->metadata.dimensions.width, "height": asset->metadata.dimensions.height }`;
 
 // ── Status label map ──────────────────────────────────────────────────────────
 const statusLabel = `select(
