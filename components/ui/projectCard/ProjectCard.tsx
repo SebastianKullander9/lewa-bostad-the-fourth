@@ -15,7 +15,7 @@ export default function ProjectCard({ project, link = false }: ProjectCardProps)
     const content = (
         <>
             <div className={styles.imageWrapper}>
-                <Image src={src} alt={alt} fill />
+                <Image src={src} alt={alt} fill sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
             <div className={styles.textWrapper}>
                 <div>

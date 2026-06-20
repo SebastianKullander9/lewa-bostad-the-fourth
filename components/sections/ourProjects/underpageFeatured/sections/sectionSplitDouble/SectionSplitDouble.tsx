@@ -22,10 +22,10 @@ export default function SectionSplitDouble({ data, background = "default", id, e
                 </div>
                 <div className={styles.images}>
                     <div className={styles.imageWrapper}>
-                        <Image src={data.image1.src} alt={data.image1.alt} fill style={{ objectFit: "cover" }} />
+                        <Image src={data.image1.src} alt={data.image1.alt} fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: "cover" }} />
                     </div>
                     <div className={styles.imageWrapper}>
-                        <Image src={data.image2.src} alt={data.image2.alt} fill style={{ objectFit: "cover" }} />
+                        <Image src={data.image2.src} alt={data.image2.alt} fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: "cover" }} />
                     </div>
                 </div>
             </div>

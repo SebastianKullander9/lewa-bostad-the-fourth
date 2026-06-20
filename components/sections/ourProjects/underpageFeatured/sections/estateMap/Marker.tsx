@@ -72,6 +72,7 @@ const Marker = forwardRef<MarkerHandle, MarkerProps>(function Marker(
                                 src={image.src as any}
                                 alt={image.alt}
                                 fill
+                                sizes="220px"
                                 style={{ objectFit: "cover" }}
                             />
                         </div>

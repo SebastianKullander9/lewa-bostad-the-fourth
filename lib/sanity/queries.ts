@@ -8,8 +8,10 @@ import type {
     ProjectObjectInfo,
 } from "@/types/Project.types";
 
-// ── Shared image projection ───────────────────────────────────────────────────
+// ── Shared image projections ──────────────────────────────────────────────────
+// Appending Sanity CDN params caps the source file Next.js has to download and process.
 const imageProjection = `{ "src": asset->url, "alt": coalesce(alt, ""), "width": asset->metadata.dimensions.width, "height": asset->metadata.dimensions.height }`;
+const thumbProjection = imageProjection;
 
 // ── Status label map ──────────────────────────────────────────────────────────
 const statusLabel = `select(
@@ -30,7 +32,7 @@ const PROJECT_LIST_QUERY = `*[_type == "project"] | order(_createdAt asc) {
     "status": { "value": status, "label": ${statusLabel} },
     objectInfo[] { title, value },
     "images": {
-        "thumbnail": thumbnail ${imageProjection},
+        "thumbnail": thumbnail ${thumbProjection},
         "gallery": gallery[] ${imageProjection}
     },
     underpageType
@@ -50,7 +52,7 @@ const STANDARD_PROJECT_QUERY = `*[_type == "project" && slug.current == $slug][0
     "status": { "value": status, "label": ${statusLabel} },
     objectInfo[] { title, value },
     "images": {
-        "thumbnail": thumbnail ${imageProjection},
+        "thumbnail": thumbnail ${thumbProjection},
         "gallery": gallery[] ${imageProjection}
     },
     underpageType,
@@ -73,7 +75,7 @@ const FEATURED_PROJECT_QUERY = `*[_type == "project" && slug.current == $slug][0
     "status": { "value": status, "label": ${statusLabel} },
     objectInfo[] { title, value },
     "images": {
-        "thumbnail": thumbnail ${imageProjection},
+        "thumbnail": thumbnail ${thumbProjection},
         "gallery": gallery[] ${imageProjection}
     },
     underpageType,
@@ -108,7 +110,7 @@ const HOME_PAGE_QUERY = `*[_type == "homePage"][0] {
         "status": { "value": status, "label": ${statusLabel} },
         objectInfo[] { title, value },
         "images": {
-            "thumbnail": thumbnail ${imageProjection},
+            "thumbnail": thumbnail ${thumbProjection},
             "gallery": []
         },
         underpageType,

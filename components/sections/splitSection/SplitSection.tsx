@@ -40,7 +40,7 @@ export default function SplitSection({
                     ))}
                 </div>
                 <div className={styles.imageWrapper}>
-                    <Image src={image} alt={imageAlt} fill style={{ objectFit: "cover" }} />
+                    <Image src={image} alt={imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: "cover" }} />
                 </div>
             </div>
         </section>

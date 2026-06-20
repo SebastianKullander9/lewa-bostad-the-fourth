@@ -30,7 +30,7 @@ export default function SplitSectionBleed({
                 <div
                     className={`${styles.imageWrapper} ${fullHeight ? styles.imageWrapperFullHeight : ""}`}
                 >
-                    <Image src={image} alt={imageAlt} fill style={{ objectFit: "cover" }} />
+                    <Image src={image} alt={imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: "cover" }} />
                 </div>
             </div>
         </section>
