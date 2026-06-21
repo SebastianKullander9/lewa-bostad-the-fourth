@@ -43,8 +43,18 @@ export const introSectionType = defineType({
             name: "statusStep",
             title: "Aktuellt projektsteg",
             type: "number",
-            description: "Vilket steg är projektet på i statusindikatorn? (0 = inte börjat, högre = längre kommet)",
-            validation: (Rule) => Rule.required().min(0).integer(),
+            description: "Välj vilket steg projektet befinner sig på i tidslinjen",
+            options: {
+                list: [
+                    { title: "Projektet inleds", value: 0 },
+                    { title: "Pågående produktion", value: 1 },
+                    { title: "Förhandsvisning", value: 2 },
+                    { title: "Uthyrning börjar", value: 3 },
+                    { title: "Inflyttning", value: 4 },
+                ],
+                layout: "radio",
+            },
+            validation: (Rule) => Rule.required(),
         }),
         defineField({
             name: "objectInfo",
