@@ -71,6 +71,16 @@ export const projectType = defineType({
             group: "general",
             description: "Faktarader som visas i projektöversikten, t.ex. Byggstart, Inflyttning, Antal bostäder",
             of: [defineArrayMember({ type: "objectInfo" })],
+            validation: (Rule) =>
+                Rule.custom((value, context) => {
+                    if (context.document?.underpageType === "featured") return true;
+                    const hasItems = Array.isArray(value) && value.length > 0;
+                    const isHidden = context.document?.hideObjectInfo === true;
+                    if (!hasItems && !isHidden) {
+                        return 'Lägg till minst en objektfakta, eller aktivera "Dölj objektfakta" nedan';
+                    }
+                    return true;
+                }),
         }),
         defineField({
             name: "hideObjectInfo",
@@ -79,6 +89,7 @@ export const projectType = defineType({
             group: "general",
             description: "Aktivera för att visa en platshållartext istället för objektfakta (t.ex. när informationen inte är klar än)",
             initialValue: false,
+            hidden: ({ document }) => document?.underpageType === "featured",
         }),
         defineField({
             name: "objectInfoPlaceholder",
@@ -87,7 +98,7 @@ export const projectType = defineType({
             group: "general",
             description: "Visas istället för objektfakta när ovanstående toggle är aktiverad",
             initialValue: "Mer information kommer snart",
-            hidden: ({ document }) => !document?.hideObjectInfo,
+            hidden: ({ document }) => document?.underpageType === "featured" || !document?.hideObjectInfo,
         }),
         defineField({
             name: "thumbnail",
