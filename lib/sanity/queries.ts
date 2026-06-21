@@ -22,7 +22,7 @@ const statusLabel = `select(
 )`;
 
 // ── Project list (for cards, map, interest form) ──────────────────────────────
-const PROJECT_LIST_QUERY = `*[_type == "project"] | order(_createdAt asc) {
+const PROJECT_LIST_QUERY = `*[_type == "project"] | order(orderRank) {
     title,
     "slug": slug.current,
     location,

@@ -1,6 +1,7 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 import * as schemas from "@/sanity/schemaTypes";
 
 const singletonTypes = new Set([
@@ -19,13 +20,11 @@ export default defineConfig({
     basePath: "/studio",
     plugins: [
         structureTool({
-            structure: (S) =>
+            structure: (S, context) =>
                 S.list()
                     .title("Innehåll")
                     .items([
-                        S.listItem()
-                            .title("Projekt")
-                            .child(S.documentTypeList("project").title("Projekt")),
+                        orderableDocumentListDeskItem({ type: "project", title: "Projekt", S, context }),
                         S.divider(),
                         S.listItem()
                             .title("Startsida")
