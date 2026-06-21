@@ -42,7 +42,7 @@ export default function Intro({ intro, background = "default", id, eyebrow, hide
                 </div>
 
                 <div className={styles.objectInfo}>
-                    {intro.objectInfo.map((item) => (
+                    {(intro.objectInfo ?? []).map((item) => (
                         <div key={item.title} className={styles.objectItem}>
                             <span className={styles.objectLabel}>{item.title}</span>
                             <span className={styles.objectValue}>{item.value}</span>

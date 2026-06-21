@@ -39,7 +39,7 @@ export default function Hero({ project }: HeroProps) {
                         </p>
                     ) : (
                         <div className={styles.grid}>
-                            {project.objectInfo.map((item) => (
+                            {(project.objectInfo ?? []).map((item) => (
                                 <div key={item.title} className={styles.object}>
                                     <p className="text-meta">{item.title}</p>
                                     <p className={styles.value}>{item.value}</p>
