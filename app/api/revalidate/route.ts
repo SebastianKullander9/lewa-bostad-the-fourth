@@ -10,6 +10,7 @@ type SanityWebhookPayload = {
 
 const TAG_MAP: Record<string, string[]> = {
     project: ["projects"],
+    newsArticle: ["news-articles"],
     homePage: ["home-page"],
     aboutPage: ["about-page"],
     contactPage: ["contact-page"],
@@ -43,6 +44,10 @@ export async function POST(req: NextRequest) {
 
     if (payload._type === "project" && payload.slug) {
         revalidateTag(`project-${payload.slug}`, "max");
+    }
+
+    if (payload._type === "newsArticle" && payload.slug) {
+        revalidateTag(`news-article-${payload.slug}`, "max");
     }
 
     return NextResponse.json({ revalidated: true, type: payload._type });

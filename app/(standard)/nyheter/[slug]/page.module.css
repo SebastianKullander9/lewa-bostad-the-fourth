@@ -1,0 +1,72 @@
+.article {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-stack);
+}
+
+.back {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.back:hover {
+    color: var(--color-text-primary);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.imageWrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.image {
+    object-fit: cover;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-content-gap);
+}
+
+.body > p:first-child {
+    font-size: var(--font-size-xl);
+    line-height: 1.5;
+    color: var(--color-text-primary);
+}
+
+.list {
+    padding-left: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.related {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-stack);
+}
+
+
+.relatedGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-stack);
+}
+
+@media (min-width: 600px) {
+    .relatedGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg) var(--spacing-md);
+    }
+}

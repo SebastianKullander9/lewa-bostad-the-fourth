@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import AboutHero from "@/components/sections/aboutHero/AboutHero";
 import AboutValues from "@/components/sections/aboutValues/AboutValues";
 import SplitSection from "@/components/sections/splitSection/SplitSection";
-import { getAboutPage } from "@/lib/sanity/queries";
+import NewsSection from "@/components/sections/news/section/NewsSection";
+import { getAboutPage, getNewsArticles } from "@/lib/sanity/queries";
 
 export const metadata: Metadata = {
     title: "Om oss",
@@ -12,12 +13,20 @@ export const metadata: Metadata = {
         title: "Om oss – Lewa Bostad",
         description:
             "Lewa Bostad är ett bostadsföretag med lång erfarenhet. Vi utvecklar hållbara radhus och parhus med hög kvalitet i varje detalj i Stockholms förorter.",
-        images: [{ url: "/aboutHero/owners.jpg", alt: "Grundarna bakom Lewa Bostad" }],
+        images: [
+            {
+                url: "/aboutHero/owners.jpg",
+                alt: "Grundarna bakom Lewa Bostad",
+            },
+        ],
     },
 };
 
 export default async function About() {
-    const data = await getAboutPage();
+    const [data, articles] = await Promise.all([
+        getAboutPage(),
+        getNewsArticles(),
+    ]);
 
     return (
         <div>
@@ -28,7 +37,10 @@ export default async function About() {
                 imageUrl={data.heroImage.src}
                 imageAlt={data.heroImage.alt}
             />
-            <AboutValues heading={data.valuesHeading} values={data.values} />
+            <AboutValues
+                heading={data.valuesHeading}
+                values={data.values}
+            />
             {data.sections.map((section, index) => (
                 <SplitSection
                     key={index}
@@ -41,6 +53,14 @@ export default async function About() {
                     background={index % 2 === 0 ? "default" : "alt"}
                 />
             ))}
+            {articles.length > 0 && (
+                <NewsSection
+                    background={
+                        data.sections.length % 2 === 0 ? "default" : "alt"
+                    }
+                    articles={articles}
+                />
+            )}
         </div>
     );
 }

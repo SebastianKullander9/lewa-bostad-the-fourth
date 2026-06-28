@@ -7,6 +7,7 @@ import type {
     FeaturedProject,
     ProjectObjectInfo,
 } from "@/types/Project.types";
+import type { NewsArticlePreview, NewsArticle } from "@/types/News.types";
 
 // ── Shared image projections ──────────────────────────────────────────────────
 // Appending Sanity CDN params caps the source file Next.js has to download and process.
@@ -166,6 +167,30 @@ const BUYING_GUIDE_QUERY = `*[_type == "buyingGuidePage"][0] {
     steps[] { title, text }
 }`;
 
+// ── News articles ─────────────────────────────────────────────────────────────
+const newsImageProjection = `{ "src": asset->url, "alt": coalesce(alt, ""), "width": asset->metadata.dimensions.width, "height": asset->metadata.dimensions.height }`;
+
+const NEWS_ARTICLES_QUERY = `*[_type == "newsArticle"] | order(publishedAt desc) {
+    "slug": slug.current,
+    title,
+    publishedAt,
+    "image": image ${newsImageProjection},
+    "excerpt": array::join(body[_type == "block"][0].children[].text, "")
+}`;
+
+const NEWS_ARTICLE_QUERY = `*[_type == "newsArticle" && slug.current == $slug][0] {
+    "slug": slug.current,
+    title,
+    publishedAt,
+    "image": image ${newsImageProjection},
+    "excerpt": array::join(body[_type == "block"][0].children[].text, ""),
+    body
+}`;
+
+const NEWS_ARTICLE_SLUGS_QUERY = `*[_type == "newsArticle"].slug.current`;
+
+const NEWS_ARTICLES_FOR_SITEMAP_QUERY = `*[_type == "newsArticle"] { "slug": slug.current, publishedAt }`;
+
 // ── Privacy policy page ───────────────────────────────────────────────────────
 const PRIVACY_POLICY_QUERY = `*[_type == "privacyPolicyPage"][0] {
     title,
@@ -302,6 +327,34 @@ export async function getPrivacyPolicy(): Promise<PrivacyPolicyData> {
     cacheLife("max");
     cacheTag("privacy-policy-page");
     return client.fetch(PRIVACY_POLICY_QUERY);
+}
+
+export async function getNewsArticles(): Promise<NewsArticlePreview[]> {
+    "use cache";
+    cacheLife("max");
+    cacheTag("news-articles");
+    return client.fetch(NEWS_ARTICLES_QUERY);
+}
+
+export async function getNewsArticle(slug: string): Promise<NewsArticle | null> {
+    "use cache";
+    cacheLife("max");
+    cacheTag("news-articles", `news-article-${slug}`);
+    return client.fetch(NEWS_ARTICLE_QUERY, { slug });
+}
+
+export async function getNewsArticleSlugs(): Promise<string[]> {
+    "use cache";
+    cacheLife("max");
+    cacheTag("news-articles");
+    return client.fetch(NEWS_ARTICLE_SLUGS_QUERY);
+}
+
+export async function getNewsArticlesForSitemap(): Promise<{ slug: string; publishedAt: string }[]> {
+    "use cache";
+    cacheLife("max");
+    cacheTag("news-articles");
+    return client.fetch(NEWS_ARTICLES_FOR_SITEMAP_QUERY);
 }
 
 // ── Helper: extract plain text strings from PortableText blocks ───────────────

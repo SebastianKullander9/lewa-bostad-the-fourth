@@ -25,6 +25,14 @@ export default defineConfig({
                     .title("Innehåll")
                     .items([
                         orderableDocumentListDeskItem({ type: "project", title: "Projekt", S, context }),
+                        S.listItem()
+                            .title("Nyheter")
+                            .schemaType("newsArticle")
+                            .child(
+                                S.documentTypeList("newsArticle")
+                                    .title("Nyheter")
+                                    .defaultOrdering([{ field: "publishedAt", direction: "desc" }]),
+                            ),
                         S.divider(),
                         S.listItem()
                             .title("Startsida")

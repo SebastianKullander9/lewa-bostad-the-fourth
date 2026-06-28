@@ -18,6 +18,7 @@ export {
 
 // Documents
 export { projectType } from "./documents/project";
+export { newsArticleType } from "./documents/newsArticle";
 export { homePageType } from "./documents/homePage";
 export { aboutPageType } from "./documents/aboutPage";
 export { contactPageType } from "./documents/contactPage";
