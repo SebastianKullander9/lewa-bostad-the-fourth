@@ -5,7 +5,7 @@ import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
 import { IconArrowLeft } from "nucleo-sharp";
-import { getNewsArticle, getNewsArticleSlugs, getNewsArticles } from "@/lib/sanity/queries";
+import { getNewsArticle, getNewsArticles, getNewsArticleSlugs } from "@/lib/sanity/queries";
 import NewsThumbnail from "@/components/sections/news/thumbnail/NewsThumbnail";
 import styles from "./page.module.css";
 
@@ -49,6 +49,7 @@ const bodyComponents = {
 
 export async function generateStaticParams() {
     const slugs = await getNewsArticleSlugs();
+    if (slugs.length === 0) return [{ slug: "_" }];
     return slugs.map((slug) => ({ slug }));
 }
 
