@@ -59,6 +59,7 @@ export const newsArticleType = defineType({
                     type: "block",
                     styles: [
                         { title: "Brödtext", value: "normal" },
+                        { title: "Inledning", value: "lead" },
                         { title: "Rubrik", value: "h2" },
                         { title: "Underrubrik", value: "h3" },
                     ],

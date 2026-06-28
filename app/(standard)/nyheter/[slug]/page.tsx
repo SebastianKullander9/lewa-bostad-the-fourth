@@ -23,6 +23,7 @@ function formatDate(dateStr: string): string {
 const bodyComponents = {
     block: {
         normal: ({ children }: { children?: React.ReactNode }) => <p>{children}</p>,
+        lead: ({ children }: { children?: React.ReactNode }) => <p className={styles.lead}>{children}</p>,
         h2: ({ children }: { children?: React.ReactNode }) => <h2>{children}</h2>,
         h3: ({ children }: { children?: React.ReactNode }) => <h3>{children}</h3>,
     },
@@ -42,8 +43,12 @@ const bodyComponents = {
             <ul className={styles.list}>{children}</ul>
         ),
         number: ({ children }: { children?: React.ReactNode }) => (
-            <ol className={styles.list}>{children}</ol>
+            <ol className={styles.listNumber}>{children}</ol>
         ),
+    },
+    listItem: {
+        bullet: ({ children }: { children?: React.ReactNode }) => <li>{children}</li>,
+        number: ({ children }: { children?: React.ReactNode }) => <li>{children}</li>,
     },
 };
 
