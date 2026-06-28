@@ -3,10 +3,10 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
-import { Suspense } from "react";
+import Link from "next/link";
+import { IconArrowRight } from "nucleo-sharp";
 import { getNewsArticle, getNewsArticles, getNewsArticleSlugs } from "@/lib/sanity/queries";
 import NewsThumbnail from "@/components/sections/news/thumbnail/NewsThumbnail";
-import ViewAllNewsLink from "@/components/sections/news/ViewAllNewsLink";
 import styles from "./page.module.css";
 
 const BASE = "https://lewabostad.se";
@@ -23,11 +23,13 @@ function formatDate(dateStr: string): string {
 const bodyComponents = {
     block: {
         normal: ({ children }: { children?: React.ReactNode }) => <p>{children}</p>,
-        lead: ({ children }: { children?: React.ReactNode }) => <p className={styles.lead}>{children}</p>,
         h2: ({ children }: { children?: React.ReactNode }) => <h2>{children}</h2>,
         h3: ({ children }: { children?: React.ReactNode }) => <h3>{children}</h3>,
     },
     marks: {
+        lead: ({ children }: { children?: React.ReactNode }) => (
+            <span className={styles.lead}>{children}</span>
+        ),
         link: ({ children, value }: { children?: React.ReactNode; value?: { href: string; blank?: boolean } }) => (
             <a
                 href={value?.href}
@@ -47,8 +49,15 @@ const bodyComponents = {
         ),
     },
     listItem: {
-        bullet: ({ children }: { children?: React.ReactNode }) => <li>{children}</li>,
-        number: ({ children }: { children?: React.ReactNode }) => <li>{children}</li>,
+        bullet: ({ children }: { children?: React.ReactNode }) => (
+            <li className={styles.listItem}>
+                <span className={styles.bullet} />
+                <span>{children}</span>
+            </li>
+        ),
+        number: ({ children }: { children?: React.ReactNode }) => (
+            <li className={styles.listItem}>{children}</li>
+        ),
     },
 };
 
@@ -166,9 +175,9 @@ export default async function NewsArticlePage({
                                 <NewsThumbnail key={a.slug} article={a} />
                             ))}
                         </div>
-                        <Suspense>
-                            <ViewAllNewsLink />
-                        </Suspense>
+                        <Link href="/nyheter" className={styles.viewAll}>
+                            Visa alla nyheter <IconArrowRight size={14} />
+                        </Link>
                     </div>
                 </section>
             )}

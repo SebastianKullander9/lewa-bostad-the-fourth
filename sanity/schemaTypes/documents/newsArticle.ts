@@ -59,7 +59,6 @@ export const newsArticleType = defineType({
                     type: "block",
                     styles: [
                         { title: "Brödtext", value: "normal" },
-                        { title: "Inledning", value: "lead" },
                         { title: "Rubrik", value: "h2" },
                         { title: "Underrubrik", value: "h3" },
                     ],
@@ -67,6 +66,7 @@ export const newsArticleType = defineType({
                         decorators: [
                             { title: "Fet", value: "strong" },
                             { title: "Kursiv", value: "em" },
+                            { title: "Inledning", value: "lead" },
                         ],
                         annotations: [
                             defineArrayMember({

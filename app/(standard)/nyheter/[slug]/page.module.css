@@ -30,28 +30,75 @@
 .lead {
     font-size: var(--font-size-xl);
     line-height: 1.5;
+}
+
+.body a {
     color: var(--color-text-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-text-secondary);
+}
+
+.body a:hover {
+    text-decoration-color: var(--color-text-primary);
 }
 
 .list {
-    padding-left: var(--spacing-md);
-    list-style-type: disc;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    color: var(--color-text-body);
+}
+
+.listItem {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+}
+
+.bullet {
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--color-sage-200);
+    translate: 0 1px;
 }
 
 .listNumber {
     padding-left: var(--spacing-md);
     list-style-type: decimal;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    color: var(--color-text-body);
 }
 
-.list li + li,
-.listNumber li + li {
-    margin-top: var(--spacing-sm);
+.listNumber .listItem {
+    display: list-item;
 }
 
 .related {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-stack);
+}
+
+.viewAll {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    align-self: flex-start;
+}
+
+.viewAll:hover {
+    color: var(--color-text-primary);
 }
 
 .relatedGrid {
