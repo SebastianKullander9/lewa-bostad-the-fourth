@@ -170,7 +170,7 @@ const BUYING_GUIDE_QUERY = `*[_type == "buyingGuidePage"][0] {
 // ── News articles ─────────────────────────────────────────────────────────────
 const newsImageProjection = `{ "src": asset->url, "alt": coalesce(alt, ""), "width": asset->metadata.dimensions.width, "height": asset->metadata.dimensions.height }`;
 
-const NEWS_ARTICLES_QUERY = `*[_type == "newsArticle"] | order(publishedAt desc) {
+const NEWS_ARTICLES_QUERY = `*[_type == "newsArticle" && publishedAt <= $today] | order(publishedAt desc) {
     "slug": slug.current,
     title,
     publishedAt,
@@ -178,7 +178,7 @@ const NEWS_ARTICLES_QUERY = `*[_type == "newsArticle"] | order(publishedAt desc)
     "excerpt": array::join(body[_type == "block"][0].children[].text, "")
 }`;
 
-const NEWS_ARTICLE_QUERY = `*[_type == "newsArticle" && slug.current == $slug][0] {
+const NEWS_ARTICLE_QUERY = `*[_type == "newsArticle" && slug.current == $slug && publishedAt <= $today][0] {
     "slug": slug.current,
     title,
     publishedAt,
@@ -187,9 +187,9 @@ const NEWS_ARTICLE_QUERY = `*[_type == "newsArticle" && slug.current == $slug][0
     body
 }`;
 
-const NEWS_ARTICLE_SLUGS_QUERY = `*[_type == "newsArticle"].slug.current`;
+const NEWS_ARTICLE_SLUGS_QUERY = `*[_type == "newsArticle" && publishedAt <= $today].slug.current`;
 
-const NEWS_ARTICLES_FOR_SITEMAP_QUERY = `*[_type == "newsArticle"] { "slug": slug.current, publishedAt }`;
+const NEWS_ARTICLES_FOR_SITEMAP_QUERY = `*[_type == "newsArticle" && publishedAt <= $today] { "slug": slug.current, publishedAt }`;
 
 // ── Privacy policy page ───────────────────────────────────────────────────────
 const PRIVACY_POLICY_QUERY = `*[_type == "privacyPolicyPage"][0] {
@@ -329,32 +329,41 @@ export async function getPrivacyPolicy(): Promise<PrivacyPolicyData> {
     return client.fetch(PRIVACY_POLICY_QUERY);
 }
 
-export async function getNewsArticles(): Promise<NewsArticlePreview[]> {
+export async function getNewsArticles(
+    today: string = new Date().toISOString().slice(0, 10),
+): Promise<NewsArticlePreview[]> {
     "use cache";
     cacheLife("max");
     cacheTag("news-articles");
-    return client.fetch(NEWS_ARTICLES_QUERY);
+    return client.fetch(NEWS_ARTICLES_QUERY, { today });
 }
 
-export async function getNewsArticle(slug: string): Promise<NewsArticle | null> {
+export async function getNewsArticle(
+    slug: string,
+    today: string = new Date().toISOString().slice(0, 10),
+): Promise<NewsArticle | null> {
     "use cache";
     cacheLife("max");
     cacheTag("news-articles", `news-article-${slug}`);
-    return client.fetch(NEWS_ARTICLE_QUERY, { slug });
+    return client.fetch(NEWS_ARTICLE_QUERY, { slug, today });
 }
 
-export async function getNewsArticleSlugs(): Promise<string[]> {
+export async function getNewsArticleSlugs(
+    today: string = new Date().toISOString().slice(0, 10),
+): Promise<string[]> {
     "use cache";
     cacheLife("max");
     cacheTag("news-articles");
-    return client.fetch(NEWS_ARTICLE_SLUGS_QUERY);
+    return client.fetch(NEWS_ARTICLE_SLUGS_QUERY, { today });
 }
 
-export async function getNewsArticlesForSitemap(): Promise<{ slug: string; publishedAt: string }[]> {
+export async function getNewsArticlesForSitemap(
+    today: string = new Date().toISOString().slice(0, 10),
+): Promise<{ slug: string; publishedAt: string }[]> {
     "use cache";
     cacheLife("max");
     cacheTag("news-articles");
-    return client.fetch(NEWS_ARTICLES_FOR_SITEMAP_QUERY);
+    return client.fetch(NEWS_ARTICLES_FOR_SITEMAP_QUERY, { today });
 }
 
 // ── Helper: extract plain text strings from PortableText blocks ───────────────

@@ -1,0 +1,12 @@
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+    align-self: flex-start;
+}
+
+.link:hover {
+    color: var(--color-text-primary);
+}

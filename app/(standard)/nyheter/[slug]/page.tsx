@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
-import { IconArrowRight } from "nucleo-sharp";
+import { Suspense } from "react";
 import { getNewsArticle, getNewsArticles, getNewsArticleSlugs } from "@/lib/sanity/queries";
 import NewsThumbnail from "@/components/sections/news/thumbnail/NewsThumbnail";
+import ViewAllNewsLink from "@/components/sections/news/ViewAllNewsLink";
 import styles from "./page.module.css";
 
 const BASE = "https://lewabostad.se";
@@ -85,13 +85,10 @@ export async function generateMetadata({
 
 export default async function NewsArticlePage({
     params,
-    searchParams,
 }: {
     params: Promise<{ slug: string }>;
-    searchParams: Promise<{ ref?: string }>;
 }) {
-    const [{ slug }, { ref }] = await Promise.all([params, searchParams]);
-    const fromOmOss = ref === "om-oss";
+    const { slug } = await params;
     const [article, allArticles] = await Promise.all([
         getNewsArticle(slug),
         getNewsArticles(),
@@ -166,14 +163,12 @@ export default async function NewsArticlePage({
                         <h2>Fler nyheter</h2>
                         <div className={styles.relatedGrid}>
                             {related.map((a) => (
-                                <NewsThumbnail key={a.slug} article={a} referrer={ref} />
+                                <NewsThumbnail key={a.slug} article={a} />
                             ))}
                         </div>
-                        {fromOmOss && (
-                            <Link href="/nyheter" className={styles.viewAll}>
-                                Visa alla nyheter <IconArrowRight size={14} />
-                            </Link>
-                        )}
+                        <Suspense>
+                            <ViewAllNewsLink />
+                        </Suspense>
                     </div>
                 </section>
             )}

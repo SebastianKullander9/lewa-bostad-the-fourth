@@ -54,20 +54,6 @@
     gap: var(--spacing-stack);
 }
 
-.viewAll {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    font-size: var(--font-size-small);
-    color: var(--color-text-secondary);
-    align-self: flex-start;
-}
-
-.viewAll:hover {
-    color: var(--color-text-primary);
-}
-
-
 .relatedGrid {
     display: grid;
     grid-template-columns: 1fr;
