@@ -14,11 +14,15 @@ function formatDate(dateStr: string): string {
 
 interface NewsThumbnailProps {
     article: NewsArticlePreview;
+    referrer?: string;
 }
 
-export default function NewsThumbnail({ article }: NewsThumbnailProps) {
+export default function NewsThumbnail({ article, referrer }: NewsThumbnailProps) {
+    const href = referrer
+        ? `/nyheter/${article.slug}?ref=${referrer}`
+        : `/nyheter/${article.slug}`;
     return (
-        <Link href={`/nyheter/${article.slug}`} className={styles.card}>
+        <Link href={href} className={styles.card}>
             {article.image && (
                 <div className={`${styles.imageWrap} image-zoom`}>
                     <Image

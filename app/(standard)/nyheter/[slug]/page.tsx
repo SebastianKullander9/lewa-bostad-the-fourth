@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
-import { IconArrowLeft } from "nucleo-sharp";
+import { IconArrowRight } from "nucleo-sharp";
 import { getNewsArticle, getNewsArticles, getNewsArticleSlugs } from "@/lib/sanity/queries";
 import NewsThumbnail from "@/components/sections/news/thumbnail/NewsThumbnail";
 import styles from "./page.module.css";
@@ -80,10 +80,13 @@ export async function generateMetadata({
 
 export default async function NewsArticlePage({
     params,
+    searchParams,
 }: {
     params: Promise<{ slug: string }>;
+    searchParams: Promise<{ ref?: string }>;
 }) {
-    const { slug } = await params;
+    const [{ slug }, { ref }] = await Promise.all([params, searchParams]);
+    const fromOmOss = ref === "om-oss";
     const [article, allArticles] = await Promise.all([
         getNewsArticle(slug),
         getNewsArticles(),
@@ -128,9 +131,6 @@ export default async function NewsArticlePage({
             />
             <section className="section section--default section--page-start">
                 <article className={`container ${styles.article}`}>
-                    <Link href="/nyheter" className={`text-small ${styles.back}`}>
-                        <IconArrowLeft size={14} /> Alla nyheter
-                    </Link>
                     <div className={styles.header}>
                         <span className="text-meta">{formatDate(article.publishedAt)}</span>
                         <h1>{article.title}</h1>
@@ -161,9 +161,14 @@ export default async function NewsArticlePage({
                         <h2>Fler nyheter</h2>
                         <div className={styles.relatedGrid}>
                             {related.map((a) => (
-                                <NewsThumbnail key={a.slug} article={a} />
+                                <NewsThumbnail key={a.slug} article={a} referrer={ref} />
                             ))}
                         </div>
+                        {fromOmOss && (
+                            <Link href="/nyheter" className={styles.viewAll}>
+                                Visa alla nyheter <IconArrowRight size={14} />
+                            </Link>
+                        )}
                     </div>
                 </section>
             )}

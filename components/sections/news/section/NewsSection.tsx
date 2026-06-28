@@ -8,9 +8,10 @@ import NewsThumbnail from "../thumbnail/NewsThumbnail";
 interface NewsSectionProps {
     background: Background;
     articles: NewsArticlePreview[];
+    referrer?: string;
 }
 
-export default function NewsSection({ background, articles }: NewsSectionProps) {
+export default function NewsSection({ background, articles, referrer }: NewsSectionProps) {
     const latest = articles.slice(0, 4);
 
     return (
@@ -19,7 +20,7 @@ export default function NewsSection({ background, articles }: NewsSectionProps) 
                 <h2>Nyheter</h2>
                 <div className={styles.grid}>
                     {latest.map((article) => (
-                        <NewsThumbnail key={article.slug} article={article} />
+                        <NewsThumbnail key={article.slug} article={article} referrer={referrer} />
                     ))}
                 </div>
                 <Link href="/nyheter" className={styles.viewAll}>

@@ -59,6 +59,7 @@ export default async function About() {
                         data.sections.length % 2 === 0 ? "default" : "alt"
                     }
                     articles={articles}
+                    referrer="om-oss"
                 />
             )}
         </div>
