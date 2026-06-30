@@ -77,9 +77,22 @@ export const newsArticleType = defineType({
                                     defineField({
                                         name: "href",
                                         title: "URL",
-                                        type: "url",
+                                        type: "string",
+                                        description: "Webb-URL, t.ex. https://... eller e-post, t.ex. mailto:namn@exempel.se",
                                         validation: (Rule) =>
-                                            Rule.uri({ allowRelative: true }),
+                                            Rule.custom((value) => {
+                                                if (!value) return true;
+                                                if (value.startsWith("/")) return true;
+                                                try {
+                                                    const { protocol } = new URL(value);
+                                                    if (!["http:", "https:", "mailto:", "tel:"].includes(protocol)) {
+                                                        return "Länken måste börja med http://, https://, mailto: eller tel:";
+                                                    }
+                                                    return true;
+                                                } catch {
+                                                    return "Ange en giltig URL eller mailto:-länk";
+                                                }
+                                            }),
                                     }),
                                     defineField({
                                         name: "blank",

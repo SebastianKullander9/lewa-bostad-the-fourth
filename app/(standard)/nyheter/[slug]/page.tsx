@@ -30,15 +30,19 @@ const bodyComponents = {
         lead: ({ children }: { children?: React.ReactNode }) => (
             <span className={styles.lead}>{children}</span>
         ),
-        link: ({ children, value }: { children?: React.ReactNode; value?: { href: string; blank?: boolean } }) => (
-            <a
-                href={value?.href}
-                target={value?.blank ? "_blank" : undefined}
-                rel={value?.blank ? "noopener noreferrer" : undefined}
-            >
-                {children}
-            </a>
-        ),
+        link: ({ children, value }: { children?: React.ReactNode; value?: { href: string; blank?: boolean } }) => {
+            const href = value?.href ?? "";
+            const isExternal = value?.blank && !href.startsWith("mailto:") && !href.startsWith("tel:");
+            return (
+                <a
+                    href={href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                >
+                    {children}
+                </a>
+            );
+        },
     },
     list: {
         bullet: ({ children }: { children?: React.ReactNode }) => (
