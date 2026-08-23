@@ -6,7 +6,12 @@ import KeyFigureSection from "@/components/sections/keyfigures/KeyFigureSection"
 import AboutCTA from "@/components/sections/aboutCTA/AboutCTA";
 import Owners from "@/components/sections/owners/Owners";
 import NewsSection from "@/components/sections/news/section/NewsSection";
-import { getHomePage, getNewsArticles, blocksToStrings } from "@/lib/sanity/queries";
+import {
+    getHomePage,
+    getNewsArticles,
+    blocksToStrings,
+} from "@/lib/sanity/queries";
+import SectionPlaceholder from "@/components/sections/prislista/SectionPlacerholder";
 
 export const metadata: Metadata = {
     description:
@@ -30,6 +35,7 @@ export default async function Home() {
     return (
         <div>
             <Hero />
+            <SectionPlaceholder />
             <SplitSection
                 title={data.introTitle}
                 headingLevel="h1"

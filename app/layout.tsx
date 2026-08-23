@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./styles/globals.css";
 
+import { Suspense } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 
@@ -36,15 +37,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
+    modal,
 }: Readonly<{
     children: React.ReactNode;
+    modal: React.ReactNode;
 }>) {
     return (
         <html
             lang="sv"
             className={`${dmSans.variable} ${cormorant.variable}`}
         >
-            <body>{children}</body>
+            <body>
+                {children}
+                <Suspense>{modal}</Suspense>
+            </body>
             <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
         </html>
     );
